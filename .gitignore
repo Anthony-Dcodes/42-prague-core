@@ -1,0 +1,18 @@
+# System files
+.DS_Store
+
+# Vim/Neovim files
+*.swp
+*.swo
+
+# Object files and executables
+*.o
+a.out
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Backups
+*~
+
