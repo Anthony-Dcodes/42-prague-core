@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 16:54:15 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/25 19:19:15 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,11 @@ int	main(void)
 	char dst[15] = "Hello THERE!";
 	char src[25] = "Hello WORLD!";
 	printf("%s", (char *)ft_memcpy(dst, src, ft_strlen(src) + 1));
+	printf("\n");
+	char dst1[15] = "Hello man!";
+	char src1[15] = "OMG I SAW HIM!";
+	printf("%s\n", (char *)ft_memmove(src1, dst1 + 6, 3));
+	printf("%s\n", (char *)ft_memmove(src1, src1 + 6, 6));
 	return (0);
 
 }
