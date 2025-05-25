@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 20:05:48 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/25 20:38:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,12 @@ int	main(void)
 	size_t result = ft_strlcpy(dst2, "HEY bitch!", 6);
 	printf("Copied string: %s\n", dst2);
 	printf("Lenght of source: %zu\n", result);
+	
+	printf("\nTesting ft_strlcat()\n");
+	char dst3[10] = "AAAAAAA";
+	size_t result1 = ft_strlcat(dst3, "Hey man!", 6);
+	printf("Copied string: %s\n", dst3);
+	printf("Lenght of source: %zu\n", result1);
 	return (0);
 
 }
