@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 09:43:32 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/25 09:59:31 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(void)
 {
-	char	test_chars[] = {'A', 'z', 'M', '9', '*', ' ', '\n', 'g'};
+	char	test_chars[] = {'A', 'z', 'M', '9', '*', ' ', '\n', 'g', '1', '0'};
 	int	num_tests = sizeof(test_chars) / sizeof(test_chars[0]);
 	int	i = 0;
 
@@ -23,6 +23,13 @@ int	main(void)
 	{
 		char	c = test_chars[i];
 		printf("ft_isalpha('%c') = %d\n", c, ft_isalpha(c));
+		i++;
+	}
+	i = 0;
+	while (i < num_tests)
+	{
+		char	c = test_chars[i];
+		printf("ft_isdigit('%c') = %d\n", c, ft_isdigit(c));
 		i++;
 	}
 	return (0);
