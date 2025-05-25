@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 15:33:39 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/25 16:54:15 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,20 @@ int	main(void)
 		printf("%d", a[i]);
 		i++;
 	}
+	printf("\n");
+	i = 0;
+	char s[10] = "abcdefghi";
+	ft_bzero(s, 4);
+	while (i < 10)
+	{
+		printf("char s[10] = abcdefghi, after ft_bzero(s, 4) at index: %d now: %d\n", i, s[i]);
+		i++;
+	}
+	printf("\n");
+	i = 0;
+	char dst[15] = "Hello THERE!";
+	char src[25] = "Hello WORLD!";
+	printf("%s", (char *)ft_memcpy(dst, src, ft_strlen(src) + 1));
 	return (0);
 
 }
