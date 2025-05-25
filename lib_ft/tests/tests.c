@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 19:19:15 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/25 20:05:48 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,12 @@ int	main(void)
 	char src1[15] = "OMG I SAW HIM!";
 	printf("%s\n", (char *)ft_memmove(src1, dst1 + 6, 3));
 	printf("%s\n", (char *)ft_memmove(src1, src1 + 6, 6));
+
+	printf("\nTesting ft_strlcpy()");
+	char dst2[10];
+	size_t result = ft_strlcpy(dst2, "HEY bitch!", 6);
+	printf("Copied string: %s\n", dst2);
+	printf("Lenght of source: %zu\n", result);
 	return (0);
 
 }
