@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 11:27:02 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/25 15:33:39 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,15 @@ int	main(void)
 	printf("ft_strlen(hey) = %zu\n", ft_strlen("hey"));
 	printf("ft_strlen() = %zu\n", ft_strlen(""));
 	printf("ft_strlen(Hello world!) = %zu\n", ft_strlen("Hello world!"));
+	i = 0;
+	char a[10];
+	ft_memset(a, 0, sizeof(a));
+	ft_memset(a, 9, 5);
+	while ((unsigned int)i < sizeof(a))
+	{
+		printf("%d", a[i]);
+		i++;
+	}
 	return (0);
 
 }
