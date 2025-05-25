@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 10:18:20 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/25 11:27:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,18 @@ int	main(void)
 		printf("ft_isascii('%c') = %d\n", c, ft_isascii(c));
 		i++;
 	}
+	printf("\n");
+	i = 0;
+	while (i < num_tests)
+	{
+		char	c = test_chars[i];
+		printf("ft_isprint('%c') = %d\n", c, ft_isprint(c));
+		i++;
+	}
+	printf("\n");
+	printf("ft_strlen(hey) = %zu\n", ft_strlen("hey"));
+	printf("ft_strlen() = %zu\n", ft_strlen(""));
+	printf("ft_strlen(Hello world!) = %zu\n", ft_strlen("Hello world!"));
 	return (0);
 
 }
