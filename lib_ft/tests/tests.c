@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tests.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 20:38:02 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/26 19:02:43 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,9 @@ int	main(void)
 	size_t result1 = ft_strlcat(dst3, "Hey man!", 6);
 	printf("Copied string: %s\n", dst3);
 	printf("Lenght of source: %zu\n", result1);
+	printf("Testing ft_toupper:\n");
+	printf("a -> %c\n", ft_toupper((unsigned char)97));
+	printf("A -> %c\n", ft_toupper((unsigned char)65));
 	return (0);
 
 }

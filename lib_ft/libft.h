@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 10:59:30 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 20:31:09 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/26 18:56:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,6 @@ size_t	ft_strlcpy(char *restrict dst,
 			const char *restrict src, size_t dstsize);
 size_t	ft_strlcat(char *restrict dst,
 			const char *restrict src, size_t dstsize);
+int		ft_toupper(int c);
+
 #endif
