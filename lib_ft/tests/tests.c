@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/27 21:36:52 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/27 22:00:55 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,15 @@ int	main(void)
 	printf("Testing ft_strchr:\n");
 	printf("From hello find firs l: %s\n", ft_strchr("hello", 108));
 	printf("From hello find firs l: %s\n", ft_strchr("hello", 0));
+
+	printf("Testing ft_strchr:\n");
+	printf("From hello find last l: %s\n", ft_strrchr("hello", 108));
+	printf("Print nothing: %s\n", ft_strrchr("hello", 0));
+
+	printf("Testing ft_strncmp:\n");
+	printf("Compare Hello and Hello %d\n", ft_strncmp("Hello", "Hello", 8));
+	printf("Compare Hello and hello %d\n", ft_strncmp("Hello", "hello", 8));
+	printf("Compare hello and Hello %d\n", ft_strncmp("hello", "Hello", 8));
 	return (0);
 
 }
