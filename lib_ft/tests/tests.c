@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/30 14:29:39 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/30 14:53:36 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,11 @@ int	main(void)
 	char str[] = "Hello world!";
 	printf("Find o in: %s: %s\n", str, (char *)ft_memchr(str, 'o', sizeof(str)));
 	printf("Find w in: %s: %s\n", str, (char *)ft_memchr(str, 'w', sizeof(str)));
+
+	printf("Testing ft_memcmp\n");
+	printf("Compare aaa, aaa: %d\n", ft_memcmp("aaa", "aaa", 3));
+	printf("Compare aaz, aaa: %d\n", ft_memcmp("aaz", "aaa", 3));
+	printf("Compare aaa, aaz: %d\n", ft_memcmp("aaa", "aaz", 3));
 	
 	return (0);
 
