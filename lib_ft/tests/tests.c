@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/30 17:39:36 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/30 18:34:59 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,12 @@ int	main(void)
 		printf("arr[%d] = %d\n", i, arr[i]);
 		i++;
 	}
+	
+	printf("Testing strdup\n");
+	char *original = "Helle world";
+	char *copy = ft_strdup(original);
+	printf("Original str: %s\n", original);
+	printf("Copy: %s\n", copy);
 	
 	return (0);
 
