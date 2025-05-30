@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tests.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/27 22:00:55 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/30 14:29:39 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,12 @@ int	main(void)
 	printf("Compare Hello and Hello %d\n", ft_strncmp("Hello", "Hello", 8));
 	printf("Compare Hello and hello %d\n", ft_strncmp("Hello", "hello", 8));
 	printf("Compare hello and Hello %d\n", ft_strncmp("hello", "Hello", 8));
+
+	printf("Testing ft_memchr\n");
+	char str[] = "Hello world!";
+	printf("Find o in: %s: %s\n", str, (char *)ft_memchr(str, 'o', sizeof(str)));
+	printf("Find w in: %s: %s\n", str, (char *)ft_memchr(str, 'w', sizeof(str)));
+	
 	return (0);
 
 }
