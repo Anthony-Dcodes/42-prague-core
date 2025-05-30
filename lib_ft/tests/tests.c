@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/30 15:53:33 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/30 17:39:36 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,15 @@ int	main(void)
 	printf("Testing ft_atoi\n");
 	printf("Conver:     -12as: %d\n", ft_atoi("   -12as"));
 	printf("Conver:     +9876ll98: %d\n", ft_atoi("     +9876ll98"));
+
+	printf("Testing calloc function:\n");
+	int *arr = (int *)ft_calloc(5, sizeof(int));
+	i = 0;
+	while (i < 5)
+	{
+		printf("arr[%d] = %d\n", i, arr[i]);
+		i++;
+	}
 	
 	return (0);
 
