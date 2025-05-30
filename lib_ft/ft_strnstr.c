@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:00 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/30 15:20:58 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/30 20:09:52 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 
 	i = 0;
+	if (!big && len == 0)
+		return (NULL);
 	if (*little == '\0')
 		return ((char *)big);
 	while (big[i] && i < len)
