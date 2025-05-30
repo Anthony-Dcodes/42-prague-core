@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:24:45 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/30 14:53:36 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/30 15:22:30 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,10 @@ int	main(void)
 	printf("Compare aaa, aaa: %d\n", ft_memcmp("aaa", "aaa", 3));
 	printf("Compare aaz, aaa: %d\n", ft_memcmp("aaz", "aaa", 3));
 	printf("Compare aaa, aaz: %d\n", ft_memcmp("aaa", "aaz", 3));
+
+	printf("Testing ft_strnstr:\n");
+	printf("Find wo in Hello word: %s\n", ft_strnstr("Hello world", "wo", 12));
+	printf("Find wo in Hello word: %s\n", ft_strnstr("Hello world", "wo", 6));
 	
 	return (0);
 
