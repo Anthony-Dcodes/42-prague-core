@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:56:20 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 19:16:04 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/31 14:49:01 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
+// Copies len bytes from src to dst
+// Returns pointer to dst
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t				i;

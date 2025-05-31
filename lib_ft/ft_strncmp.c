@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 21:52:31 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/27 22:08:52 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/31 14:51:41 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
+// Compare s1 and s2 on n indexes
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;

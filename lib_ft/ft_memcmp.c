@@ -6,12 +6,13 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:31:28 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/30 15:21:45 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/31 14:47:53 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
+// Copares first n bytes of s1 and s2
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t				i;

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 10:47:16 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 11:02:27 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/31 14:50:37 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
+// Returns len of s
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;

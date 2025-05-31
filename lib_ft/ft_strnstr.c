@@ -6,12 +6,13 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:00 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/30 20:09:52 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/31 14:43:45 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
+// Locate first occurance of little in big
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
