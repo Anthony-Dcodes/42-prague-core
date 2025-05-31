@@ -6,13 +6,16 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 20:11:26 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/30 20:06:31 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/31 13:25:14 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "libft.h"
 
+// Concatenate (append) src to dst, inplace modification of dst
+// Always null nerminates if there is space
+// Return total lenght of string tried to create
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	dst_len;

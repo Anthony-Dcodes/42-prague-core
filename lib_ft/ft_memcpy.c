@@ -6,12 +6,14 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:04:15 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/30 19:40:02 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/31 13:16:18 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
+// Copy n bytes from src to dst
+// Return pointer to dst
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t				i;
