@@ -8,6 +8,8 @@
 # Object files and executables
 *.o
 a.out
+*.a
+*.so
 
 # IDEs and editors
 .vscode/
@@ -16,3 +18,5 @@ a.out
 # Backups
 *~
 
+# Tests
+lib_ft/tests/test.out
