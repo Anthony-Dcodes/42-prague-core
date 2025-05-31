@@ -6,18 +6,19 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 11:21:12 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/31 12:07:14 by advorace         ###   ########.fr       */
+/*   Updated: 2025/05/31 12:58:55 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+// Allocate mem and return substring from s
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub_str;
 	size_t	i;
-	
+
 	if (!s)
 		return (NULL);
 	if ((size_t)start > ft_strlen(s))
@@ -35,24 +36,3 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (sub_str);
 }
-
-#ifdef TEST
-#include <stdio.h>
-
-int	main(void)
-{
-	char	*str = "Hello world!";
-	char	*sub = ft_substr(str, 6, 3);
-
-	if (sub)
-	{
-		printf("Result: %s\n", sub); // Expected: "wor"
-		free(sub);
-	}
-	else
-	{
-		printf("Returned NULL\n");
-	}
-	return 0;
-}
-#endif

@@ -34,5 +34,5 @@ test: $(NAME) tests/tests.c
 	$(CC) $(CFLAGS) -o test.out tests/tests.c $(NAME)
 
 test_file:
-	$(CC) $(CFLAGS) -DTEST -I. -o tests/test.out $(FILE) $(NAME)
+	$(CC) $(CFLAGS) -I. -o tests/test.out $(FILE) $(NAME)
 	./tests/test.out
