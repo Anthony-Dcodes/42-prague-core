@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 15:27:47 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/30 15:53:11 by advorace         ###   ########.fr       */
+/*   Updated: 2025/06/01 11:17:05 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Convert the initial portion of the string to int
 int	ft_atoi(const char *nptr)
 {
 	int	i;

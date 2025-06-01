@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 15:43:14 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/31 17:39:25 by advorace         ###   ########.fr       */
+/*   Updated: 2025/06/01 11:12:58 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"  // assumes ft_strlen, ft_substr, etc. are declared
+#include "libft.h"
 
+// Count the number of words is s
 static int	ft_count_words(const char *s, char c)
 {
 	int	count;
@@ -34,6 +35,7 @@ static int	ft_count_words(const char *s, char c)
 	return (count);
 }
 
+// Free all allocated memmory to arr
 static void	free_all(char **arr)
 {
 	int	i;
@@ -44,6 +46,7 @@ static void	free_all(char **arr)
 	free(arr);
 }
 
+// Add word to result
 static int	add_word(char **result, int i, const char *start, int len)
 {
 	char	*word;
@@ -59,6 +62,7 @@ static int	add_word(char **result, int i, const char *start, int len)
 	return (0);
 }
 
+// Iteratively call add_word untill you reach end of string
 static char	**ft_split_fill(char const *s, char c, char **result)
 {
 	int		i;
@@ -86,6 +90,9 @@ static char	**ft_split_fill(char const *s, char c, char **result)
 	return (result);
 }
 
+// Split s on c and add words to **result untill complete
+// Mark end of array with NULL
+// Return the resulting array
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
