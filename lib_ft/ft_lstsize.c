@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 20:38:07 by advorace          #+#    #+#             */
-/*   Updated: 2025/06/06 18:50:41 by advorace         ###   ########.fr       */
+/*   Created: 2025/06/06 18:42:18 by advorace          #+#    #+#             */
+/*   Updated: 2025/06/06 18:55:47 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-// Allocates mem and returns a new node
-t_list	*ft_lstnew(void *content)
+// Return size of lst
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*elm;
+	int		i;
+	t_list	*temp;
 
-	elm = malloc(sizeof(t_list));
-	if (!elm)
-		return (NULL);
-	elm->content = content;
-	elm->next = NULL;
-	return (elm);
+	i = 0;
+	temp = lst;
+	while (temp)
+	{
+		temp = temp->next;
+		i++;
+	}
+	return (i);
 }
