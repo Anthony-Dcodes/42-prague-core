@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 11:21:12 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/31 12:58:55 by advorace         ###   ########.fr       */
+/*   Updated: 2025/06/08 12:22:50 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 
 // Allocate mem and return substring from s
+// Substring starts at start and has max lenght of len
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub_str;

@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 10:14:32 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 10:16:31 by advorace         ###   ########.fr       */
+/*   Updated: 2025/06/08 11:42:28 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Return 1 if c is ascii char
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)

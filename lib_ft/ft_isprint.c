@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 10:19:57 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 10:45:42 by advorace         ###   ########.fr       */
+/*   Updated: 2025/06/08 11:42:51 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Return 1 if c is printable
 int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)

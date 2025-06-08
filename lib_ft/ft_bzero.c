@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 15:44:09 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 16:02:22 by advorace         ###   ########.fr       */
+/*   Updated: 2025/06/08 11:33:59 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
+// Set n bytes of s to 0
 void	ft_bzero(void *s, size_t n)
 {
 	size_t			i;

@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com>   +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 09:46:28 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/25 09:56:32 by advorace         ###   ########.fr       */
+/*   Updated: 2025/06/08 11:42:42 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Return 1 if c is a digit
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')

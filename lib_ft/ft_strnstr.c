@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:00 by advorace          #+#    #+#             */
-/*   Updated: 2025/05/31 14:43:45 by advorace         ###   ########.fr       */
+/*   Updated: 2025/06/08 12:18:04 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
 // Locate first occurance of little in big
+// Return pointer to little in big
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
