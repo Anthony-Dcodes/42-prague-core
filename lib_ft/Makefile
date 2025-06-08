@@ -24,7 +24,7 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 bonus: $(OBJ) $(BONUS_OBJ)
-	ar rcs $(NAME) $(BONUS_OBJ)
+	ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -47,3 +47,5 @@ test: $(NAME) tests/tests.c
 test_file:
 	$(CC) $(CFLAGS) -I. -o tests/test.out $(FILE) $(NAME)
 	./tests/test.out
+
+.PHONY: all clean fclean re bonus
