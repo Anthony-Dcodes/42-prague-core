@@ -1,0 +1,4 @@
+runprog
+*.o
+*.out
+libftprintf.a
