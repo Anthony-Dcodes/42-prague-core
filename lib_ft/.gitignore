@@ -1,0 +1,7 @@
+# LIB_FT
+*.o
+a.out
+*.a
+*.so
+# Tests
+./tests/test.out
