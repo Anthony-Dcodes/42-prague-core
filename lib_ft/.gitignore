@@ -4,4 +4,4 @@ a.out
 *.a
 *.so
 # Tests
-./tests/test.out
+/tests/test.out
