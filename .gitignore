@@ -11,12 +11,3 @@
 
 # Backups
 *~
-
-
-# LIB_FT
-lib_ft/*.o
-lib_ft/a.out
-lib_ft/*.a
-lib_ft/*.so
-# Tests
-lib_ft/tests/test.out
