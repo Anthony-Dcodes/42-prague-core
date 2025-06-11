@@ -2,7 +2,7 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c
+SRC = ft_printf.c ft_process_c.c
 OBJ = $(SRC:.c=.o)
 
 INCLUDES = -I.
@@ -25,3 +25,4 @@ re: fclean all
 
 run: $(NAME)
 	$(CC) ft_printf_test.c $(NAME) libft.a -o runprog
+	./runprog

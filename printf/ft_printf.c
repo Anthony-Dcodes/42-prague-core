@@ -6,18 +6,18 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 19:40:52 by advorace          #+#    #+#             */
-/*   Updated: 2025/06/09 22:03:43 by advorace         ###   ########.fr       */
+/*   Updated: 2025/06/11 22:40:44 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "libft.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	va_start(args, format);
-	char	c;
 
 	while (*format)
 	{
@@ -25,10 +25,7 @@ int	ft_printf(const char *format, ...)
 		{
 			++format;
 			if (*format == 'c')
-			{
-				c = (char)va_arg(args, int);
-				ft_putchar_fd(c, 1);
-			}
+				ft_process_c(va_arg(args, int));
 		}
 		else
 		{
