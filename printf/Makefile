@@ -2,7 +2,7 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c ft_process_c.c
+SRC = ft_printf.c ft_process_c.c ft_process_s.c
 OBJ = $(SRC:.c=.o)
 
 INCLUDES = -I.
