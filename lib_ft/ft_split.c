@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 15:43:14 by advorace          #+#    #+#             */
-/*   Updated: 2025/06/01 11:12:58 by advorace         ###   ########.fr       */
+/*   Updated: 2025/06/29 17:52:45 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ static void	free_all(char **arr)
 	int	i;
 
 	i = 0;
+	if (!arr)
+		return ;
 	while (arr[i])
 		free(arr[i++]);
 	free(arr);
@@ -51,13 +53,10 @@ static int	add_word(char **result, int i, const char *start, int len)
 {
 	char	*word;
 
-	word = ft_strdup(start);
+	word = malloc(len + 1);
 	if (!word)
-	{
-		free_all(result);
 		return (-1);
-	}
-	word[len] = '\0';
+	ft_strlcpy(word, start, len + 1);
 	result[i] = word;
 	return (0);
 }
@@ -96,14 +95,14 @@ static char	**ft_split_fill(char const *s, char c, char **result)
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
+	int		word_count;
 
 	if (!s)
 		return (NULL);
-	result = malloc((ft_count_words(s, c) + 1) * sizeof(char *));
+	word_count = ft_count_words(s, c);
+	result = malloc((word_count + 1) * sizeof(char *));
 	if (!result)
-	{
 		return (NULL);
-	}
 	if (!ft_split_fill(s, c, result))
 	{
 		free_all(result);

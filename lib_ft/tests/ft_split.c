@@ -13,6 +13,21 @@ void	print_split_result(char **result)
 		printf("result[%d] = \"%s\"\n", i, result[i]);
 }
 
+void	free_split_result(char **result)
+{
+	int i;
+
+	if (!result)
+		return;
+	i = 0;
+	while (result[i])
+	{
+		free(result[i]);
+		i++;
+	}
+	free(result);
+}
+
 int	main(void)
 {
 	char *test1 = "hello world this is libft";
@@ -21,24 +36,37 @@ int	main(void)
 	char *test4 = "only_one_word";
 	char *test5 = "////a///b//c//";
 	char *test6 = NULL;
+	char **result;
 
 	printf("Test 1:\n");
-	print_split_result(ft_split(test1, ' '));
+	result = ft_split(test1, ' ');
+	print_split_result(result);
+	free_split_result(result);
 
 	printf("\nTest 2:\n");
-	print_split_result(ft_split(test2, ' '));
+	result = ft_split(test2, ' ');
+	print_split_result(result);
+	free_split_result(result);
 
 	printf("\nTest 3:\n");
-	print_split_result(ft_split(test3, ' '));
+	result = ft_split(test3, ' ');
+	print_split_result(result);
+	free_split_result(result);
 
 	printf("\nTest 4:\n");
-	print_split_result(ft_split(test4, ' '));
+	result = ft_split(test4, ' ');
+	print_split_result(result);
+	free_split_result(result);
 
 	printf("\nTest 5:\n");
-	print_split_result(ft_split(test5, '/'));
+	result = ft_split(test5, '/');
+	print_split_result(result);
+	free_split_result(result);
 
 	printf("\nTest 6 (NULL input):\n");
-	print_split_result(ft_split(test6, ' '));
+	result = ft_split(test6, ' ');
+	print_split_result(result);
+	free_split_result(result);  // This will handle NULL safely
 
 	return (0);
 }
