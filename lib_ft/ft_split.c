@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 15:43:14 by advorace          #+#    #+#             */
-/*   Updated: 2025/06/29 17:52:45 by advorace         ###   ########.fr       */
+/*   Updated: 2025/06/29 18:09:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,63 +35,60 @@ static int	ft_count_words(const char *s, char c)
 	return (count);
 }
 
-// Free all allocated memmory to arr
+// Free all allocated memory to arr
 static void	free_all(char **arr)
 {
 	int	i;
 
-	i = 0;
 	if (!arr)
 		return ;
+	i = 0;
 	while (arr[i])
-		free(arr[i++]);
+	{
+		free(arr[i]);
+		i++;
+	}
 	free(arr);
 }
 
-// Add word to result
-static int	add_word(char **result, int i, const char *start, int len)
+// Create and fill a single word
+static int	create_word(char **result, const char *w_s, int w_l, int w_i)
 {
-	char	*word;
-
-	word = malloc(len + 1);
-	if (!word)
-		return (-1);
-	ft_strlcpy(word, start, len + 1);
-	result[i] = word;
-	return (0);
+	result[w_i] = malloc(w_l + 1);
+	if (!result[w_i])
+		return (0);
+	ft_strlcpy(result[w_i], w_s, w_l + 1);
+	return (1);
 }
 
-// Iteratively call add_word untill you reach end of string
-static char	**ft_split_fill(char const *s, char c, char **result)
+// Fill result array with words from string
+static int	fill_words(char **result, const char *s, char c)
 {
-	int		i;
-	int		start;
-	int		end;
+	int	i;
+	int	j;
+	int	start;
 
 	i = 0;
-	start = 0;
-	end = 0;
-	while (s[end])
+	j = 0;
+	while (s[i])
 	{
-		while (s[end] && s[end] == c)
-			end++;
-		start = end;
-		while (s[end] && s[end] != c)
-			end++;
-		if (end > start)
-		{
-			if (add_word(result, i, s + start, end - start) == -1)
-				return (NULL);
+		while (s[i] && s[i] == c)
 			i++;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (i > start)
+		{
+			if (!create_word(result, s + start, i - start, j))
+				return (0);
+			j++;
 		}
 	}
-	result[i] = NULL;
-	return (result);
+	result[j] = NULL;
+	return (1);
 }
 
-// Split s on c and add words to **result untill complete
-// Mark end of array with NULL
-// Return the resulting array
+// Split s on c and add words to **result until complete
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
@@ -103,7 +100,7 @@ char	**ft_split(char const *s, char c)
 	result = malloc((word_count + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
-	if (!ft_split_fill(s, c, result))
+	if (!fill_words(result, s, c))
 	{
 		free_all(result);
 		return (NULL);
