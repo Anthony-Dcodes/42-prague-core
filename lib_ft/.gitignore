@@ -1,6 +1,7 @@
 # LIB_FT
 *.o
 a.out
+test.out
 *.a
 *.so
 # Tests
