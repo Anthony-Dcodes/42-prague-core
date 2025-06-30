@@ -26,3 +26,5 @@ re: fclean all
 run: $(NAME)
 	$(CC) ft_printf_test.c $(NAME) libft.a -o runprog
 	./runprog
+
+.PHONY: all clean fclean re run
