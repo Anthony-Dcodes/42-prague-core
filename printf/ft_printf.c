@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 19:40:52 by advorace          #+#    #+#             */
-/*   Updated: 2025/06/30 19:29:40 by advorace         ###   ########.fr       */
+/*   Updated: 2025/06/30 19:53:12 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	va_start(args, format);
 
+	va_start(args, format);
 	while (*format)
 	{
 		if (*format == '%')
@@ -36,6 +36,4 @@ int	ft_printf(const char *format, ...)
 		++format;
 	}
 	return (0);
-
 }
-
