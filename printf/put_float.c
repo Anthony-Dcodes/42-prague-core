@@ -1,18 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_process_c.c                                     :+:      :+:    :+:   */
+/*   put_float.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 22:44:32 by advorace          #+#    #+#             */
-/*   Updated: 2025/06/11 22:44:33 by advorace         ###   ########.fr       */
+/*   Created: 2025/07/02 19:05:43 by advorace          #+#    #+#             */
+/*   Updated: 2025/07/02 19:06:13 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_process_c(char c)
-{
-	ft_putchar_fd(c, 1);
-}
+#include "ft_printf.h"

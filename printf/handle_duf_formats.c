@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_process_s.c                                     :+:      :+:    :+:   */
+/*   handle_duf_formats.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 22:44:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/06/11 22:45:28 by advorace         ###   ########.fr       */
+/*   Created: 2025/07/02 18:50:42 by advorace          #+#    #+#             */
+/*   Updated: 2025/07/02 19:08:25 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_process_s(char *s)
+int	handle_duf_formats(char	format_specifier, va_list args)
 {
-	ft_putstr_fd(s, 1);
+	
 }
