@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:30:28 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/07 21:20:19 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/07 21:23:35 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int		ft_printf(const char *, ...);
 int		handle_sc_formats(char format_specifier, va_list args);
 int		common_print(char *str);
 char	*uiota(unsigned int n);
-int		handle_duf_formats(char format_specifier, va_list args);
+int		handle_diuf_formats(char format_specifier, va_list args);
 
 #endif

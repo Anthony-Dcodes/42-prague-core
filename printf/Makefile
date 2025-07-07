@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC = ft_printf.c \
 	handle_sc_formats.c common_print.c uiota.c \
-	handle_duf_formats.c
+	handle_diuf_formats.c
 OBJ = $(SRC:.c=.o)
 
 INCLUDES = -I.

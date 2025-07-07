@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_duf_formats.c                               :+:      :+:    :+:   */
+/*   handle_diuf_formats.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 18:50:42 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/07 21:19:42 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/07 21:24:13 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	handle_duf_formats(char format_specifier, va_list args)
+int	handle_diuf_formats(char format_specifier, va_list args)
 {
 	int				num_d;
 	unsigned int	num_u;
