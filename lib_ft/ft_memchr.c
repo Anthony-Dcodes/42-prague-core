@@ -13,7 +13,7 @@
 #include <stddef.h>
 
 // Scans the initial n bytes of s
-// Returns pointer to the matching byte or NULL
+// Returns pointer to the matching (c) byte or NULL
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t				i;
