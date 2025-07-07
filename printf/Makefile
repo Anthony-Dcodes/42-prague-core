@@ -2,8 +2,9 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c ft_process_c.c ft_process_s.c ft_process_d.c \
-	handle_sc_formats.c put_unsigned_int.c
+SRC = ft_printf.c \
+	handle_sc_formats.c common_print.c uiota.c \
+	handle_duf_formats.c
 OBJ = $(SRC:.c=.o)
 
 INCLUDES = -I.

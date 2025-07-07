@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_unsigned_int.c                                 :+:      :+:    :+:   */
+/*   common_print.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/02 18:56:22 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/02 19:09:13 by advorace         ###   ########.fr       */
+/*   Created: 2025/07/07 18:03:16 by advorace          #+#    #+#             */
+/*   Updated: 2025/07/07 18:21:53 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// Write unsinged int n to file descriptor fd
-void	put_unsigned_int(unsigned int n, int fd)
+int	common_print(char *str)
 {
-	char	c;
+	size_t	len;
 
-	if (n == 4294967296)
-	{
-		write(fd, "4294967296", 10);
-		return ;
-	}
-	if (n > 9)
-		ft_putnbr_fd(n / 10, fd);
-	c = (n % 10) + '0';
-	write(fd, &c, 1);
+	len = (int)(ft_strlen(str));
+	ft_putstr_fd(str, 1);
+	free(str);
+	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:30:28 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/07 17:48:52 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/07 21:20:19 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 # include <stdarg.h>
 # include "ft_printf.h"
 # include <unistd.h>
+# include "libft.h"
 
 int		ft_printf(const char *, ...);
-void	ft_process_c(char c);
-void	ft_process_s(char *s);
-void	ft_process_d(int i);
 int		handle_sc_formats(char format_specifier, va_list args);
-void	put_unsigned_int(unsigned int n, int fd);
+int		common_print(char *str);
+char	*uiota(unsigned int n);
+int		handle_duf_formats(char format_specifier, va_list args);
 
 #endif

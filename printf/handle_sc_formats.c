@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_sc_formats.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:26:01 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/02 19:08:21 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/07 21:06:58 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ int	handle_sc_formats(char format_specifier, va_list args)
 		ft_putchar_fd(ch, 1);
 		return (1);
 	}
-	return (0);
+	return (-1);
 }
