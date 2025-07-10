@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   handle_xXp_formats.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/08 19:40:52 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/10 21:42:38 by advorace         ###   ########.fr       */
+/*   Created: 2025/07/10 21:18:12 by advorace          #+#    #+#             */
+/*   Updated: 2025/07/10 21:39:32 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	handle_xXp_formats(char format_specifier, va_list args)
 {
-	va_list	args;
+	int	x_num;
+	int	X_num;
+	char *X_str;
+	int	i;
 
-	va_start(args, format);
-	while (*format)
+	if (format_specifier == 'x')
 	{
-		if (*format == '%')
-		{
-			++format;
-			if (ft_strchr("sc", *format))
-				handle_sc_formats(*format, args);
-			else if (ft_strchr("duf", *format))
-				handle_diu_formats(*format, args);
-			else if (ft_strchr("xXp", *format))
-				handle_xXp_formats(*format, args);
-		}
-		else
-			ft_putchar_fd(*format, 1);
-		++format;
+		x_num = va_arg(args, int);
+		return (common_print(int_to_hex(x_num)));
 	}
-	va_end(args);
-	return (0);
+	else if (format_specifier == 'X')
+	{
+		i = 0;
+		X_num = va_arg(args, int);
+		X_str = int_to_hex(X_num);
+		while (X_str[i])
+		{
+			X_str[i] = ft_toupper(X_str[i]);
+			++i;
+		}
+		return (common_print(X_str));
+	}
+	return (-1);
 }
