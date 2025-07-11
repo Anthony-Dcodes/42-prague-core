@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:54:29 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/11 18:43:21 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/11 19:59:27 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int	main(void)
 
     printf("Pointer address: %p\n", ptr);
     printf("Null pointer: %p\n", NULL);
+	printf("Helllo %q aaa");
 	return (0);
 }
