@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:52:58 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/11 19:25:20 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/11 20:02:52 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int	main(void)
 
     ft_printf("Pointer address: %p\n", ptr);
     ft_printf("Null pointer: %p\n", NULL);
+	ft_printf("% Sign tester %%%%%: %p\n");
 	return (0);
 }

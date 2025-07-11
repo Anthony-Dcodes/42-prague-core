@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 19:40:52 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/11 20:01:21 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/11 20:16:29 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		total_printed;
+	int		i;
 
 	va_start(args, format);
 	total_printed = 0;
-	while (*format)
+	i = 0;
+	while (format[i])
 	{
-		if (*format == '%')
+		if (format[i] == '%' && format(i + 1) == '')
 		{
 			++format;
 			if (ft_strchr("scdiuxXp", *format))
