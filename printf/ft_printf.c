@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 19:40:52 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/10 21:42:38 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/11 19:25:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_printf(const char *format, ...)
 			else if (ft_strchr("duf", *format))
 				handle_diu_formats(*format, args);
 			else if (ft_strchr("xXp", *format))
-				handle_xXp_formats(*format, args);
+				handle_xyp_formats(*format, args);
 		}
 		else
 			ft_putchar_fd(*format, 1);

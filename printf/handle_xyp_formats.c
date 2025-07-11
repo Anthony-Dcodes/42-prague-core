@@ -6,19 +6,30 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 21:18:12 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/11 19:09:50 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/11 19:22:32 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	handle_xXp_formats(char format_specifier, va_list args)
+void static	to_upper(char *str)
 {
-	int	x_num;
-	int	X_num;
-	char *X_str;
-	void *prt;
 	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		str[i] = ft_toupper(str[i]);
+		++i;
+	}
+}
+
+int	handle_xyp_formats(char format_specifier, va_list args)
+{
+	int		x_num;
+	int		y_num;
+	char	*x_str;
+	void	*prt;
 
 	if (format_specifier == 'x')
 	{
@@ -27,15 +38,10 @@ int	handle_xXp_formats(char format_specifier, va_list args)
 	}
 	else if (format_specifier == 'X')
 	{
-		i = 0;
-		X_num = va_arg(args, int);
-		X_str = int_to_hex(X_num);
-		while (X_str[i])
-		{
-			X_str[i] = ft_toupper(X_str[i]);
-			++i;
-		}
-		return (common_print(X_str));
+		y_num = va_arg(args, int);
+		x_str = int_to_hex(y_num);
+		to_upper(x_str);
+		return (common_print(x_str));
 	}
 	else if (format_specifier == 'p')
 	{
