@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:26:01 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/07 21:06:58 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/11 18:51:05 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,8 @@ int	handle_sc_formats(char format_specifier, va_list args)
 	{
 		str = va_arg(args, char *);
 		if (!str)
-		{
-			ft_putstr_fd("(null)", 1);
-			return (6);
-		}
-		ft_putstr_fd(str, 1);
-		return (ft_strlen(str));
+			return (common_print(ft_strdup("(null)")));
+		return (common_print(ft_strdup(str)));
 	}
 	if (format_specifier == 'c')
 	{
