@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 21:18:12 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/10 21:39:32 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/11 19:09:50 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	handle_xXp_formats(char format_specifier, va_list args)
 	int	x_num;
 	int	X_num;
 	char *X_str;
+	void *prt;
 	int	i;
 
 	if (format_specifier == 'x')
@@ -35,6 +36,11 @@ int	handle_xXp_formats(char format_specifier, va_list args)
 			++i;
 		}
 		return (common_print(X_str));
+	}
+	else if (format_specifier == 'p')
+	{
+		prt = va_arg(args, void *);
+		return (common_print(unsigned_long_to_hex(prt)));
 	}
 	return (-1);
 }

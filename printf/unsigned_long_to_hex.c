@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:52:17 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/11 19:02:38 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/11 19:12:44 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ static char	*reverse_string(char *str)
 	return (str);
 }
 
-char	*unsigned_long_to_hex(int num)
+char	*unsigned_long_to_hex(void *prt)
 {
 	char			*hex_map;
 	char			*result;
 	int				i;
 	unsigned long	n;
 
-	n = num;
+	n = (unsigned long)prt;
 	if (n == 0)
 		return (ft_strdup("0x0"));
 	hex_map = "0123456789abcdef";
