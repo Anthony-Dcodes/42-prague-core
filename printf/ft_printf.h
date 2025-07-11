@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:30:28 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/10 21:41:17 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/11 19:04:39 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ char		*uiota(unsigned int n);
 int			handle_diu_formats(char format_specifier, va_list args);
 char		*int_to_hex(int num);
 int			handle_xXp_formats(char format_specifier, va_list args);
+char		*unsigned_long_to_hex(int num);
 
 #endif
