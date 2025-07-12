@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 19:40:52 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/11 20:16:29 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/12 10:02:45 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	print_helper(char format, va_list args)
 	else if (ft_strchr("diu", format))
 		total += handle_diu_formats(format, args);
 	else if (ft_strchr("xXp", format))
-		total += handle_xyp_formats(format, args);
+		total += handle_xxp_formats(format, args);
 	return (total);
 }
 
@@ -37,18 +37,24 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	while (format[i])
 	{
-		if (format[i] == '%' && format(i + 1) == '')
+		if (format[i] == '%' && format[i + 1] != '%')
 		{
-			++format;
+			++i;
 			if (ft_strchr("scdiuxXp", *format))
-				total_printed += print_helper(*format, args);
+				total_printed += print_helper(format[i], args);
+			else
+			{
+				ft_putchar_fd(format[i - 1], 1);
+				ft_putchar_fd(format[i], 1);
+				total_printed += 2;
+			}
 		}
 		else
 		{
-			ft_putchar_fd(*format, 1);
+			ft_putchar_fd(format[i], 1);
 			++total_printed;
 		}
-		++format;
+		++i;
 	}
 	va_end(args);
 	return (total_printed);
