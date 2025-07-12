@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 SRC = ft_printf.c \
 	handle_sc_formats.c common_print.c uiota.c \
@@ -29,6 +29,19 @@ re: fclean all
 run: $(NAME) libft.a
 	$(CC) tests/ft_printf_test.c $(NAME) libft.a -o runprog
 	./runprog
+
+run_ft: $(NAME) libft.a
+	$(CC) tests/test_ft_printf.c $(NAME) libft.a -o run_ft
+	./run_ft
+
+run_std:
+	$(CC) tests/test_standard_printf.c -o run_std
+	./run_std
+
+diff_outputs:
+	make run_ft > ft_output.txt
+	make run_std > std_output.txt
+	diff -u std_output.txt ft_output.txt | colordiff || true
 
 
 .PHONY: all clean fclean re run

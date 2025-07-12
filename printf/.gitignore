@@ -2,3 +2,6 @@ runprog
 *.o
 *.out
 libftprintf.a
+run_std
+ft_output.txt
+std_output.txt
