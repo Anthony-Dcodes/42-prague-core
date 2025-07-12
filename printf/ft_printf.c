@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 19:40:52 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/12 10:02:45 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/12 10:53:40 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,19 @@ static int	print_helper(char format, va_list args)
 	return (total);
 }
 
+static int	print_char_helper(char c)
+{
+	ft_putchar_fd(c, 1);
+	return (1);
+}
+
+static int	print_2char_helper(char c, char v)
+{
+	ft_putchar_fd(c, 1);
+	ft_putchar_fd(v, 1);
+	return (2);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
@@ -40,20 +53,15 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1] != '%')
 		{
 			++i;
-			if (ft_strchr("scdiuxXp", *format))
+			if (ft_strchr("scdiuxXp", format[i]))
 				total_printed += print_helper(format[i], args);
 			else
-			{
-				ft_putchar_fd(format[i - 1], 1);
-				ft_putchar_fd(format[i], 1);
-				total_printed += 2;
-			}
+				total_printed += print_2char_helper(format[i - 1], format[i]);
 		}
+		else if (format[i] == '%' && format[i + 1] == '%')
+			total_printed += print_char_helper(format[++i]);
 		else
-		{
-			ft_putchar_fd(format[i], 1);
-			++total_printed;
-		}
+			total_printed += print_char_helper(format[i]);
 		++i;
 	}
 	va_end(args);
