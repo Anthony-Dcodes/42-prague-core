@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 21:18:12 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/12 10:03:14 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/15 21:47:01 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void static	to_upper(char *str)
 	}
 }
 
-int	handle_xxp_formats(char format_specifier, va_list args)
+int	handle_xxp_formats(char format_specifier, va_list *args)
 {
 	int		x_num;
 	int		y_num;
@@ -33,19 +33,19 @@ int	handle_xxp_formats(char format_specifier, va_list args)
 
 	if (format_specifier == 'x')
 	{
-		x_num = va_arg(args, int);
+		x_num = va_arg(*args, int);
 		return (common_print(int_to_hex(x_num)));
 	}
 	else if (format_specifier == 'X')
 	{
-		y_num = va_arg(args, int);
+		y_num = va_arg(*args, int);
 		x_str = int_to_hex(y_num);
 		to_upper(x_str);
 		return (common_print(x_str));
 	}
 	else if (format_specifier == 'p')
 	{
-		prt = va_arg(args, void *);
+		prt = va_arg(*args, void *);
 		return (common_print(unsigned_long_to_hex(prt)));
 	}
 	return (-1);

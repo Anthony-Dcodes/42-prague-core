@@ -6,13 +6,13 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 19:40:52 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/12 11:47:14 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/15 21:47:19 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	print_helper(char format, va_list args)
+static int	print_helper(char format, va_list *args)
 {
 	int	total;
 
@@ -53,11 +53,8 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1] != '%')
 		{
 			++i;
-			write(1, "[DEBUG: Processing ", 19);  // Debug output
-            write(1, &format[i], 1);
-            write(1, "]\n", 2);
 			if (ft_strchr("scdiuxXp", format[i]))
-				total_printed += print_helper(format[i], args);
+				total_printed += print_helper(format[i], &args);
 			else
 				total_printed += print_2char_helper(format[i - 1], format[i]);
 		}
