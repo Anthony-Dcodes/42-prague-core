@@ -3,5 +3,6 @@ runprog
 *.out
 libftprintf.a
 run_std
+run_ft
 ft_output.txt
 std_output.txt

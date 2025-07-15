@@ -44,4 +44,4 @@ diff_outputs:
 	diff -u std_output.txt ft_output.txt | colordiff || true
 
 
-.PHONY: all clean fclean re run
+.PHONY: all clean fclean re run run_ft run_std diff_outputs

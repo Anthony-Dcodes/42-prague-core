@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:52:58 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/12 11:05:11 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/15 21:26:19 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int main(void)
 	count = ft_printf("Char test: %c\n", 'A');
 	ft_printf("Return count: %d\n", count);
 	count = ft_printf("Char null test: %cEND\n", '\0');
+	ft_printf("Return count: %d\n", count);
+	count = ft_printf("First char test: %c, second char test: %c", 'A', 'B');
 	ft_printf("Return count: %d\n", count);
 
 	// %s tests
