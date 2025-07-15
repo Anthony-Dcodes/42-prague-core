@@ -14,6 +14,8 @@ int main(void)
 	printf("Return count: %d\n", count);
 	count = printf("Char null test: %cEND\n", '\0');
 	printf("Return count: %d\n", count);
+	count = printf("First char test: %c, second char test: %c\n", 'A', 'B');
+	printf("Return count: %d\n", count);
 
 	// %s tests
 	count = printf("String test: %s\n", "Hello, World!");

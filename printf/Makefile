@@ -41,7 +41,7 @@ run_std:
 diff_outputs:
 	make run_ft > ft_output.txt
 	make run_std > std_output.txt
-	diff -u std_output.txt ft_output.txt | colordiff || true
+	diff -u std_output.txt ft_output.txt
 
 
 .PHONY: all clean fclean re run run_ft run_std diff_outputs
