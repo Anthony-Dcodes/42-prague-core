@@ -76,8 +76,9 @@ int main(void)
 	printf("Return count: %d\n", count);
 
 	// Unknown specifier
-	count = printf("Unknown specifier: %q\n");
+	count = printf("Unknown specifier: %q bla bla bla\n");
 	printf("Return count: %d\n", count);
+	printf("END OF TESTS");
 
 	return 0;
 }

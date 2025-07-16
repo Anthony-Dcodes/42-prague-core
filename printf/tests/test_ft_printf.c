@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:52:58 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/15 21:29:55 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:23:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,9 @@ int main(void)
 	ft_printf("Return count: %d\n", count);
 
 	// Unknown specifier
-	count = ft_printf("Unknown specifier: %q\n");
+	count = ft_printf("Unknown specifier: %q bla bla bla\n");
 	ft_printf("Return count: %d\n", count);
+	ft_printf("END OF TESTS");
 
 	return 0;
 }
