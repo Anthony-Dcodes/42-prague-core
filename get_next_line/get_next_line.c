@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/18 20:46:15 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/19 20:09:58 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,20 @@
 
 char	*get_next_line(int fd)
 {
-	char	*temp;
-	char	*str;
-	char	*buff;
-	int		i;
+	char		buf[BUFFER_SIZE + 1];
+	static char	*stash = NULL;
+	size_t		bytes_read;
+	char		*line;
 
-	buff = malloc(1);
-	str = malloc(2);
-	str[1] = '\0';
-	i = 0;
-	while (read(fd, buff, 1) == 1)
+	bytes_read = (read(fd, buf, BUFFER_SIZE));
+	while (bytes_read > 0)
 	{
-		str[i] = buff[0];
-		temp = str;
-		free(str);
-		str = malloc(i + 3);
+		buf[bytes_read] = '\0';
+		stash = join_and_free(stash, buf);
+		if (ft_strchr(stash, '\n'))
+		{
+
+		}
 
 
 	}
