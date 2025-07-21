@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 19:40:52 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/15 21:47:19 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:40:54 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ static int	print_char_helper(char c)
 	return (1);
 }
 
-static int	print_2char_helper(char c, char v)
-{
-	ft_putchar_fd(c, 1);
-	ft_putchar_fd(v, 1);
-	return (2);
-}
+// static int	print_2char_helper(char c, char v)
+// {
+// 	ft_putchar_fd(c, 1);
+// 	ft_putchar_fd(v, 1);
+// 	return (2);
+// }
 
 int	ft_printf(const char *format, ...)
 {
@@ -56,7 +56,7 @@ int	ft_printf(const char *format, ...)
 			if (ft_strchr("scdiuxXp", format[i]))
 				total_printed += print_helper(format[i], &args);
 			else
-				total_printed += print_2char_helper(format[i - 1], format[i]);
+				total_printed += print_char_helper(format[i - 1]);
 		}
 		else if (format[i] == '%' && format[i + 1] == '%')
 			total_printed += print_char_helper(format[++i]);
