@@ -2,36 +2,49 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 
+LIBFT_DIR = ./lib_ft
+
 SRC = ft_printf.c \
 	handle_sc_formats.c common_print.c uiota.c \
 	handle_diu_formats.c int_to_hex.c handle_xxp_formats.c \
 	unsigned_long_to_hex.c
+
 OBJ = $(SRC:.c=.o)
 
-INCLUDES = -I.
+LIBFT_SRC = $(LIBFT_DIR)/ft_calloc.c \
+	$(LIBFT_DIR)/ft_itoa.c \
+	$(LIBFT_DIR)/ft_strlen.c \
+	$(LIBFT_DIR)/ft_putstr_fd.c \
+	$(LIBFT_DIR)/ft_strchr.c \
+	$(LIBFT_DIR)/ft_strdup.c \
+	$(LIBFT_DIR)/ft_toupper.c \
+	$(LIBFT_DIR)/ft_putchar_fd.c 
+
+
+LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
+
+ALL_OBJ = $(OBJ) $(LIBFT_OBJ)
+
+INCLUDES = -I. -I$(LIBFT_DIR)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(ALL_OBJ)
+	ar rcs $(NAME) $(ALL_OBJ)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(LIBFT_OBJ)
 
 fclean: clean
 	rm -f $(NAME) runprog a.out run_ft run_std std_output.txt ft_output.txt
 
 re: fclean all
 
-run: $(NAME) libft.a
-	$(CC) tests/ft_printf_test.c $(NAME) libft.a -o runprog
-	./runprog
-
-run_ft: $(NAME) libft.a
-	$(CC) tests/test_ft_printf.c $(NAME) libft.a -o run_ft
+run_ft: $(NAME)
+	$(CC) tests/test_ft_printf.c $(NAME) -o run_ft
 	./run_ft
 
 run_std:
@@ -40,15 +53,25 @@ run_std:
 
 diff_outputs:
 	@echo "Running tests..."
-	@make run_ft > ft_output.txt 2>&1
-	@make run_std > std_output.txt 2>&1
+	@echo "Running ft_printf test..."
+	-@make run_ft > ft_output.txt 2>&1
+	@echo "Running standard printf test..."
+	-@make run_std > std_output.txt 2>&1
 	@echo "Comparing outputs..."
-	@if diff -q --text std_output.txt ft_output.txt > /dev/null 2>&1; then \
+	@if cmp -s std_output.txt ft_output.txt; then \
 		echo "✅ Outputs are identical!"; \
 	else \
 		echo "❌ Outputs differ:"; \
 		echo "=========================================="; \
-		diff -u --text std_output.txt ft_output.txt || true; \
+		if command -v diff >/dev/null 2>&1; then \
+			diff -u std_output.txt ft_output.txt || true; \
+		else \
+			echo "diff not available, showing file contents:"; \
+			echo "--- Standard printf ---"; \
+			cat std_output.txt; \
+			echo "--- Your ft_printf ---"; \
+			cat ft_output.txt; \
+		fi; \
 		echo "=========================================="; \
 		echo "Raw comparison (showing hidden chars):"; \
 		echo "--- Standard printf ---"; \
@@ -61,4 +84,4 @@ clean_outputs:
 	rm -f ft_output.txt std_output.txt
 
 
-.PHONY: all clean fclean re run run_ft run_std diff_outputs clean_outputs
+.PHONY: all clean fclean re run_ft run_std diff_outputs clean_outputs
