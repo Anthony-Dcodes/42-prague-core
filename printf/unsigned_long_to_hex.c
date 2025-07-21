@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unsigned_long_to_hex.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:52:17 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/11 19:12:44 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:45:06 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*unsigned_long_to_hex(void *prt)
 
 	n = (unsigned long)prt;
 	if (n == 0)
-		return (ft_strdup("0x0"));
+		return (ft_strdup("(nil)"));
 	hex_map = "0123456789abcdef";
 	result = ft_calloc(19, sizeof(char));
 	if (!result)

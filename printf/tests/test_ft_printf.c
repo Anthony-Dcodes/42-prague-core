@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:52:58 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/16 20:23:02 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:46:33 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ int main(void)
 	count = ft_printf("Pointer test: %p\n", ptr);
 	ft_printf("Return count: %d\n", count);
 	count = ft_printf("Null pointer test: %p\n", NULL);
+	ft_printf("Return count: %d\n", count);
+	count = ft_printf("0 pointer test: %p\n", 0);
+	ft_printf("Return count: %d\n", count);
+	count = ft_printf("0 pointer test1: %p, 0 pointer test2: %p\n", 0, 0);
 	ft_printf("Return count: %d\n", count);
 
 	// %d and %i tests

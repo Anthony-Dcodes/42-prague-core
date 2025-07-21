@@ -30,6 +30,10 @@ int main(void)
 	printf("Return count: %d\n", count);
 	count = printf("Null pointer test: %p\n", NULL);
 	printf("Return count: %d\n", count);
+	count = printf("0 pointer test: %p\n", 0);
+	printf("Return count: %d\n", count);
+	count = printf("0 pointer test1: %p, 0 pointer test2: %p\n", 0, 0);
+	printf("Return count: %d\n", count);
 
 	// %d and %i tests
 	count = printf("Decimal zero: %d\n", 0);
