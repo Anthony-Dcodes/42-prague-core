@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/19 20:09:58 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/22 21:25:59 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ char	*get_next_line(int fd)
 		stash = join_and_free(stash, buf);
 		if (ft_strchr(stash, '\n'))
 		{
-
+			line = new_line(stash);
+			stash = new_stash(stash);
+			return (line);
 		}
 
 

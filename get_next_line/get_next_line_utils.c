@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:44:43 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/19 20:07:34 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/22 21:17:16 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,56 @@ char	*join_and_free(char *stash, char *buf)
 	new = ft_strjoin(stash, buf);
 	free(stash);
 	return (new);
+}
+// Copy n bytes from src to dst
+// Return pointer to dst
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t				i;
+	unsigned char		*d;
+	const unsigned char	*s;
+
+	if (!dst && !src)
+		return (dst);
+	i = 0;
+	d = (unsigned char *)dst;
+	s = (const unsigned char *)src;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dst);
+}
+char	*new_line(char *stash)
+{
+	char	*ptr_to_n;
+	char	*new_line;
+	size_t	len;
+
+	ptr_to_n = ft_strchr(stash, '\n');
+	len = ptr_to_n - stash + 1;
+	new_line = malloc(len + 1);
+	if (!new_line)
+		return (NULL);
+	ft_memcpy(new_line, stash, len);
+	new_line[len] = '\0';
+	return (new_line);
+}
+char	*new_stash(char *stash)
+{
+	char	*p_rest;
+	char	*new_stash;
+	size_t	len;
+
+	p_rest = ft_strchr(stash, '\n');
+	++p_rest;
+	len = ft_strlen(p_rest);
+	new_stash = malloc(len + 1);
+	if (!new_stash)
+		return (NULL);
+	ft_memcpy(new_stash, p_rest, len);
+	free(stash);
+	new_stash[len] = '\0';
+	return (new_stash);
 }
