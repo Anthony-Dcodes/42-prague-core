@@ -1,8 +1,8 @@
 NAME = get_next_line.a
 CC = cc
-CFLAGS = -Wall -Wetra -Werror -D BUFFER_SIZE=42
+CFLAGS = -Wall -Wextra -Werror -D BUFFER_SIZE=42
 
-SRC = get_next_line.c
+SRC = get_next_line.c get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
 
