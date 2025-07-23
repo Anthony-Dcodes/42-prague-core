@@ -18,6 +18,10 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME) runprog a.out run_ft run_std std_output.txt ft_output.txt
+	rm -f $(NAME)  run_test
 
 re: fclean all
+
+run_test: $(NAME)
+	$(CC) tests/tests.c $(NAME) -o run_test
+	./run_test
