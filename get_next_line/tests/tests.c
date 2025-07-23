@@ -1,44 +1,54 @@
 #include "../get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
+#include <stdlib.h> // for free
 
-int	main()
+int	main(void)
 {
-	int	fd;
+	int		fd;
 	char	*next_line;
 
 	printf("Test empty file:\n");
-	fd = open("test_empty.txt", O_RDONLY);
-	next_line = get_next_line(fd);
-	while(next_line)
+	fd = open("tests/test_empty.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		perror("open");
+		return (1);
+	}
+	while ((next_line = get_next_line(fd)))
 	{
 		printf("%s", next_line);
 		free(next_line);
-		next_line = get_next_line(fd);
-		printf("\n");
 	}
 	close(fd);
-	printf("Test long lines file:\n");
-	fd = open("test_long_lines.txt", O_RDONLY);
-	next_line = get_next_line(fd);
-	while(next_line)
+
+	printf("\nTest long lines file:\n");
+	fd = open("tests/test_long_lines.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		perror("open");
+		return (1);
+	}
+	while ((next_line = get_next_line(fd)))
 	{
 		printf("%s", next_line);
 		free(next_line);
-		next_line = get_next_line(fd);
-		printf("\n");
 	}
 	close(fd);
-	printf("Test short lines file:\n");
-	fd = open("test_short_lines.txt", O_RDONLY);
-	next_line = get_next_line(fd);
-	while(next_line)
+
+	printf("\nTest short lines file:\n");
+	fd = open("tests/test_short_lines.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		perror("open");
+		return (1);
+	}
+	while ((next_line = get_next_line(fd)))
 	{
 		printf("%s", next_line);
 		free(next_line);
-		next_line = get_next_line(fd);
-		printf("\n");
 	}
 	close(fd);
-	return (1);
+
+	return (0);
 }

@@ -22,6 +22,8 @@ fclean: clean
 
 re: fclean all
 
-run_test: $(NAME)
+run_tests: $(NAME)
 	$(CC) tests/tests.c $(NAME) -o run_test
 	./run_test
+
+.PHONY: all clean fclea re run_tests
