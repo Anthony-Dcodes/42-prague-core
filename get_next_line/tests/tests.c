@@ -7,6 +7,7 @@ int	main(void)
 {
 	int		fd;
 	char	*next_line;
+	int		i;
 
 	printf("Test empty file:\n");
 	fd = open("tests/test_empty.txt", O_RDONLY);
@@ -15,10 +16,14 @@ int	main(void)
 		perror("open");
 		return (1);
 	}
+	i = 1;
 	while ((next_line = get_next_line(fd)))
 	{
+		printf("get_next_line call no.:%d\n", i);
+		++i;
 		printf("%s", next_line);
 		free(next_line);
+
 	}
 	close(fd);
 
@@ -29,8 +34,11 @@ int	main(void)
 		perror("open");
 		return (1);
 	}
+	i = 1;
 	while ((next_line = get_next_line(fd)))
 	{
+		printf("get_next_line call no.:%d\n", i);
+		++i;
 		printf("%s", next_line);
 		free(next_line);
 	}
@@ -43,8 +51,11 @@ int	main(void)
 		perror("open");
 		return (1);
 	}
+	i = 1;
 	while ((next_line = get_next_line(fd)))
 	{
+		printf("get_next_line call no.:%d\n", i);
+		++i;
 		printf("%s", next_line);
 		free(next_line);
 	}
