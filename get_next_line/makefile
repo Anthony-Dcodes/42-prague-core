@@ -23,7 +23,7 @@ fclean: clean
 re: fclean all
 
 run_tests: $(NAME)
-	$(CC) tests/tests.c $(NAME) -o run_test
-	./run_test
+	$(CC) tests/tests.c $(NAME) -o run_tests
+	./run_tests
 
 .PHONY: all clean fclea re run_tests

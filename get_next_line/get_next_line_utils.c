@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:44:43 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/22 21:17:16 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/24 21:37:19 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,20 +105,33 @@ char	*new_line(char *stash)
 	new_line[len] = '\0';
 	return (new_line);
 }
-char	*new_stash(char *stash)
+char *new_stash(char *stash)
 {
-	char	*p_rest;
-	char	*new_stash;
-	size_t	len;
+	char *p_rest;
+	char *new_stash;
+	size_t len;
 
 	p_rest = ft_strchr(stash, '\n');
-	++p_rest;
+	if (!p_rest)
+	{
+		// No newline found: free stash and return NULL
+		free(stash);
+		return (NULL);
+	}
+	++p_rest; // skip past the newline
+	if (*p_rest == '\0')
+	{
+		// Nothing left after newline
+		free(stash);
+		return (NULL);
+	}
 	len = ft_strlen(p_rest);
 	new_stash = malloc(len + 1);
 	if (!new_stash)
 		return (NULL);
 	ft_memcpy(new_stash, p_rest, len);
-	free(stash);
 	new_stash[len] = '\0';
+	free(stash);
 	return (new_stash);
 }
+
