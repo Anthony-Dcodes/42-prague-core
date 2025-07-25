@@ -18,7 +18,7 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)  run_test
+	rm -f $(NAME)  run_tests
 
 re: fclean all
 
