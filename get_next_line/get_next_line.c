@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/24 21:37:51 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/25 14:41:09 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,19 @@ char	*get_next_line(int fd)
 			return (line);
 		}
 		bytes_read = (read(fd, buf, BUFFER_SIZE));
+	}
+	while (stash)
+	{
+		if (ft_strchr(stash, '\n'))
+		{
+			line = new_line(stash);
+			stash = new_stash(stash);
+			//printf("line:%s\n", line);
+			//printf("stash:%s\n", stash);
+			return (line);
+		}
+		else
+			return (stash);
 	}
 	return (NULL);
 }
