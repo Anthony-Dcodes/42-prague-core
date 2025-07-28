@@ -61,5 +61,33 @@ int	main(void)
 	}
 	close(fd);
 
+	printf("\nTest standard input:\n");
+	i = 1;
+	while ((next_line = get_next_line(0)))
+	{
+		printf("get_next_line call no.:%d\n", i);
+		++i;
+		printf("%s", next_line);
+		free(next_line);
+	}
+	close(fd);
+
+	printf("\nTest code_text.txt:\n");
+	fd = open("tests/code_text.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		perror("open");
+		return (1);
+	}
+	i = 1;
+	while ((next_line = get_next_line(fd)))
+	{
+		printf("get_next_line call no.:%d\n", i);
+		++i;
+		printf("%s", next_line);
+		free(next_line);
+	}
+	close(fd);
+
 	return (0);
 }

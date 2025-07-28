@@ -1,6 +1,7 @@
 NAME = get_next_line.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -D BUFFER_SIZE=42
+BUFFER_SIZE ?= 42
+CFLAGS = -Wall -Wextra -Werror -D BUFFER_SIZE=$(BUFFER_SIZE)
 
 SRC = get_next_line.c get_next_line_utils.c
 

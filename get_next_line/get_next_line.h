@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:38:21 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/23 19:04:26 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/28 20:38:31 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 42
+#endif
+
+#if BUFFER_SIZE <= 0
+# error "BUFFER_SIZE must be greater than 0"
 #endif
 
 char	*get_next_line(int fd);
