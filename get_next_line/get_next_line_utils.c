@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:44:43 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/24 21:37:19 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/28 20:55:53 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ char	*join_and_free(char *stash, char *buf)
 	free(stash);
 	return (new);
 }
-// Copy n bytes from src to dst
-// Return pointer to dst
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t				i;
@@ -114,14 +112,12 @@ char *new_stash(char *stash)
 	p_rest = ft_strchr(stash, '\n');
 	if (!p_rest)
 	{
-		// No newline found: free stash and return NULL
 		free(stash);
 		return (NULL);
 	}
-	++p_rest; // skip past the newline
+	++p_rest;
 	if (*p_rest == '\0')
 	{
-		// Nothing left after newline
 		free(stash);
 		return (NULL);
 	}
