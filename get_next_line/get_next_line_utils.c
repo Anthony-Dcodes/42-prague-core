@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:44:43 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/28 20:55:53 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/28 20:57:06 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,46 +88,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-char	*new_line(char *stash)
-{
-	char	*ptr_to_n;
-	char	*new_line;
-	size_t	len;
-
-	ptr_to_n = ft_strchr(stash, '\n');
-	len = ptr_to_n - stash + 1;
-	new_line = malloc(len + 1);
-	if (!new_line)
-		return (NULL);
-	ft_memcpy(new_line, stash, len);
-	new_line[len] = '\0';
-	return (new_line);
-}
-char *new_stash(char *stash)
-{
-	char *p_rest;
-	char *new_stash;
-	size_t len;
-
-	p_rest = ft_strchr(stash, '\n');
-	if (!p_rest)
-	{
-		free(stash);
-		return (NULL);
-	}
-	++p_rest;
-	if (*p_rest == '\0')
-	{
-		free(stash);
-		return (NULL);
-	}
-	len = ft_strlen(p_rest);
-	new_stash = malloc(len + 1);
-	if (!new_stash)
-		return (NULL);
-	ft_memcpy(new_stash, p_rest, len);
-	new_stash[len] = '\0';
-	free(stash);
-	return (new_stash);
-}
-
