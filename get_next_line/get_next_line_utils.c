@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:44:43 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/28 20:57:06 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/28 21:14:55 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[i] = '\0';
 	return (str);
 }
+
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
@@ -62,6 +63,7 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
+
 char	*join_and_free(char *stash, char *buf)
 {
 	char	*new;
@@ -70,6 +72,7 @@ char	*join_and_free(char *stash, char *buf)
 	free(stash);
 	return (new);
 }
+
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t				i;

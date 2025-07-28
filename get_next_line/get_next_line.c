@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/28 21:12:54 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/28 21:17:34 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ static char	*new_line(char *stash)
 	new_line[len] = '\0';
 	return (new_line);
 }
-static char *new_stash(char *stash)
+
+static char	*new_stash(char *stash)
 {
-	char *p_rest;
-	char *new_stash;
-	size_t len;
+	char	*p_rest;
+	char	*new_stash;
+	size_t	len;
 
 	p_rest = ft_strchr(stash, '\n');
 	if (!p_rest)
@@ -56,7 +57,7 @@ static char *new_stash(char *stash)
 	return (new_stash);
 }
 
-static void initialize_stash(char **stash)
+static void	initialize_stash(char **stash)
 {
 	if (!*stash)
 	{
@@ -66,7 +67,7 @@ static void initialize_stash(char **stash)
 	}
 }
 
-static char *return_line_update_stash(char **stash)
+static char	*return_line_update_stash(char **stash)
 {
 	char	*line;
 

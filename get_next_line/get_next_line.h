@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:38:21 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/28 20:59:04 by advorace         ###   ########.fr       */
+/*   Updated: 2025/07/28 21:24:08 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-#if BUFFER_SIZE <= 0
-# error "BUFFER_SIZE must be greater than 0"
-#endif
+# if BUFFER_SIZE <= 0
+#  error "BUFFER_SIZE must be greater than 0"
+# endif
 
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
