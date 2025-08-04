@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/04 19:53:28 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/04 20:55:31 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,17 @@ char	*get_next_line(int fd)
 {
 	char		buf[BUFFER_SIZE + 1];
 	static char	*stash;
-	size_t		bytes_read;
+	long		bytes_read;
+	int			i;
+
+	i = 0;
+	printf("get_next_line iteration: %d\n", ++i);
 
 	bytes_read = (read(fd, buf, BUFFER_SIZE));
-	printf("Bytes read: %zu\n", bytes_read);
+	printf("Bytes read: %ld\n", bytes_read);
 	while (bytes_read > 0)
 	{
+		printf("get_next_line iteration: %d\n", ++i);
 		buf[bytes_read] = '\0';
 		initialize_stash(&stash);
 		stash = join_and_free(stash, buf);
@@ -96,9 +101,11 @@ char	*get_next_line(int fd)
 			return (return_line_update_stash(&stash));
 		bytes_read = (read(fd, buf, BUFFER_SIZE));
 	}
+	//printf("Stash: %s", stash);
 	while (stash)
 	{
-		printf("remaining stash: %s\n", stash);
+		printf("get_next_line iteration: %d\n", ++i);
+		//printf("remaining stash: %s\n", stash);
 		if (ft_strchr(stash, '\n'))
 			return (return_line_update_stash(&stash));
 		else

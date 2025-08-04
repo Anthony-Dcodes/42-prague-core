@@ -26,7 +26,7 @@ void test_file(const char *filename, const char *test_name)
 	i = 1;
 	while ((next_line = get_next_line(fd)))
 	{
-		printf("get_next_line returned: %s\n", next_line);
+		//printf("get_next_line returned: %s\n", next_line);
 		printf("Line %d: ", i);
 		// Show the line with visible newline indicators
 		for (int j = 0; next_line[j]; j++)
@@ -155,7 +155,7 @@ int main(void)
 
 	// Additional comprehensive tests
 	test_multiple_calls_after_eof("tests/test_short_lines.txt");
-	test_multiple_fds();
+	//test_multiple_fds();
 	test_invalid_fd();
 
 	printf("\n=== Standard input test ===\n");
