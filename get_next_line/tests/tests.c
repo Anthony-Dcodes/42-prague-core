@@ -152,6 +152,9 @@ int main(void)
 	test_file("tests/test_short_lines.txt", "Short lines test");
 	test_file("tests/test_long_lines.txt", "Long lines test");
 	test_file("tests/code_text.txt", "Code text test");
+	test_file("tests/test_no_newline.txt", "No newline test");
+	test_file("tests/test_only_newlines.txt", "Only newlines test");
+	test_file("tests/test_very_long_line.txt", "Very long line test");
 
 	// Additional comprehensive tests
 	test_multiple_calls_after_eof("tests/test_short_lines.txt");
