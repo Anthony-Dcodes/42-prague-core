@@ -91,8 +91,12 @@ clean:
 
 fclean: clean
 	rm -f $(NAME) run_tests
-	rm -rf tests/
 
 re: fclean all
 
-.PHONY: all clean fclean re run_tests test test-buffer-sizes valgrind-test create-edge-case-tests
+# Clean only generated test files (keep tests.c)
+clean-test-files:
+	rm -f tests/test_empty.txt tests/test_short_lines.txt tests/test_long_lines.txt tests/code_text.txt
+	rm -f tests/test_no_newline.txt tests/test_only_newlines.txt tests/test_very_long_line.txt
+
+.PHONY: all clean fclean re run_tests test test-buffer-sizes valgrind-test create-edge-case-tests clean-test-files clean-all
