@@ -1,3 +1,4 @@
 *.o
 *.a
 run_tests
+*.txt
