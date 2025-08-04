@@ -1,19 +1,4 @@
-Hellow world!! Hellow world!! Hellow world!! Hellow world!!
-Hellow world!! Hellow world!! Hellow world!!
-Hellow world!! Hellow world!!
-Hellow world!!
-
-
-
-
-
-
-Hellow world!!
-Hellow world!! Hellow world!! Hellow world!! Hellow world!!
-Hellow world!! Hellow world!! Hellow world!! Hellow world!! Hellow world!! Hellow world!!
-Hellow world!! Hellow world!! Hellow world!! Hellow world!! Hellow world!! Hellow world!!Hellow world!! Hellow world!! Hellow world!! Hellow world!! Hellow world!! Hellow world!!Hellow world!! Hellow world!! Hellow world!! Hellow world!! Hellow world!! Hellow world!!
-END
-
-
-
-
+This is a very long line that should test how get_next_line handles lines longer than the buffer size. It contains many characters and should be properly read even if BUFFER_SIZE is small.
+Another long line with different content to ensure multiple long lines work correctly. This line also has many characters to test the buffer handling thoroughly.
+Short line
+Final long line without newline: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
