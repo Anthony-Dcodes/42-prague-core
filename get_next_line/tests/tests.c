@@ -14,7 +14,7 @@ void test_file(const char *filename, const char *test_name)
 
 	printf("\n=== %s ===\n", test_name);
 	printf("Testing file: %s\n", filename);
-	
+
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
@@ -22,10 +22,11 @@ void test_file(const char *filename, const char *test_name)
 		printf("Failed to open %s\n", filename);
 		return;
 	}
-	
+
 	i = 1;
 	while ((next_line = get_next_line(fd)))
 	{
+		printf("get_next_line returned: %s\n", next_line);
 		printf("Line %d: ", i);
 		// Show the line with visible newline indicators
 		for (int j = 0; next_line[j]; j++)
@@ -39,7 +40,7 @@ void test_file(const char *filename, const char *test_name)
 		free(next_line);
 		i++;
 	}
-	
+
 	printf("Total lines read: %d\n", i - 1);
 	close(fd);
 }
@@ -53,14 +54,14 @@ void test_multiple_calls_after_eof(const char *filename)
 
 	printf("\n=== Testing multiple calls after EOF ===\n");
 	printf("File: %s\n", filename);
-	
+
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
 		perror("open");
 		return;
 	}
-	
+
 	// Read all lines normally
 	i = 1;
 	while ((next_line = get_next_line(fd)))
@@ -68,7 +69,7 @@ void test_multiple_calls_after_eof(const char *filename)
 		printf("Line %d read\n", i++);
 		free(next_line);
 	}
-	
+
 	// Try to read more lines after EOF
 	printf("Attempting to read after EOF:\n");
 	for (int j = 0; j < 3; j++)
@@ -82,7 +83,7 @@ void test_multiple_calls_after_eof(const char *filename)
 			free(next_line);
 		}
 	}
-	
+
 	close(fd);
 }
 
@@ -93,10 +94,10 @@ void test_multiple_fds(void)
 	char *line1, *line2;
 
 	printf("\n=== Testing multiple file descriptors ===\n");
-	
+
 	fd1 = open("tests/test_short_lines.txt", O_RDONLY);
 	fd2 = open("tests/test_long_lines.txt", O_RDONLY);
-	
+
 	if (fd1 == -1 || fd2 == -1)
 	{
 		perror("open");
@@ -104,22 +105,22 @@ void test_multiple_fds(void)
 		if (fd2 != -1) close(fd2);
 		return;
 	}
-	
+
 	// Alternate reading from both files
 	for (int i = 0; i < 3; i++)
 	{
 		line1 = get_next_line(fd1);
 		line2 = get_next_line(fd2);
-		
+
 		printf("FD1 line %d: %s", i + 1, line1 ? line1 : "NULL\n");
 		printf("FD2 line %d: %s", i + 1, line2 ? line2 : "NULL\n");
-		
+
 		if (line1) free(line1);
 		if (line2) free(line2);
-		
+
 		if (!line1 && !line2) break;
 	}
-	
+
 	close(fd1);
 	close(fd2);
 }
@@ -128,13 +129,13 @@ void test_multiple_fds(void)
 void test_invalid_fd(void)
 {
 	char *line;
-	
+
 	printf("\n=== Testing invalid file descriptor ===\n");
-	
+
 	line = get_next_line(-1);
 	printf("get_next_line(-1): %s\n", line ? line : "NULL (correct)");
 	if (line) free(line);
-	
+
 	line = get_next_line(999);
 	printf("get_next_line(999): %s\n", line ? line : "NULL (correct)");
 	if (line) free(line);
@@ -151,7 +152,7 @@ int main(void)
 	test_file("tests/test_short_lines.txt", "Short lines test");
 	test_file("tests/test_long_lines.txt", "Long lines test");
 	test_file("tests/code_text.txt", "Code text test");
-	
+
 	// Additional comprehensive tests
 	test_multiple_calls_after_eof("tests/test_short_lines.txt");
 	test_multiple_fds();
@@ -159,7 +160,7 @@ int main(void)
 
 	printf("\n=== Standard input test ===\n");
 	printf("Type some lines (Ctrl+D to end):\n");
-	
+
 	char *next_line;
 	int i = 1;
 	while ((next_line = get_next_line(0)))
@@ -167,7 +168,7 @@ int main(void)
 		printf("STDIN Line %d: %s", i++, next_line);
 		free(next_line);
 	}
-	
+
 	printf("\nAll tests completed!\n");
 	return (0);
 }

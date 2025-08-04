@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/28 21:17:34 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/04 19:53:28 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ static char	*new_line(char *stash)
 	size_t	len;
 
 	ptr_to_n = ft_strchr(stash, '\n');
-	len = ptr_to_n - stash + 1;
+	if (ptr_to_n)
+		len = ptr_to_n - stash + 1;
+	else
+		len = ft_strlen(stash);
 	new_line = malloc(len + 1);
 	if (!new_line)
 		return (NULL);
@@ -83,6 +86,7 @@ char	*get_next_line(int fd)
 	size_t		bytes_read;
 
 	bytes_read = (read(fd, buf, BUFFER_SIZE));
+	printf("Bytes read: %zu\n", bytes_read);
 	while (bytes_read > 0)
 	{
 		buf[bytes_read] = '\0';
@@ -94,10 +98,11 @@ char	*get_next_line(int fd)
 	}
 	while (stash)
 	{
+		printf("remaining stash: %s\n", stash);
 		if (ft_strchr(stash, '\n'))
 			return (return_line_update_stash(&stash));
 		else
-			return (stash);
+			return (return_line_update_stash(&stash));
 	}
 	return (NULL);
 }
