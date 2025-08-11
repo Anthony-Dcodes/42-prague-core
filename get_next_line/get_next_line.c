@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/04 20:58:01 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/11 18:06:52 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,26 @@ static void	initialize_stash(char **stash)
 	}
 }
 
-static char	*return_line_update_stash(char **stash)
+static char	*return_line_update_stash(char **stash, char **buf)
 {
 	char	*line;
 
 	line = new_line(*stash);
 	*stash = new_stash(*stash);
+	free(*buf);
+	*buf = NULL;
 	return (line);
 }
 
 char	*get_next_line(int fd)
 {
-	char		buf[BUFFER_SIZE + 1];
+	char		*buf;
 	static char	*stash;
 	long		bytes_read;
 
+	buf = malloc(BUFFER_SIZE + 1);
+	if (!buf)
+		return (NULL);
 	bytes_read = (read(fd, buf, BUFFER_SIZE));
 	while (bytes_read > 0)
 	{
@@ -92,10 +97,11 @@ char	*get_next_line(int fd)
 		initialize_stash(&stash);
 		stash = join_and_free(stash, buf);
 		if (ft_strchr(stash, '\n'))
-			return (return_line_update_stash(&stash));
+			return (return_line_update_stash(&stash, &buf));
 		bytes_read = (read(fd, buf, BUFFER_SIZE));
 	}
-	while (stash)
-		return (return_line_update_stash(&stash));
+	if (stash)
+		return (return_line_update_stash(&stash, &buf));
+	free(buf);
 	return (NULL);
 }
