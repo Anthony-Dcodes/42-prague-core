@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/11 18:06:52 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/11 18:31:03 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,16 @@ char	*get_next_line(int fd)
 	if (!buf)
 		return (NULL);
 	bytes_read = (read(fd, buf, BUFFER_SIZE));
+	if (bytes_read == -1)
+    {
+        free(buf);
+        if (stash)
+        {
+            free(stash);
+            stash = NULL;
+        }
+        return (NULL);
+    }
 	while (bytes_read > 0)
 	{
 		buf[bytes_read] = '\0';
