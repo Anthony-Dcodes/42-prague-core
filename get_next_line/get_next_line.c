@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/11 18:31:03 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/13 18:38:03 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	initialize_stash(char **stash)
 	{
 		*stash = malloc(1);
 		if (*stash)
-			*stash[0] = '\0';
+			(*stash)[0] = '\0';
 	}
 }
 
@@ -74,6 +74,12 @@ static char	*return_line_update_stash(char **stash, char **buf)
 {
 	char	*line;
 
+	if (!stash || !*stash || !buf || !*buf)
+	{
+		free(*buf);
+		free(*stash);
+        return (NULL);
+	}
 	line = new_line(*stash);
 	*stash = new_stash(*stash);
 	free(*buf);
@@ -85,7 +91,7 @@ char	*get_next_line(int fd)
 {
 	char		*buf;
 	static char	*stash;
-	long		bytes_read;
+	ssize_t		bytes_read;
 
 	buf = malloc(BUFFER_SIZE + 1);
 	if (!buf)
@@ -94,6 +100,7 @@ char	*get_next_line(int fd)
 	if (bytes_read == -1)
     {
         free(buf);
+		buf = NULL;
         if (stash)
         {
             free(stash);
@@ -113,5 +120,6 @@ char	*get_next_line(int fd)
 	if (stash)
 		return (return_line_update_stash(&stash, &buf));
 	free(buf);
+	buf = NULL;
 	return (NULL);
 }
