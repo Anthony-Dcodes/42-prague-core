@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/13 18:38:03 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/13 19:30:29 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ static void	initialize_stash(char **stash)
 	if (!*stash)
 	{
 		*stash = malloc(1);
+		if (!*stash)
+			return (NULL);
 		if (*stash)
 			(*stash)[0] = '\0';
 	}
