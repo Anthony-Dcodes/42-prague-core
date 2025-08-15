@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/15 14:38:23 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/15 14:57:38 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,9 @@ static char	*return_line_update_stash(char **stash, char **buf)
 	if (!stash || !*stash || !buf || !*buf)
 	{
 		free(*buf);
+		*buf = NULL;
 		free(*stash);
+		*stash = NULL;
         return (NULL);
 	}
 	line = new_line(*stash);
@@ -100,16 +102,16 @@ char	*get_next_line(int fd)
 		return (NULL);
 	bytes_read = (read(fd, buf, BUFFER_SIZE));
 	if (bytes_read == -1)
-    {
-        free(buf);
+	{
+		free(buf);
 		buf = NULL;
-        if (stash)
-        {
-            free(stash);
-            stash = NULL;
-        }
-        return (NULL);
-    }
+		if (stash)
+		{
+			free(stash);
+			stash = NULL;
+		}
+		return (NULL);
+	}
 	while (bytes_read > 0)
 	{
 		buf[bytes_read] = '\0';
@@ -130,6 +132,17 @@ char	*get_next_line(int fd)
 		if (ft_strchr(stash, '\n'))
 			return (return_line_update_stash(&stash, &buf));
 		bytes_read = (read(fd, buf, BUFFER_SIZE));
+		if (bytes_read == -1)
+		{
+			free(buf);
+			buf = NULL;
+			if (stash)
+			{
+				free(stash);
+				stash = NULL;
+			}
+			return (NULL);
+		}
 	}
 	if (stash)
 		return (return_line_update_stash(&stash, &buf));
