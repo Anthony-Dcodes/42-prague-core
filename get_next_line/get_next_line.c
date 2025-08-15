@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/13 19:30:29 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/15 13:44:21 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,17 @@ static char	*new_stash(char *stash)
 	return (new_stash);
 }
 
-static void	initialize_stash(char **stash)
-{
-	if (!*stash)
-	{
-		*stash = malloc(1);
-		if (!*stash)
-			return (NULL);
-		if (*stash)
-			(*stash)[0] = '\0';
-	}
-}
+// static void	initialize_stash(char **stash)
+// {
+// 	if (!*stash)
+// 	{
+// 		*stash = malloc(1);
+// 		if (!*stash)
+// 			return (NULL);
+// 		if (*stash)
+// 			(*stash)[0] = '\0';
+// 	}
+// }
 
 static char	*return_line_update_stash(char **stash, char **buf)
 {
@@ -113,7 +113,17 @@ char	*get_next_line(int fd)
 	while (bytes_read > 0)
 	{
 		buf[bytes_read] = '\0';
-		initialize_stash(&stash);
+		if (!stash)
+		{
+			stash = malloc(1);
+			if (!stash)
+			{
+				free(buf);
+				buf = NULL;
+				return (NULL);
+			}
+			stash[0] = '\0';
+		}
 		stash = join_and_free(stash, buf);
 		if (ft_strchr(stash, '\n'))
 			return (return_line_update_stash(&stash, &buf));
