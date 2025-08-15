@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/15 14:57:38 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/15 17:14:07 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ static char	*new_stash(char *stash)
 	len = ft_strlen(p_rest);
 	new_stash = malloc(len + 1);
 	if (!new_stash)
+	{
+		free(stash);
 		return (NULL);
+	}
 	ft_memcpy(new_stash, p_rest, len);
 	new_stash[len] = '\0';
 	free(stash);
@@ -76,7 +79,7 @@ static char	*return_line_update_stash(char **stash, char **buf)
 {
 	char	*line;
 
-	if (!stash || !*stash || !buf || !*buf)
+	if (!stash || !*stash || !buf)
 	{
 		free(*buf);
 		*buf = NULL;
@@ -88,6 +91,11 @@ static char	*return_line_update_stash(char **stash, char **buf)
 	*stash = new_stash(*stash);
 	free(*buf);
 	*buf = NULL;
+	if (!line)
+	{
+		free(*stash);
+		*stash = NULL;
+	}
 	return (line);
 }
 
@@ -100,6 +108,7 @@ char	*get_next_line(int fd)
 	buf = malloc(BUFFER_SIZE + 1);
 	if (!buf)
 		return (NULL);
+	buf[0] = '\0';
 	bytes_read = (read(fd, buf, BUFFER_SIZE));
 	if (bytes_read == -1)
 	{
