@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:38:21 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/28 21:24:08 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/15 14:40:20 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
-char	*join_and_free(char *stash, char *buf);
+char	*join_and_free(char **stash, char **buf);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
