@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:44:43 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/28 21:14:55 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/15 14:36:29 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,29 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*join_and_free(char *stash, char *buf)
+char	*join_and_free(char **stash, char **buf)
 {
 	char	*new;
 
-	new = ft_strjoin(stash, buf);
-	free(stash);
+	if (!stash || !*stash || !buf || !*buf)
+	{
+		free(*stash);
+		*stash = NULL;
+		free(*buf);
+		*buf = NULL;
+		return (NULL);
+	}
+	new = ft_strjoin(*stash, *buf);
+	if (!new)
+	{
+		free(*stash);
+		*stash = NULL;
+		free(*buf);
+		*buf = NULL;
+		return (NULL);
+	}
+	free(*stash);
+	*stash = NULL;
 	return (new);
 }
 
