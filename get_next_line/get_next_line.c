@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/18 17:58:41 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/18 18:18:13 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,34 @@ static char	*new_stash(char *stash)
 // 			(*stash)[0] = '\0';
 // 	}
 // }
+
+// static int cleanup_and_init(char **buf, char **stash, ssize_t bytes_read)
+// {
+//     if (bytes_read == -1)
+//     {
+//         free(*buf);
+//         *buf = NULL;
+//         if (*stash)
+//         {
+//             free(*stash);
+//             *stash = NULL;
+//         }
+//         return (0); // signal error
+//     }
+//     if (!*stash)
+//     {
+//         *stash = malloc(1);
+//         if (!*stash)
+//         {
+//             free(*buf);
+//             *buf = NULL;
+//             return (0); // signal error
+//         }
+//         (*stash)[0] = '\0';
+//     }
+//     return (1); // success
+// }
+
 
 static char	*return_line_update_stash(char **stash, char **buf)
 {
