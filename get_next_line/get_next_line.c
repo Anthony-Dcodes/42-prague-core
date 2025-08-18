@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/15 17:14:07 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/18 17:48:33 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,11 @@ char	*get_next_line(int fd)
 	static char	*stash;
 	ssize_t		bytes_read;
 
+	if (BUFFER_SIZE <= 0 || fd < 0)
+		return (NULL);
 	buf = malloc(BUFFER_SIZE + 1);
 	if (!buf)
 		return (NULL);
-	buf[0] = '\0';
 	bytes_read = (read(fd, buf, BUFFER_SIZE));
 	if (bytes_read == -1)
 	{
