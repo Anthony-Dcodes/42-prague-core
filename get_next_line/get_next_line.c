@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/18 17:48:33 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/18 17:58:41 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,16 @@ static char	*new_stash(char *stash)
 
 	p_rest = ft_strchr(stash, '\n');
 	if (!p_rest)
-	{
-		free(stash);
 		return (NULL);
-	}
 	++p_rest;
 	if (*p_rest == '\0')
-	{
-		free(stash);
 		return (NULL);
-	}
 	len = ft_strlen(p_rest);
 	new_stash = malloc(len + 1);
 	if (!new_stash)
-	{
-		free(stash);
 		return (NULL);
-	}
 	ft_memcpy(new_stash, p_rest, len);
 	new_stash[len] = '\0';
-	free(stash);
 	return (new_stash);
 }
 
@@ -77,7 +67,8 @@ static char	*new_stash(char *stash)
 
 static char	*return_line_update_stash(char **stash, char **buf)
 {
-	char	*line;
+	char	*n_line;
+	char	*tmp;
 
 	if (!stash || !*stash || !buf)
 	{
@@ -87,16 +78,18 @@ static char	*return_line_update_stash(char **stash, char **buf)
 		*stash = NULL;
         return (NULL);
 	}
-	line = new_line(*stash);
-	*stash = new_stash(*stash);
+	n_line = new_line(*stash);
+	tmp = new_stash(*stash);
+	free(*stash);
+	*stash = tmp;
 	free(*buf);
 	*buf = NULL;
-	if (!line)
+	if (!n_line || !stash)
 	{
 		free(*stash);
 		*stash = NULL;
 	}
-	return (line);
+	return (n_line);
 }
 
 char	*get_next_line(int fd)
