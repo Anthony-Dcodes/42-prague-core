@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/18 18:18:13 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/19 18:00:16 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,44 +53,32 @@ static char	*new_stash(char *stash)
 	return (new_stash);
 }
 
-// static void	initialize_stash(char **stash)
-// {
-// 	if (!*stash)
-// 	{
-// 		*stash = malloc(1);
-// 		if (!*stash)
-// 			return (NULL);
-// 		if (*stash)
-// 			(*stash)[0] = '\0';
-// 	}
-// }
-
-// static int cleanup_and_init(char **buf, char **stash, ssize_t bytes_read)
-// {
-//     if (bytes_read == -1)
-//     {
-//         free(*buf);
-//         *buf = NULL;
-//         if (*stash)
-//         {
-//             free(*stash);
-//             *stash = NULL;
-//         }
-//         return (0); // signal error
-//     }
-//     if (!*stash)
-//     {
-//         *stash = malloc(1);
-//         if (!*stash)
-//         {
-//             free(*buf);
-//             *buf = NULL;
-//             return (0); // signal error
-//         }
-//         (*stash)[0] = '\0';
-//     }
-//     return (1); // success
-// }
+static int cleanup_and_init(char **buf, char **stash, ssize_t bytes_read, int init_stash)
+{
+    if (bytes_read == -1)
+    {
+        free(*buf);
+        *buf = NULL;
+        if (*stash)
+        {
+            free(*stash);
+            *stash = NULL;
+        }
+        return (0); // signal error
+    }
+    if (!*stash && init_stash)
+    {
+        *stash = malloc(1);
+        if (!*stash)
+        {
+            free(*buf);
+            *buf = NULL;
+            return (0); // signal error
+        }
+        (*stash)[0] = '\0';
+    }
+    return (1); // success
+}
 
 
 static char	*return_line_update_stash(char **stash, char **buf)
@@ -132,48 +120,21 @@ char	*get_next_line(int fd)
 	if (!buf)
 		return (NULL);
 	bytes_read = (read(fd, buf, BUFFER_SIZE));
-	if (bytes_read == -1)
-	{
-		free(buf);
-		buf = NULL;
-		if (stash)
-		{
-			free(stash);
-			stash = NULL;
-		}
+	if (!cleanup_and_init(&buf, &stash, bytes_read, 0))
 		return (NULL);
-	}
 	while (bytes_read > 0)
 	{
 		buf[bytes_read] = '\0';
-		if (!stash)
-		{
-			stash = malloc(1);
-			if (!stash)
-			{
-				free(buf);
-				buf = NULL;
-				return (NULL);
-			}
-			stash[0] = '\0';
-		}
+		if (!cleanup_and_init(&buf, &stash, bytes_read, 1))
+			return (NULL);
 		stash = join_and_free(&stash, &buf);
 		if (!stash)
 			return (NULL);
 		if (ft_strchr(stash, '\n'))
 			return (return_line_update_stash(&stash, &buf));
 		bytes_read = (read(fd, buf, BUFFER_SIZE));
-		if (bytes_read == -1)
-		{
-			free(buf);
-			buf = NULL;
-			if (stash)
-			{
-				free(stash);
-				stash = NULL;
-			}
+		if (!cleanup_and_init(&buf, &stash, bytes_read, 0))
 			return (NULL);
-		}
 	}
 	if (stash)
 		return (return_line_update_stash(&stash, &buf));
