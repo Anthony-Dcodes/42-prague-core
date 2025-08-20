@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/20 20:05:31 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/20 20:22:55 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,38 @@ static char	*return_line_update_stash(char **stash, char **buf)
 	return (n_line);
 }
 
+static char	*read_and_process(int fd, char **stash, char **buf)
+{
+	ssize_t	bytes_read;
+
+	bytes_read = read(fd, *buf, BUFFER_SIZE);
+	if (!cleanup_init(buf, stash, bytes_read, 0))
+		return (NULL);
+	while (bytes_read > 0)
+	{
+		(*buf)[bytes_read] = '\0';
+		if (!cleanup_init(buf, stash, bytes_read, 1))
+			return (NULL);
+		*stash = join_and_free(stash, buf);
+		if (!*stash)
+			return (NULL);
+		if (ft_strchr(*stash, '\n'))
+			return (return_line_update_stash(stash, buf));
+		bytes_read = (read(fd, *buf, BUFFER_SIZE));
+		if (!cleanup_init(buf, stash, bytes_read, 0))
+			return (NULL);
+	}
+	if (*stash)
+		return (return_line_update_stash(stash, buf));
+	free(*buf);
+	*buf = NULL;
+	return (NULL);
+}
+
 char	*get_next_line(int fd)
 {
 	char		*buf;
 	static char	*stash;
-	ssize_t		bytes_read;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
@@ -121,26 +148,5 @@ char	*get_next_line(int fd)
 		if (!cleanup_init(&buf, &stash, -1, 0))
 			return (NULL);
 	}
-	bytes_read = (read(fd, buf, BUFFER_SIZE));
-	if (!cleanup_init(&buf, &stash, bytes_read, 0))
-		return (NULL);
-	while (bytes_read > 0)
-	{
-		buf[bytes_read] = '\0';
-		if (!cleanup_init(&buf, &stash, bytes_read, 1))
-			return (NULL);
-		stash = join_and_free(&stash, &buf);
-		if (!stash)
-			return (NULL);
-		if (ft_strchr(stash, '\n'))
-			return (return_line_update_stash(&stash, &buf));
-		bytes_read = (read(fd, buf, BUFFER_SIZE));
-		if (!cleanup_init(&buf, &stash, bytes_read, 0))
-			return (NULL);
-	}
-	if (stash)
-		return (return_line_update_stash(&stash, &buf));
-	free(buf);
-	buf = NULL;
-	return (NULL);
+	return (read_and_process(fd, &stash, &buf));
 }
