@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/19 18:00:16 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/20 19:49:47 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,10 @@ char	*get_next_line(int fd)
 		return (NULL);
 	buf = malloc(BUFFER_SIZE + 1);
 	if (!buf)
-		return (NULL);
+	{
+		if (!cleanup_and_init(&buf, &stash, -1, 0))
+			return (NULL);
+	}
 	bytes_read = (read(fd, buf, BUFFER_SIZE));
 	if (!cleanup_and_init(&buf, &stash, bytes_read, 0))
 		return (NULL);
