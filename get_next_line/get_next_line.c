@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/20 19:49:47 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/20 20:05:31 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,33 +53,32 @@ static char	*new_stash(char *stash)
 	return (new_stash);
 }
 
-static int cleanup_and_init(char **buf, char **stash, ssize_t bytes_read, int init_stash)
+static int	cleanup_init(char **buf, char **st, ssize_t b_read, int init_st)
 {
-    if (bytes_read == -1)
-    {
-        free(*buf);
-        *buf = NULL;
-        if (*stash)
-        {
-            free(*stash);
-            *stash = NULL;
-        }
-        return (0); // signal error
-    }
-    if (!*stash && init_stash)
-    {
-        *stash = malloc(1);
-        if (!*stash)
-        {
-            free(*buf);
-            *buf = NULL;
-            return (0); // signal error
-        }
-        (*stash)[0] = '\0';
-    }
-    return (1); // success
+	if (b_read == -1)
+	{
+		free(*buf);
+		*buf = NULL;
+		if (*st)
+		{
+			free(*st);
+			*st = NULL;
+		}
+		return (0);
+	}
+	if (!*st && init_st)
+	{
+		*st = malloc(1);
+		if (!*st)
+		{
+			free(*buf);
+			*buf = NULL;
+			return (0);
+		}
+		(*st)[0] = '\0';
+	}
+	return (1);
 }
-
 
 static char	*return_line_update_stash(char **stash, char **buf)
 {
@@ -92,7 +91,7 @@ static char	*return_line_update_stash(char **stash, char **buf)
 		*buf = NULL;
 		free(*stash);
 		*stash = NULL;
-        return (NULL);
+		return (NULL);
 	}
 	n_line = new_line(*stash);
 	tmp = new_stash(*stash);
@@ -119,16 +118,16 @@ char	*get_next_line(int fd)
 	buf = malloc(BUFFER_SIZE + 1);
 	if (!buf)
 	{
-		if (!cleanup_and_init(&buf, &stash, -1, 0))
+		if (!cleanup_init(&buf, &stash, -1, 0))
 			return (NULL);
 	}
 	bytes_read = (read(fd, buf, BUFFER_SIZE));
-	if (!cleanup_and_init(&buf, &stash, bytes_read, 0))
+	if (!cleanup_init(&buf, &stash, bytes_read, 0))
 		return (NULL);
 	while (bytes_read > 0)
 	{
 		buf[bytes_read] = '\0';
-		if (!cleanup_and_init(&buf, &stash, bytes_read, 1))
+		if (!cleanup_init(&buf, &stash, bytes_read, 1))
 			return (NULL);
 		stash = join_and_free(&stash, &buf);
 		if (!stash)
@@ -136,7 +135,7 @@ char	*get_next_line(int fd)
 		if (ft_strchr(stash, '\n'))
 			return (return_line_update_stash(&stash, &buf));
 		bytes_read = (read(fd, buf, BUFFER_SIZE));
-		if (!cleanup_and_init(&buf, &stash, bytes_read, 0))
+		if (!cleanup_init(&buf, &stash, bytes_read, 0))
 			return (NULL);
 	}
 	if (stash)
