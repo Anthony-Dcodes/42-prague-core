@@ -6,51 +6,40 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:27 by advorace          #+#    #+#             */
-/*   Updated: 2025/08/20 20:22:55 by advorace         ###   ########.fr       */
+/*   Updated: 2025/08/20 21:09:18 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
 
-static char	*new_line(char *stash)
+static char	*new_line_stash(char *stash, int stash_line)
 {
-	char	*ptr_to_n;
-	char	*new_line;
+	char	*ptr;
+	char	*new;
 	size_t	len;
 
-	ptr_to_n = ft_strchr(stash, '\n');
-	if (ptr_to_n)
-		len = ptr_to_n - stash + 1;
-	else
-		len = ft_strlen(stash);
-	new_line = malloc(len + 1);
-	if (!new_line)
+	ptr = ft_strchr(stash, '\n');
+	if (stash_line == 1)
+	{
+		if (ptr)
+			len = ptr - stash + 1;
+		else
+			len = ft_strlen(stash);
+		ptr = stash;
+	}
+	if (stash_line == 0)
+	{
+		if (!ptr || !*(++ptr))
+			return (NULL);
+		len = ft_strlen(ptr);
+	}
+	new = malloc(len + 1);
+	if (!new)
 		return (NULL);
-	ft_memcpy(new_line, stash, len);
-	new_line[len] = '\0';
-	return (new_line);
-}
-
-static char	*new_stash(char *stash)
-{
-	char	*p_rest;
-	char	*new_stash;
-	size_t	len;
-
-	p_rest = ft_strchr(stash, '\n');
-	if (!p_rest)
-		return (NULL);
-	++p_rest;
-	if (*p_rest == '\0')
-		return (NULL);
-	len = ft_strlen(p_rest);
-	new_stash = malloc(len + 1);
-	if (!new_stash)
-		return (NULL);
-	ft_memcpy(new_stash, p_rest, len);
-	new_stash[len] = '\0';
-	return (new_stash);
+	ft_memcpy(new, ptr, len);
+	new[len] = '\0';
+	return (new);
 }
 
 static int	cleanup_init(char **buf, char **st, ssize_t b_read, int init_st)
@@ -93,8 +82,8 @@ static char	*return_line_update_stash(char **stash, char **buf)
 		*stash = NULL;
 		return (NULL);
 	}
-	n_line = new_line(*stash);
-	tmp = new_stash(*stash);
+	n_line = new_line_stash(*stash, 1);
+	tmp = new_line_stash(*stash, 0);
 	free(*stash);
 	*stash = tmp;
 	free(*buf);
