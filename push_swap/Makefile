@@ -5,8 +5,8 @@ CFLAGS = -Wall -Wextra -Werror -Ilibft/includes
 
 SRCS = \
 	push_swap.c \
-	ft_atoi_save.c
-	
+	ft_atoi_safe.c
+
 OBJS = $(SRCS:.c=.o)
 
 LIBFT = libft/libft.a
