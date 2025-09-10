@@ -3,7 +3,10 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -Ilibft/includes
 
-SRCS = push_swap.c
+SRCS = \
+	push_swap.c \
+	ft_atoi_save.c
+	
 OBJS = $(SRCS:.c=.o)
 
 LIBFT = libft/libft.a

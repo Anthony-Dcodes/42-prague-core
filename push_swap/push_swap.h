@@ -6,14 +6,20 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:44:16 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/10 17:45:38 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/10 19:38:42 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+#define INT_MAX 2147483647
+#define INT_MIN (-2147483647 -1)
+
 #include "libft.h"
-#include "printf.h"
+#include "ft_printf.h"
+#include "stdio.h"
+
+int	ft_atoi_safe(const char *nptr, int *out);
 
 #endif
