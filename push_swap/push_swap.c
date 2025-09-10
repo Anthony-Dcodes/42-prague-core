@@ -1,16 +1,8 @@
-#include "libft.h"
-#include "ft_printf.h"
+#include "push_swap.h"
 
 int main(int argc, char *argv[])
 {
-	int	i;
-
-	i = 1;
-	ft_printf("Number of arguments: %d", argc);
-	while (i < argc)
-	{
-		ft_printf("Arg %d: %s\n", i, argv[i]);
-		++i;
-	}
+	if (argc == 1)
+		return (0);
 	return (0);
 }
