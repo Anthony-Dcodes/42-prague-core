@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 21:54:06 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/11 22:22:05 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/11 22:29:56 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,24 @@ void swap_a(t_stack **stack_a)
 	first->next = second->next;
 	second->next = first;
 	*stack_a = second;
+}
+void swap_b(t_stack **stack_b)
+{
+	t_stack *first;
+	t_stack *second;
+
+	if (!*stack_b || !(*stack_b)->next)
+		return ;
+
+	first = *stack_b;
+	second = first->next;
+
+	first->next = second->next;
+	second->next = first;
+	*stack_b = second;
+}
+void swap_ss(t_stack **stack_a, t_stack **stack_b)
+{
+	swap_a(stack_a);
+	swap_b(stack_b);
 }
