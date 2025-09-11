@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 		++i;
 	}
 	temp = stack_a;
+	ft_printf("Stack len: %d\n", stack_len(stack_a));
 	while (temp)
 	{
 		ft_printf("%d\n", temp->value);

@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 16:56:23 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/11 17:30:12 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/11 17:45:05 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ t_stack	*stack_last(t_stack *lst)
 		lst = lst->next;
 	return (lst);
 }
+
 void	stack_free(t_stack *lst)
 {
 	t_stack	*tmp;
@@ -63,4 +64,17 @@ void	stack_free(t_stack *lst)
 		free(lst);
 		lst = tmp;
 	}
+}
+
+int	stack_len(t_stack *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		++i;
+	}
+	return (i);
 }
