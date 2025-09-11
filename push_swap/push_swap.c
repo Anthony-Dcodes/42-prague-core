@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:50:01 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/11 21:37:41 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/11 22:23:51 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ int main(int argc, char *argv[])
 		return (error(&stack_a, &stack_b));
 	temp = stack_a;
 	ft_printf("Stack len: %d\n", stack_len(stack_a));
+	while (temp)
+	{
+		ft_printf("%d\n", temp->value);
+		temp = temp->next;
+	}
+	printf("Use swap_a:\n");
+	swap_a(&stack_a);
+	temp = stack_a;
 	while (temp)
 	{
 		ft_printf("%d\n", temp->value);

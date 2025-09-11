@@ -7,7 +7,8 @@ SRCS = \
 	push_swap.c \
 	node_functions.c \
 	utils.c \
-	init_stack_a.c
+	init_stack_a.c \
+	stack_operations_sa_sb_ss.c
 
 OBJS = $(SRCS:.c=.o)
 
