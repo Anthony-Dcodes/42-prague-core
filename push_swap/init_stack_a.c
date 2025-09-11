@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:50:04 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/11 21:34:00 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/11 21:43:15 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,17 @@ int	init_stack_a(t_stack **stack_a, int argc, char **argv)
 {
 	int	i;
 	int	value;
+	t_stack *new_node;
 
 	i = 1;
 	while (i < argc)
 	{
 		if (!ft_atoi_safe(argv[i], &value))
 			return (0);
-		if (i == 1)
-		{
-			*stack_a = stack_new(value);
-			if (!stack_a)
-				return (0);
-		}
-		else
-			stack_add_back(stack_a, stack_new(value));
+		new_node = stack_new(value);
+		if (!new_node)
+			return (0);
+		stack_add_back(stack_a, new_node);
 		++i;
 	}
 	return (1);
