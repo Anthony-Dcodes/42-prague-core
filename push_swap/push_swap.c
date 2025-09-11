@@ -10,6 +10,8 @@ int main(int argc, char *argv[])
 {
 	int	i;
 	int	num;
+	t_stack	*stack_a;
+	t_stack	*temp;
 
 	i = 1;
 	if (argc == 1)
@@ -20,11 +22,21 @@ int main(int argc, char *argv[])
 		{
 			return (error());
 		}
+		if (i == 1)
+			stack_a = stack_new(num);
 		else
 		{
-			ft_printf("Number is int save: %d\n", num);
+			temp = stack_new(num);
+			stack_add_back(&stack_a, temp);
 		}
 		++i;
 	}
+	temp = stack_a;
+	while (temp)
+	{
+		ft_printf("%d\n", temp->value);
+		temp = temp->next;
+	}
+	stack_free(stack_a);
 	return (0);
 }
