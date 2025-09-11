@@ -5,9 +5,9 @@ CFLAGS = -Wall -Wextra -Werror -Ilibft/includes
 
 SRCS = \
 	push_swap.c \
-	ft_atoi_safe.c \
 	node_functions.c \
-	utils.c
+	utils.c \
+	init_stack_a.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   init_stack_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/11 17:50:01 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/11 21:31:38 by advorace         ###   ########.fr       */
+/*   Created: 2025/09/11 17:50:04 by advorace          #+#    #+#             */
+/*   Updated: 2025/09/11 21:34:00 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char *argv[])
+int	init_stack_a(t_stack **stack_a, int argc, char **argv)
 {
-	t_stack	*stack_a;
-	t_stack	*temp;
+	int	i;
+	int	value;
 
-	if (!init_stack_a(&stack_a, argc, argv))
-		return (error(&stack_a, &stack_a));
-	temp = stack_a;
-	ft_printf("Stack len: %d\n", stack_len(stack_a));
-	while (temp)
+	i = 1;
+	while (i < argc)
 	{
-		ft_printf("%d\n", temp->value);
-		temp = temp->next;
+		if (!ft_atoi_safe(argv[i], &value))
+			return (0);
+		if (i == 1)
+		{
+			*stack_a = stack_new(value);
+			if (!stack_a)
+				return (0);
+		}
+		else
+			stack_add_back(stack_a, stack_new(value));
+		++i;
 	}
-	stack_free(stack_a);
-	return (0);
+	return (1);
 }

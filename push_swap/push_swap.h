@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:44:16 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/11 18:15:44 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/11 21:22:31 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ t_stack	*stack_last(t_stack *lst);
 void	stack_free(t_stack *lst);
 int		stack_len(t_stack *lst);
 int		error(t_stack **stack_a, t_stack **stack_b);
+int		init_stack_a(t_stack **stack_a, int argc, char **argv);
 
 #endif
