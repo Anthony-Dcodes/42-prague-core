@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:50:01 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 10:11:26 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/14 10:59:54 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,43 +16,22 @@ int main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack *stack_b;
-	t_stack	*temp;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	if (!init_stack_a(&stack_a, argc, argv))
 		return (error(&stack_a, &stack_b));
-	temp = stack_a;
-	ft_printf("Stack len: %d\n", stack_len(stack_a));
-	while (temp)
-	{
-		ft_printf("%d\n", temp->value);
-		temp = temp->next;
-	}
-	printf("Use swap_a:\n");
+	print_stack(&stack_a, "a");
+
 	swap_a(&stack_a);
-	temp = stack_a;
-	while (temp)
-	{
-		ft_printf("%d\n", temp->value);
-		temp = temp->next;
-	}
-	printf("Use pb:\n");
+	print_stack(&stack_a, "a");
+
 	pb(&stack_a, &stack_b);
-	temp = stack_a;
-	while (temp)
-	{
-		ft_printf("%d\n", temp->value);
-		temp = temp->next;
-	}
-	printf("Use pb:\n");
 	pb(&stack_a, &stack_b);
-	temp = stack_a;
-	while (temp)
-	{
-		ft_printf("%d\n", temp->value);
-		temp = temp->next;
-	}
+	rotate(&stack_a);
+	print_stack(&stack_a, "a");
+	print_stack(&stack_b, "b");
+
 	stack_free(stack_a);
 	stack_free(stack_b);
 	return (0);

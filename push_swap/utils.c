@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:55:22 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/11 21:51:39 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/14 11:00:30 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,17 @@ int	ft_atoi_safe(const char *nptr, int *out)
 	}
 	*out = (int)(sign * result);
 	return (1);
+}
+
+void print_stack(t_stack **stack, char *stack_name)
+{
+	t_stack *temp;
+
+	temp = *stack;
+	ft_printf("Stack: %s\n", stack_name);
+	while (temp)
+	{
+		ft_printf("%d\n", temp->value);
+		temp = temp->next;
+	}
 }
