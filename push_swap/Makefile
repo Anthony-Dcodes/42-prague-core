@@ -7,11 +7,11 @@ SRCS = \
 	push_swap.c \
 	node_functions.c \
 	utils.c \
-	init_stack_a.c \
 	stack_ops_sa_sb_ss.c \
 	stack_ops_pa_pb.c \
 	stack_ops_ra_rb_rr.c \
-	stack_ops_rra_rrb_rrr.c
+	stack_ops_rra_rrb_rrr.c \
+	preprocessing.c
 
 OBJS = $(SRCS:.c=.o)
 

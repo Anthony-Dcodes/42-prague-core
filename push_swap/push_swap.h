@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:44:16 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 11:50:20 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/14 12:43:44 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ void	reverse_rotate(t_stack **stack);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
+int		duplicates_check(int argc, char **argv);
+int		sort_array(int n_elements, int array[]);
 
 #endif
