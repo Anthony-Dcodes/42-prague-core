@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 21:54:06 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 10:29:04 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/14 11:43:56 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ void swap_b(t_stack **stack_b)
 
 void swap_ss(t_stack **stack_a, t_stack **stack_b)
 {
-	swap_a(stack_a);
-	swap_b(stack_b);
+	swap(stack_a);
+	swap(stack_b);
 }
