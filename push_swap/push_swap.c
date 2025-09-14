@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:50:01 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 10:59:54 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/14 11:39:31 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ int main(int argc, char *argv[])
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
 	rotate(&stack_a);
+	print_stack(&stack_a, "a");
+	print_stack(&stack_b, "b");
+	rrr(&stack_a, &stack_b);
 	print_stack(&stack_a, "a");
 	print_stack(&stack_b, "b");
 

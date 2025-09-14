@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 16:56:23 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/11 17:45:05 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/14 11:42:16 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,16 @@ t_stack	*stack_last(t_stack *lst)
 	if (!lst)
 		return (NULL);
 	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
+
+// Return the second_last element of lst
+t_stack	*stack_second_last(t_stack *lst)
+{
+	if (!lst || !lst->next)
+		return (NULL);
+	while (lst->next->next)
 		lst = lst->next;
 	return (lst);
 }
