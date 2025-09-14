@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 21:54:06 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 11:43:56 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/14 11:50:00 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,21 @@ void swap(t_stack **stack)
 	*stack = second;
 }
 
-void swap_a(t_stack **stack_a)
+void sa(t_stack **stack_a)
 {
 	swap(stack_a);
+	ft_printf("sa\n");
 }
 
-void swap_b(t_stack **stack_b)
+void sb(t_stack **stack_b)
 {
 	swap(stack_b);
+	ft_printf("sb\n");
 }
 
-void swap_ss(t_stack **stack_a, t_stack **stack_b)
+void ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
+	ft_printf("ss\n");
 }

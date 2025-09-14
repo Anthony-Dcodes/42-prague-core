@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:44:16 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 11:41:37 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/14 11:50:20 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int		stack_len(t_stack *lst);
 int		error(t_stack **stack_a, t_stack **stack_b);
 int		init_stack_a(t_stack **stack_a, int argc, char **argv);
 void	swap(t_stack **stack);
-void	swap_a(t_stack **stack_a);
-void	swap_b(t_stack **stack_b);
-void	swap_ss(t_stack **stack_a, t_stack **stack_b);
+void	sa(t_stack **stack_a);
+void	sb(t_stack **stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b);
 void	push(t_stack **src, t_stack **dest);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);

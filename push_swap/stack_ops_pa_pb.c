@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 09:29:04 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 10:25:37 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/14 11:46:08 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ void push(t_stack **src, t_stack **dest)
 void pa(t_stack **stack_a, t_stack **stack_b)
 {
 	push(stack_a, stack_b);
+	ft_printf("pa\n");
 }
 
 void pb(t_stack **stack_a, t_stack **stack_b)
 {
 	push(stack_a, stack_b);
+	ft_printf("pb\n");
 }

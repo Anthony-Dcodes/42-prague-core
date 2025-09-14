@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 10:30:36 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 11:43:44 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/14 11:47:06 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,18 @@ void rotate(t_stack **stack)
 void ra(t_stack **stack_a)
 {
 	rotate(stack_a);
+	ft_printf("ra\n");
 }
 
 void rb(t_stack **stack_b)
 {
 	rotate(stack_b);
+	ft_printf("rb\n");
 }
 
 void rr(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
+	printf("rr\n");
 }
