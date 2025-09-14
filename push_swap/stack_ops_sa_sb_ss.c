@@ -1,47 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_operations_sa_sb_ss.c                        :+:      :+:    :+:   */
+/*   stack_ops_sa_sb_ss.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 21:54:06 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/11 22:29:56 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/14 10:29:04 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void swap(t_stack **stack)
+{
+	t_stack *first;
+	t_stack *second;
+
+	if (!*stack || !(*stack)->next)
+		return ;
+
+	first = *stack;
+	second = first->next;
+
+	first->next = second->next;
+	second->next = first;
+	*stack = second;
+}
+
 void swap_a(t_stack **stack_a)
 {
-	t_stack *first;
-	t_stack *second;
-
-	if (!*stack_a || !(*stack_a)->next)
-		return ;
-
-	first = *stack_a;
-	second = first->next;
-
-	first->next = second->next;
-	second->next = first;
-	*stack_a = second;
+	swap(stack_a);
 }
+
 void swap_b(t_stack **stack_b)
 {
-	t_stack *first;
-	t_stack *second;
-
-	if (!*stack_b || !(*stack_b)->next)
-		return ;
-
-	first = *stack_b;
-	second = first->next;
-
-	first->next = second->next;
-	second->next = first;
-	*stack_b = second;
+	swap(stack_b);
 }
+
 void swap_ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap_a(stack_a);
