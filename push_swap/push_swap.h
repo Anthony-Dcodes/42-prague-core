@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:44:16 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/15 19:45:43 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/15 19:59:25 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ int		sort_array(int n_elements, int array[]);
 int		first(t_stack *stack, int *out);
 int		second(t_stack *stack, int *out);
 int		last(t_stack *stack, int *out);
+int		check_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif

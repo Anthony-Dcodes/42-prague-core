@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:50:01 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/15 19:48:37 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/15 20:00:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
 		printf("second stack a value: %d\n", out);
 	if (last(stack_a, &out))
 		printf("last stack a value: %d\n", out);
+	printf("check stack sort: %d", check_sort(stack_a, stack_b));
 
 	stack_free(stack_a);
 	stack_free(stack_b);
