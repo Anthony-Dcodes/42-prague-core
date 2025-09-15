@@ -6,12 +6,13 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 09:29:04 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 11:46:08 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/15 19:23:51 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Push elemnt from src to the top of dest
 void push(t_stack **src, t_stack **dest)
 {
 	t_stack *temp;

@@ -6,12 +6,13 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 21:54:06 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 12:52:50 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/15 19:23:28 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Swap the first 2 elements at the top of stack
 void swap(t_stack **stack)
 {
 	t_stack *first;

@@ -6,12 +6,14 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 11:02:51 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 11:47:44 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/15 19:24:59 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Shift down all elements by 1
+// The last becomes first
 void reverse_rotate(t_stack **stack)
 {
 	t_stack *second_last;
