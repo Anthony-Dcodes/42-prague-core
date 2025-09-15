@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:50:01 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 11:50:59 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/15 19:48:37 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack *stack_b;
+	int		out;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -34,6 +35,12 @@ int main(int argc, char *argv[])
 	rrr(&stack_a, &stack_b);
 	print_stack(&stack_a, "a");
 	print_stack(&stack_b, "b");
+	if (first(stack_a, &out))
+		printf("first stack a value: %d\n", out);
+	if (second(stack_a, &out))
+		printf("second stack a value: %d\n", out);
+	if (last(stack_a, &out))
+		printf("last stack a value: %d\n", out);
 
 	stack_free(stack_a);
 	stack_free(stack_b);
