@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 19:27:56 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/15 19:58:32 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/16 14:43:49 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int last(t_stack *stack, int *out)
 	return (1);
 }
 
-int check_sort(t_stack *stack_a, t_stack *stack_b)
+int check_sorted(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_b)
 		return (0);
@@ -51,6 +51,30 @@ int check_sort(t_stack *stack_a, t_stack *stack_b)
 		if (stack_a->value > stack_a->next->value)
 			return (0);
 		stack_a = stack_a->next;
+	}
+	return (1);
+}
+
+// Check sorted order of stack
+// Used to check if b is sorted in descending order or a in ascending
+// 0 not sorted, 1 sorted
+int check_sort_order(t_stack *stack, char *direction)
+{
+	if (!stack)
+		return (1);
+	while (stack->next)
+	{
+		if (!ft_strncmp(direction, "ascending", 9))
+		{
+			if (stack->value > stack->next->value)
+				return (0);
+		}
+		else if (!ft_strncmp(direction, "descending", 10))
+		{
+			if (stack->value < stack->next->value)
+				return (0);
+		}
+		stack = stack->next;
 	}
 	return (1);
 }

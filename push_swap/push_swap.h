@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:44:16 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/15 19:59:25 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/16 14:44:11 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);
 void	ss(t_stack **stack_a, t_stack **stack_b);
 void	push(t_stack **src, t_stack **dest);
-void	pa(t_stack **stack_a, t_stack **stack_b);
+void	pa(t_stack **stack_b, t_stack **stack_a);
 void	pb(t_stack **stack_a, t_stack **stack_b);
 void	rotate(t_stack **stack);
 void	ra(t_stack **stack_a);
@@ -56,6 +56,8 @@ int		sort_array(int n_elements, int array[]);
 int		first(t_stack *stack, int *out);
 int		second(t_stack *stack, int *out);
 int		last(t_stack *stack, int *out);
-int		check_sort(t_stack *stack_a, t_stack *stack_b);
+int		check_sorted(t_stack *stack_a, t_stack *stack_b);
+void	main_sort(t_stack **stack_a, t_stack **stack_b, int argc);
+int		check_sort_order(t_stack *stack, char *direction);
 
 #endif
