@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 12:25:04 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 12:55:43 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/16 16:53:47 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,23 @@ int sort_array(int n_elements, int array[])
 	return (1);
 }
 
-int	duplicates_check(int argc, char **argv)
+int	duplicates_check(int argc, int *array)
 {
-	int	array[argc - 1];
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (array[i - 1] == array[i])
+			return (0);
+		++i;
+	}
+	return (1);
+
+}
+
+int create_safe_array(int argc, char **argv, int *array)
+{
 	int	i;
 	int value;
 
@@ -52,16 +66,7 @@ int	duplicates_check(int argc, char **argv)
 		array[i - 1] = value;
 		++i;
 	}
-	sort_array(argc - 1, array);
-	i = 1;
-	while (i < argc - 1)
-	{
-		if (array[i - 1] == array[i])
-			return (0);
-		++i;
-	}
 	return (1);
-
 }
 
 // Validate that input
@@ -100,21 +105,50 @@ int	ft_atoi_safe(const char *nptr, int *out)
 int	init_stack_a(t_stack **stack_a, int argc, char **argv)
 {
 	int	i;
-	int	value;
 	t_stack *new_node;
+	t_stack *temp;
+	int	*array;
+	int arg_count;
 
-	i = 1;
-	if (!duplicates_check(argc, argv))
+	i = 0;
+	arg_count = argc - 1;
+	array = malloc(arg_count * sizeof(int));
+	if (!array)
 		return (0);
-	while (i < argc)
+	if (!create_safe_array(argc, argv, array))
 	{
-		if (!ft_atoi_safe(argv[i], &value))
-			return (0);
-		new_node = stack_new(value);
+		free(array);
+		return (0);
+	}
+	while (i < arg_count)
+	{
+		new_node = stack_new(array[i]);
 		if (!new_node)
-			return (0);
+			{
+				free(array);
+				return (0);
+			}
 		stack_add_back(stack_a, new_node);
 		++i;
 	}
+	sort_array(arg_count, array);
+	if (!duplicates_check(arg_count, array))
+		{
+			free(array);
+			return (0);
+		}
+	temp = *stack_a;
+	while (temp)
+	{
+		i = 0;
+		while (i < arg_count)
+		{
+			if (temp->value == array[i])
+				temp->value = i;
+			++i;
+		}
+		temp = temp->next;
+	}
+	free(array);
 	return (1);
 }

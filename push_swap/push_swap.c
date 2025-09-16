@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:50:01 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/16 15:23:04 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/16 17:00:04 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
 
 	stack_a = NULL;
 	stack_b = NULL;
+	//printf("argument count: %d\n", argc);
 	//printf("%s\n", argv[1]);
 	if (!init_stack_a(&stack_a, argc, argv))
 		return (error(&stack_a, &stack_b));

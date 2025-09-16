@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 19:49:51 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/16 14:57:46 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/16 16:59:09 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void main_sort(t_stack **stack_a, t_stack **stack_b, int argc)
 	int	second_n;
 	int number_cnt;
 
-	number_cnt = argc - 1;
+	number_cnt = argc - 2;
 	while (!check_sorted(*stack_a, *stack_b))
 	{
 		if (first(*stack_a, &first_n))
