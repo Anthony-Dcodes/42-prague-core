@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 12:25:04 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/16 16:53:47 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:30:49 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ int	ft_atoi_safe(const char *nptr, int *out)
 	i = 0;
 	sign = 1;
 	result = 0;
+	if (!nptr || nptr[0] == '\0')
+		return (0);
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i++] == '-')
