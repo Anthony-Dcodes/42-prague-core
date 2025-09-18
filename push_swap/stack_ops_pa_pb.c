@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 09:29:04 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/16 11:10:21 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/18 16:04:06 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void push(t_stack **src, t_stack **dest)
 	temp->next = *dest;
 	*dest = temp;
 }
-void pa(t_stack **stack_a, t_stack **stack_b)
+void pa(t_stack **stack_b, t_stack **stack_a)
 {
 	push(stack_b, stack_a);
 	ft_printf("pa\n");
