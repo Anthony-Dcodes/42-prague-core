@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:44:16 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/16 16:41:54 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/30 20:40:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int		check_sorted(t_stack *stack_a, t_stack *stack_b);
 void	main_sort(t_stack **stack_a, t_stack **stack_b, int argc);
 int		check_sort_order(t_stack *stack, char *direction);
 int		create_safe_array(int argc, char **argv, int *array);
+int		stack_number_pos(t_stack *stack, int number);
 
 #endif

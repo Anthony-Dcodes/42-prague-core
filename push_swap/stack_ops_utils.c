@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 19:27:56 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/16 14:43:49 by advorace         ###   ########.fr       */
+/*   Updated: 2025/09/30 20:39:37 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,18 @@ int check_sort_order(t_stack *stack, char *direction)
 		stack = stack->next;
 	}
 	return (1);
+}
+
+// Return possition of the specific number in the stack
+int	stack_number_pos(t_stack *stack, int number)
+{
+	int	i;
+
+	i = 0;
+	while (stack->value != number)
+	{
+		stack = stack->next;
+		++i;
+	}
+	return (i);
 }
