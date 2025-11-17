@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 19:27:56 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/30 20:39:37 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/15 17:02:34 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,18 @@ int	stack_number_pos(t_stack *stack, int number)
 		++i;
 	}
 	return (i);
+}
+
+// Find number in a stack
+// If found return 1 else 0
+
+int find_number_in_stack(t_stack *stack, int number)
+{
+	while(stack)
+	{
+		if (stack->value == number)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
 }

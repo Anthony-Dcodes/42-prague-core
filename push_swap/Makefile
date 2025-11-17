@@ -13,7 +13,8 @@ SRCS = \
 	stack_ops_rra_rrb_rrr.c \
 	preprocessing.c \
 	stack_ops_utils.c \
-	sorting_algo.c
+	sorting_algo.c \
+	new_sort_algo.c
 
 OBJS = $(SRCS:.c=.o)
 

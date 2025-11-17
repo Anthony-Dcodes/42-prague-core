@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:44:16 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/30 20:40:02 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:48:16 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 } t_stack;
 
+/* Node operations */
 t_stack	*stack_new(int num);
 void	stack_add_back(t_stack **lst, t_stack *new);
 t_stack	*stack_last(t_stack *lst);
@@ -34,6 +35,9 @@ void	stack_free(t_stack *lst);
 int		stack_len(t_stack *lst);
 int		error(t_stack **stack_a, t_stack **stack_b);
 int		init_stack_a(t_stack **stack_a, int argc, char **argv);
+t_stack	*stack_second_last(t_stack *lst);
+
+/* Possible Stack operations */
 void	swap(t_stack **stack);
 void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);
@@ -46,11 +50,12 @@ void	ra(t_stack **stack_a);
 void	rb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
 void	print_stack(t_stack **stack, char *stack_name);
-t_stack	*stack_second_last(t_stack *lst);
 void	reverse_rotate(t_stack **stack);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
+
+/* Preprocessing / utilities */
 int		duplicates_check(int argc, int *array);
 int		sort_array(int n_elements, int array[]);
 int		first(t_stack *stack, int *out);
@@ -61,5 +66,10 @@ void	main_sort(t_stack **stack_a, t_stack **stack_b, int argc);
 int		check_sort_order(t_stack *stack, char *direction);
 int		create_safe_array(int argc, char **argv, int *array);
 int		stack_number_pos(t_stack *stack, int number);
+int		find_number_in_stack(t_stack *stack, int number);
+
+/* New sort algo*/
+void	main_sort_new(t_stack **stack_a, t_stack **stack_b, int argc);
+
 
 #endif

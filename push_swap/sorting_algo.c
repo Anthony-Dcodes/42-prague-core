@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 19:49:51 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/30 20:46:36 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/16 19:43:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void main_sort(t_stack **stack_a, t_stack **stack_b, int argc)
 	// Populate stack_b till there is only max value in stack_a
     while (!check_sorted(*stack_a, *stack_b))
     {
-		// print_stack(stack_a, "A");
-		// print_stack(stack_b, "B");
+		//print_stack(stack_a, "A");
+		//print_stack(stack_b, "B");
         if (!first(*stack_a, &first_n))
             break; // empty stack, safety
 

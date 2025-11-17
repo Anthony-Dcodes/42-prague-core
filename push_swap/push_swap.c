@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:50:01 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/18 15:33:00 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:48:29 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		return (error(&stack_a, &stack_b));
 	//print_stack(&stack_a, "A");
 	//print_stack(&stack_b, "B");
-	main_sort(&stack_a, &stack_b, argc);
+	main_sort_new(&stack_a, &stack_b, argc);
 	//print_stack(&stack_a, "A");
 	//print_stack(&stack_b, "B");
 	stack_free(stack_a);
