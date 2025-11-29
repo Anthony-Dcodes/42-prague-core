@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:40:00 by advorace          #+#    #+#             */
-/*   Updated: 2025/11/29 23:43:38 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/29 23:45:00 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ Rotates A when a value isn't in the chunk
 Optionally rotates B to keep smaller chunk values toward the bottom
 → This helps with faster sorting later.
 */
+
 static void	push_chunk_to_b(t_stack **stack_a, t_stack **stack_b,
 								int chunk_min, int chunk_max)
 {
