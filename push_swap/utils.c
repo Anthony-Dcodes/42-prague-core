@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:55:22 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 12:49:24 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/29 13:23:33 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,15 @@ int	error(t_stack **stack_a, t_stack **stack_b)
 void print_stack(t_stack **stack, char *stack_name)
 {
 	t_stack *temp;
+	int		i;
 
 	temp = *stack;
 	ft_printf("Stack: %s\n", stack_name);
+	i = 0;
 	while (temp)
 	{
-		ft_printf("%d\n", temp->value);
+		ft_printf("%d: %d\n", i, temp->value);
 		temp = temp->next;
+		++i;
 	}
 }

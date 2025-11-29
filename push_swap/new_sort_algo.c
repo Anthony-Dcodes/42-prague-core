@@ -6,11 +6,26 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:40:00 by advorace          #+#    #+#             */
-/*   Updated: 2025/11/17 16:07:48 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/29 23:33:25 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int check_sorted(t_stack *stack_a, t_stack *stack_b)
+{
+	if (stack_b)
+		return (0);
+	if (!stack_a)
+		return (1);
+	while (stack_a->next)
+	{
+		if (stack_a->value > stack_a->next->value)
+			return (0);
+		stack_a = stack_a->next;
+	}
+	return (1);
+}
 
 static void	sort_three(t_stack **stack_a)
 {
@@ -153,7 +168,13 @@ static int	find_max_pos(t_stack *stack)
 	}
 	return (max_pos);
 }
-
+/*
+Scans all elements of stack A exactly once
+Pushes only the values inside the chunk range to stack B
+Rotates A when a value isn't in the chunk
+Optionally rotates B to keep smaller chunk values toward the bottom
+→ This helps with faster sorting later.
+*/
 static void	push_chunk_to_b(t_stack **stack_a, t_stack **stack_b,
 								int chunk_min, int chunk_max)
 {

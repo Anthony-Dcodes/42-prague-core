@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:44:16 by advorace          #+#    #+#             */
-/*   Updated: 2025/11/17 15:48:16 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/29 23:34:27 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 #include "libft.h"
 #include "ft_printf.h"
-#include "stdio.h"
 
 int	ft_atoi_safe(const char *nptr, int *out);
 typedef struct s_stack
@@ -49,7 +48,6 @@ void	rotate(t_stack **stack);
 void	ra(t_stack **stack_a);
 void	rb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
-void	print_stack(t_stack **stack, char *stack_name);
 void	reverse_rotate(t_stack **stack);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
@@ -58,18 +56,12 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 /* Preprocessing / utilities */
 int		duplicates_check(int argc, int *array);
 int		sort_array(int n_elements, int array[]);
-int		first(t_stack *stack, int *out);
-int		second(t_stack *stack, int *out);
-int		last(t_stack *stack, int *out);
-int		check_sorted(t_stack *stack_a, t_stack *stack_b);
-void	main_sort(t_stack **stack_a, t_stack **stack_b, int argc);
-int		check_sort_order(t_stack *stack, char *direction);
 int		create_safe_array(int argc, char **argv, int *array);
-int		stack_number_pos(t_stack *stack, int number);
-int		find_number_in_stack(t_stack *stack, int number);
+void	print_stack(t_stack **stack, char *stack_name);
 
 /* New sort algo*/
 void	main_sort_new(t_stack **stack_a, t_stack **stack_b, int argc);
+void	main_sort(t_stack **stack_a, t_stack **stack_b, int argc);
 
 
 #endif
