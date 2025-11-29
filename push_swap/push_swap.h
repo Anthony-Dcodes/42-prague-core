@@ -6,25 +6,23 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:44:16 by advorace          #+#    #+#             */
-/*   Updated: 2025/11/29 23:43:11 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/29 23:53:44 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#define INT_MAX 2147483647
-#define INT_MIN (-2147483647 -1)
+# include "libft.h"
+# include "ft_printf.h"
+# include <limits.h>
 
-#include "libft.h"
-#include "ft_printf.h"
-
-int	ft_atoi_safe(const char *nptr, int *out);
+int		ft_atoi_safe(const char *nptr, int *out);
 typedef struct s_stack
 {
 	int				value;
 	struct s_stack	*next;
-} t_stack;
+}	t_stack;
 
 /* Node operations */
 t_stack	*stack_new(int num);
@@ -69,6 +67,5 @@ void	sort_three(t_stack **stack_a);
 int		find_min(t_stack *stack);
 int		find_min_pos(t_stack *stack);
 void	rotate_to_top(t_stack **stack, int pos, char stack_name);
-
 
 #endif
