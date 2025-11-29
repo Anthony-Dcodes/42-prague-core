@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:44:16 by advorace          #+#    #+#             */
-/*   Updated: 2025/11/29 23:34:27 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/29 23:43:11 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,13 @@ void	print_stack(t_stack **stack, char *stack_name);
 /* New sort algo*/
 void	main_sort_new(t_stack **stack_a, t_stack **stack_b, int argc);
 void	main_sort(t_stack **stack_a, t_stack **stack_b, int argc);
+
+/* Sorting algo utils */
+int		check_sorted(t_stack *stack_a, t_stack *stack_b);
+void	sort_three(t_stack **stack_a);
+int		find_min(t_stack *stack);
+int		find_min_pos(t_stack *stack);
+void	rotate_to_top(t_stack **stack, int pos, char stack_name);
 
 
 #endif
