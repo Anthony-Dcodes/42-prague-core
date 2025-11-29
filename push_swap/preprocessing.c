@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 12:25:04 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/18 15:30:49 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/29 13:52:23 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,10 @@ int	init_stack_a(t_stack **stack_a, int argc, char **argv)
 		while (i < arg_count)
 		{
 			if (temp->value == array[i])
-				temp->value = i;
+				{
+					temp->value = i;
+					break;
+				}
 			++i;
 		}
 		temp = temp->next;
