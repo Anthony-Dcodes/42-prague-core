@@ -6,31 +6,22 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:50:01 by advorace          #+#    #+#             */
-/*   Updated: 2025/11/29 22:49:53 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/30 12:58:24 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
-	t_stack *stack_b;
+	t_stack	*stack_b;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	//printf("argument count: %d\n", argc);
-	//printf("%s\n", argv[1]);
-	//ft_printf("%d\n", argc);
 	if (!init_stack_a(&stack_a, argc, argv))
 		return (error(&stack_a, &stack_b));
-	//print_stack(&stack_a, "A");
-	//print_stack(&stack_b, "B");
-	//return(0);
 	main_sort_new(&stack_a, &stack_b, argc);
-	//print_stack(&stack_a, "A");
-	//print_stack(&stack_b, "B");
-	//ft_printf("Sorted: %d", check_sorted(stack_a, stack_b));
 	stack_free(stack_a);
 	stack_free(stack_b);
 	return (0);
