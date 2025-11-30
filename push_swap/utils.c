@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:55:22 by advorace          #+#    #+#             */
-/*   Updated: 2025/11/29 13:23:33 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/30 12:53:16 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	error(t_stack **stack_a, t_stack **stack_b)
 	return (0);
 }
 
-void print_stack(t_stack **stack, char *stack_name)
+void	print_stack(t_stack **stack, char *stack_name)
 {
-	t_stack *temp;
+	t_stack	*temp;
 	int		i;
 
 	temp = *stack;
