@@ -12,6 +12,7 @@ SRCS = \
 	stack_ops_ra_rb_rr.c \
 	stack_ops_rra_rrb_rrr.c \
 	preprocessing.c \
+	preprocessing_utils.c \
 	new_sort_algo.c \
 	sort_utils.c
 
