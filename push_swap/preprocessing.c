@@ -6,17 +6,17 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 12:25:04 by advorace          #+#    #+#             */
-/*   Updated: 2025/11/29 13:52:23 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/30 11:52:46 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int sort_array(int n_elements, int array[])
+int	sort_array(int n_elements, int array[])
 {
-	int i;
-	int sorted;
-	int temp;
+	int	i;
+	int	sorted;
+	int	temp;
 
 	sorted = 0;
 	while (!sorted)
@@ -50,13 +50,12 @@ int	duplicates_check(int argc, int *array)
 		++i;
 	}
 	return (1);
-
 }
 
-int create_safe_array(int argc, char **argv, int *array)
+int	create_safe_array(int argc, char **argv, int *array)
 {
 	int	i;
-	int value;
+	int	value;
 
 	i = 1;
 	while (i < argc)
@@ -65,6 +64,21 @@ int create_safe_array(int argc, char **argv, int *array)
 			return (0);
 		array[i - 1] = value;
 		++i;
+	}
+	return (1);
+}
+
+static int	validate_int_check_sign(const char *nptr, int *sign, int *i)
+{
+	if (!nptr || nptr[0] == '\0')
+		return (0);
+	if (nptr[*i] == '-' || nptr[*i] == '+')
+	{
+		if (nptr[*i] == '-')
+			*sign = -1;
+		(*i)++;
+		if (nptr[*i] == '\0')
+			return (0);
 	}
 	return (1);
 }
@@ -80,15 +94,8 @@ int	ft_atoi_safe(const char *nptr, int *out)
 	i = 0;
 	sign = 1;
 	result = 0;
-	if (!nptr || nptr[0] == '\0')
+	if (!validate_int_check_sign(nptr, &sign, &i))
 		return (0);
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i++] == '-')
-			sign = -1;
-		if (nptr[i] == '\0')
-			return (0);
-	}
 	while (nptr[i])
 	{
 		if (nptr[i] < '0' || nptr[i] > '9')
