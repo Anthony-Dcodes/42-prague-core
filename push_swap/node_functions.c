@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 16:56:23 by advorace          #+#    #+#             */
-/*   Updated: 2025/09/14 11:42:16 by advorace         ###   ########.fr       */
+/*   Updated: 2025/11/30 12:56:30 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,29 +62,4 @@ t_stack	*stack_second_last(t_stack *lst)
 	while (lst->next->next)
 		lst = lst->next;
 	return (lst);
-}
-
-void	stack_free(t_stack *lst)
-{
-	t_stack	*tmp;
-
-	while (lst)
-	{
-		tmp = (lst)->next;
-		free(lst);
-		lst = tmp;
-	}
-}
-
-int	stack_len(t_stack *lst)
-{
-	int	i;
-
-	i = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		++i;
-	}
-	return (i);
 }

@@ -6,6 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -Ilibft/includes
 SRCS = \
 	push_swap.c \
 	node_functions.c \
+	node_functions_extended.c \
 	utils.c \
 	stack_ops_sa_sb_ss.c \
 	stack_ops_pa_pb.c \
