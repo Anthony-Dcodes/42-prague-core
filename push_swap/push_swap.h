@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:44:16 by advorace          #+#    #+#             */
-/*   Updated: 2025/11/29 23:53:44 by advorace         ###   ########.fr       */
+/*   Updated: 2025/12/02 20:30:45 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,8 @@ void	sort_three(t_stack **stack_a);
 int		find_min(t_stack *stack);
 int		find_min_pos(t_stack *stack);
 void	rotate_to_top(t_stack **stack, int pos, char stack_name);
+int		find_first_index_of_range(t_stack *stack, int min, int max);
+int		find_last_index_of_range(t_stack *stack, int min, int max);
+int		determine_rotations(t_stack *stack, int min, int max);
 
 #endif

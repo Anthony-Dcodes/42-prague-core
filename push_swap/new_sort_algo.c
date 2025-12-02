@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:40:00 by advorace          #+#    #+#             */
-/*   Updated: 2025/11/29 23:45:00 by advorace         ###   ########.fr       */
+/*   Updated: 2025/12/02 22:00:58 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,24 +72,30 @@ Optionally rotates B to keep smaller chunk values toward the bottom
 static void	push_chunk_to_b(t_stack **stack_a, t_stack **stack_b,
 								int chunk_min, int chunk_max)
 {
-	int	len;
-	int	rotations;
+	int	first_index;
 
-	len = stack_len(*stack_a);
-	rotations = 0;
-	while (rotations < len)
+	while (1)
 	{
-		if ((*stack_a)->value >= chunk_min
-			&& (*stack_a)->value <= chunk_max)
+		first_index = find_first_index_of_range(*stack_a, chunk_min, chunk_max);
+		if (first_index == -1)
+			break ;
+		if (first_index == 0)
 		{
 			pb(stack_a, stack_b);
 			if (*stack_b && (*stack_b)->next
 				&& (*stack_b)->value < chunk_min + (chunk_max - chunk_min) / 2)
-				rb(stack_b);
+			{
+				first_index = find_first_index_of_range(
+						*stack_a, chunk_min, chunk_max);
+				if (first_index != 0)
+					rr(stack_a, stack_b);
+				else
+					rb(stack_b);
+			}
+			continue ;
 		}
 		else
 			ra(stack_a);
-		rotations++;
 	}
 }
 
@@ -100,9 +106,9 @@ static void	sort_large(t_stack **stack_a, t_stack **stack_b, int size)
 	int	num_chunks;
 
 	if (size <= 100)
-		num_chunks = 5;
+		num_chunks = 4;
 	else
-		num_chunks = 15;
+		num_chunks = 9;
 	chunk_size = size / num_chunks;
 	chunk = 0;
 	while (chunk < num_chunks)
