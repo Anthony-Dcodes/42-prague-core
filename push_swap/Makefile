@@ -27,7 +27,7 @@ $(LIBFT):
 	@$(MAKE) -C libft
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $^ -o $@
 
 clean:
 	@$(MAKE) clean -C libft

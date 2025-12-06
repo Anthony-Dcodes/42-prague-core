@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:55:22 by advorace          #+#    #+#             */
-/*   Updated: 2025/11/30 12:53:16 by advorace         ###   ########.fr       */
+/*   Updated: 2025/12/06 12:16:08 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	error(t_stack **stack_a, t_stack **stack_b)
 {
-	if (stack_a || *stack_a)
+	if (stack_a && *stack_a)
 	{
 		stack_free(*stack_a);
 		*stack_a = NULL;
 	}
-	if (stack_b || *stack_b)
+	if (stack_b && *stack_b)
 	{
 		stack_free(*stack_b);
 		*stack_b = NULL;
