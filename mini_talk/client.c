@@ -14,14 +14,31 @@
 
 int	main(int argc, char *argv[])
 {
-	char	*pid;
-	char	*string;
+	pid_t	pid;
+	char	*str;
+	int		i;
+	int		bit;
+	char	c;
 	
-	pid = argv[1];
-	string = argv[2];
-	ft_printf("Number of arguments: %i\n", argc);
-	ft_printf("Arg 0: %s\n", argv[0]);
-	ft_printf("Pid: %s\n", pid);
-	ft_printf("String: %s\n", string);
+	if (argc != 3)
+		return (1);
+	pid = ft_atoi(argv[1]);
+	str = argv[2];
+	i = 0;
+	while (str[i])
+	{
+		bit = 7;
+		c = str[i];
+		while (bit >= 0)
+		{
+			if ((c >> bit) & 1)
+				kill(pid, SIGUSR2);
+			else
+				kill(pid, SIGUSR1);
+			usleep(100);
+			--bit;
+		}
+		++i;
+	}
 	return (0);
 }

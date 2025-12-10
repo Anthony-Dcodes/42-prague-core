@@ -12,8 +12,30 @@
 
 #include "server.h"
 
+static void handler(int sig)
+{
+	static unsigned char c;
+	static int bit_count;
+
+	c <<= 1;
+	if (sig == SIGUSR2)
+		c |= 1;
+	++bit_count;
+	if (bit_count == 8)
+	{
+		write(1, &c, 1);
+		c = 0;
+		bit_count = 0;
+	}
+}
+
 int	main()
 {
-	ft_printf("%i", getpid());
+	signal(SIGUSR1, handler);
+	signal(SIGUSR2, handler);
+
+	ft_printf("PID: %i\n", getpid());
+	while (1)
+		pause();
 	return (0);
 }
