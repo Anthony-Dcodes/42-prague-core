@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 19:55:07 by advorace          #+#    #+#             */
-/*   Updated: 2025/12/19 15:36:35 by advorace         ###   ########.fr       */
+/*   Updated: 2025/12/20 18:10:05 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "client.h"
+#include <stdio.h>
 
 int	main(int argc, char *argv[])
 {
