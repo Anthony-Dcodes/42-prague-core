@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 19:55:07 by advorace          #+#    #+#             */
-/*   Updated: 2025/12/19 15:27:50 by advorace         ###   ########.fr       */
+/*   Updated: 2025/12/19 15:36:35 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ int	main(int argc, char *argv[])
 	char	*str;
 	int		i;
 	int		bit;
-	char	c;
-	
+
 	if (argc != 3)
 		return (1);
 	pid = ft_atoi(argv[1]);
@@ -28,10 +27,9 @@ int	main(int argc, char *argv[])
 	while (str[i])
 	{
 		bit = 7;
-		c = str[i];
 		while (bit >= 0)
 		{
-			if ((c >> bit) & 1)
+			if ((str[i] >> bit) & 1)
 				kill(pid, SIGUSR2);
 			else
 				kill(pid, SIGUSR1);
