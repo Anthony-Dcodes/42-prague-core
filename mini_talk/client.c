@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 19:55:07 by advorace          #+#    #+#             */
-/*   Updated: 2025/12/06 14:06:17 by advorace         ###   ########.fr       */
+/*   Updated: 2025/12/19 15:27:50 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char *argv[])
 				kill(pid, SIGUSR2);
 			else
 				kill(pid, SIGUSR1);
-			usleep(100);
+			usleep(500);
 			--bit;
 		}
 		++i;
