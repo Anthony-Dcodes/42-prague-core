@@ -21,7 +21,8 @@ MLX = $(MLX_DIR)/libmlx.a
 
 SRCS = \
 	fractol.c \
-	color_manipulation.c
+	color_manipulation.c \
+	pixel_manipulations.c
 
 OBJS = $(SRCS:.c=.o)
 
