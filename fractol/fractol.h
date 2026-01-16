@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/16 18:57:12 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/16 19:34:36 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft.h"
 # include "ft_printf.h"
 # include <mlx.h>
+# include "keys.h"
 
 // Structures
 typedef struct	s_data {
@@ -43,5 +44,8 @@ int get_b(int trgb);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	my_mlx_square_put(t_data *data, int x, int y, int color, int size);
 
+// Hooks
+int	close_window_red_cross(t_vars *vars);
+int close_window_esc(int keycode, t_vars *vars);
 
 #endif

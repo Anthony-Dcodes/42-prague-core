@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 18:42:28 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/16 18:47:06 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/16 19:22:18 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,14 @@
 # define KEY_PLUS 61
 # define KEY_MINUS 45
 # endif
+
+// Events
+# define ON_KEYDOWN 2
+# define ON_KEYUP 3
+# define ON_MOUSEDOWN 4
+# define ON_MOUSEUP 5
+# define ON_MOUSEMOVE 6
+# define ON_EXPOSE 12
+# define ON_DESTROY 17
 
 #endif
