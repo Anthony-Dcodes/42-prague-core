@@ -1,7 +1,7 @@
 NAME = fractol
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Ilibft/includes
+CFLAGS = -Wall -Wextra -Ilibft/includes -I$(MLX_DIR) #-Werror
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -19,7 +19,9 @@ endif
 
 MLX = $(MLX_DIR)/libmlx.a
 
-SRCS =
+SRCS = \
+	fractol.c \
+	color_manipulation.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -30,7 +32,7 @@ all: $(LIBFT) $(MLX) $(NAME)
 $(LIBFT):
 	@$(MAKE) -C libft
 
-$(MLX)
+$(MLX):
 	@$(MAKE) -C $(MLX_DIR)
 
 $(NAME): $(OBJS) $(LIBFT) $(MLX)
@@ -43,7 +45,7 @@ clean:
 
 fclean: clean
 	@$(MAKE) fclean -C $(LIBFT_DIR)
-	rn -f $(MLX)
+	rm -f $(MLX)
 	rm -f $(NAME)
 
 re: fclean all

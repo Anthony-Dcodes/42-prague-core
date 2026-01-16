@@ -1,0 +1,5 @@
+libft/
+minilibx_opengl_20191021/
+minilibx-linux/
+*.o
+fractol
