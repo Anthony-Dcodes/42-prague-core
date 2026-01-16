@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/16 19:34:36 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/16 22:04:21 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 # include "ft_printf.h"
 # include <mlx.h>
 # include "keys.h"
+# include "colors.h"
 
 // Structures
+// Represents image itself
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
@@ -27,10 +29,15 @@ typedef struct	s_data {
 	int		endian;
 }	t_data;
 
+// Window context
 typedef struct s_vars {
 	void	*mlx;
 	void	*win;
 	t_data	img;
+	int		win_width;
+	int		win_height;
+	int		color_shift;
+	int		frame;
 }	t_vars;
 
 // Color manipulation
@@ -45,7 +52,12 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	my_mlx_square_put(t_data *data, int x, int y, int color, int size);
 
 // Hooks
-int	close_window_red_cross(t_vars *vars);
-int close_window_esc(int keycode, t_vars *vars);
+int	close_window_red_cross(void *param);
+int close_window_esc(int keycode, void *vars);
+int	key_hook(int key_code);
+int	mouse_possition_hook(int x, int y, void *param);
+
+// Rendering functions
+int	render_rainbow(void *param);
 
 #endif
