@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:39:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/16 22:10:16 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/17 13:02:03 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int main(void)
 	mlx_put_image_to_window(vars.mlx, vars.win, vars.img.img, 0, 0);
 	mlx_hook(vars.win, ON_DESTROY, 0, close_window_red_cross, &vars);
 	mlx_hook(vars.win, ON_KEYDOWN, 0, close_window_esc, &vars);
+	mlx_key_hook(vars.win, close_window_esc, &vars);
+	mlx_hook(vars.win, ON_KEYDOWN, 1L << 0, close_window_esc, &vars);
 	mlx_key_hook(vars.win, key_hook, &vars);
 	mlx_mouse_hook(vars.win, key_hook, &vars);
 	mlx_hook(vars.win, ON_MOUSEMOVE, 0, mouse_possition_hook, &vars);
