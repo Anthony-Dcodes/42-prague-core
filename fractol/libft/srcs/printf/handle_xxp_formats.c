@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_xXp_formats.c                               :+:      :+:    :+:   */
+/*   handle_xxp_formats.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 21:18:12 by advorace          #+#    #+#             */
-/*   Updated: 2025/07/15 21:47:01 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/23 16:25:37 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void static	to_upper(char *str)
+static void	to_upper(char *str)
 {
 	int	i;
 
