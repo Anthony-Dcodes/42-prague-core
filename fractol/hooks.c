@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/24 20:25:18 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/24 20:40:23 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,19 @@ int	move_circle_hook(int key_code, void *param)
 {
 	t_vars	*vars;
 	vars = (t_vars *)param;
+
+	if (key_code == KEY_ESC)
+	{
+		mlx_destroy_window(vars->mlx, vars->win);
+		exit(0);
+	}
 	if (key_code == KEY_W)
-		++vars->circle_y;
+		vars->circle_y += 10;
 	else if (key_code == KEY_A)
-		--vars->circle_x;
+		vars->circle_x -= 10;
 	else if (key_code == KEY_S)
-		--vars->circle_y;
+		vars->circle_y -= 10;
 	else if (key_code == KEY_D)
-		++vars->circle_x;
+		vars->circle_x += 10;
 	return (0);
 }
