@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/24 21:48:01 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/24 21:50:19 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,11 @@ int	move_circle_hook(int key_code, void *param)
 		exit(0);
 	}
 	if (key_code == KEY_W)
-		vars->circle_y += 10;
+		vars->circle_y -= 10;
 	else if (key_code == KEY_A)
 		vars->circle_x -= 10;
 	else if (key_code == KEY_S)
-		vars->circle_y -= 10;
+		vars->circle_y += 10;
 	else if (key_code == KEY_D)
 		vars->circle_x += 10;
 	return (0);
