@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:39:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/24 20:39:37 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/24 20:43:00 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(void)
 	//mlx_key_hook(vars.win, close_window_esc, &vars);
 	//mlx_hook(vars.win, ON_KEYDOWN, 1L << 0, close_window_esc, &vars);
 	//mlx_key_hook(vars.win, key_hook, &vars);
-	mlx_mouse_hook(vars.win, key_hook, &vars);
+	//mlx_mouse_hook(vars.win, key_hook, &vars);
 	//mlx_hook(vars.win, ON_MOUSEMOVE, 0, mouse_possition_hook, &vars);
 	mlx_key_hook(vars.win, move_circle_hook, &vars);
 	mlx_loop_hook(vars.mlx, render_circle, &vars);
