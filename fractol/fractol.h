@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/24 14:28:18 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/24 14:40:59 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ typedef struct s_vars {
 	int		win_height;
 	int		color_shift;
 	int		frame;
+	double	circle_x;
+	double	circle_y;
+	double	circle_size;
 }	t_vars;
 
 // Color manipulation
@@ -60,7 +63,7 @@ int	mouse_possition_hook(int x, int y, void *param);
 
 // Rendering functions
 int	render_rainbow(void *param);
-int	render_circle(void *param, int x2, int y2, double size);
+int	render_circle(void *param);
 
 // Math functions
 double	euclidian_distance(double x1, double x2, double y1, double y2);

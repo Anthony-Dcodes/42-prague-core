@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/24 14:27:31 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/24 14:40:49 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	render_rainbow(void *param)
 	return (0);
 }
 
-int	render_circle(void *param, int x2, int y2, double size)
+int	render_circle(void *param)
 {
 	t_vars	*vars;
 	double	x1;
@@ -53,8 +53,6 @@ int	render_circle(void *param, int x2, int y2, double size)
 	double	distance;
 
 	vars = (t_vars *)param;
-	x2 = (double)x1;
-	y2 = (double)y1;
 	x1 = 0;
 	y1 = 0;
 	while (y1 < vars->win_height)
@@ -62,8 +60,8 @@ int	render_circle(void *param, int x2, int y2, double size)
 		x1 = 0;
 		while (x1 < vars->win_width)
 		{
-			distance = euclidian_distance(x1, x2, y1, y2);
-			if (distance <= size)
+			distance = euclidian_distance(x1, vars->circle_x, y1, vars->circle_y);
+			if (distance <= vars->circle_size)
 				my_mlx_pixel_put(&vars->img, x1, y1, RED);
 			else
 				my_mlx_pixel_put(&vars->img, x1, y1, GREEN);
