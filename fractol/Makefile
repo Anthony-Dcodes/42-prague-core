@@ -24,7 +24,8 @@ SRCS = \
 	color_manipulation.c \
 	pixel_manipulations.c \
 	hooks.c \
-	rendering_function.c
+	rendering_function.c \
+	math_function.c
 
 OBJS = $(SRCS:.c=.o)
 
