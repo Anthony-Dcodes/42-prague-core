@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/24 20:51:45 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/24 21:45:32 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ int	move_circle_hook(int key_code, void *param)
 		exit(0);
 	}
 	if (key_code == KEY_W)
+	{
 		vars->circle_y += 10;
+		ft_printf("Printed W key and tried to add to circle_y: %d\n", vars->circle_y);
+	}
 	else if (key_code == KEY_A)
 		vars->circle_x -= 10;
 	else if (key_code == KEY_S)
