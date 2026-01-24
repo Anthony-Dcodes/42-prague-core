@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/24 14:40:59 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/24 20:25:36 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,9 @@ void	my_mlx_square_put(t_data *data, int x, int y, int color, int size);
 // Hooks
 int	close_window_red_cross(void *param);
 int close_window_esc(int keycode, void *vars);
-int	key_hook(int key_code);
+int	key_hook(int key_code, void *vars);
 int	mouse_possition_hook(int x, int y, void *param);
+int	move_circle_hook(int key_code, void *param);
 
 // Rendering functions
 int	render_rainbow(void *param);

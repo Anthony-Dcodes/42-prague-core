@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 18:42:28 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/16 19:22:18 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/24 19:55:59 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@
 # define KEY_DOWN 65364
 # define KEY_PLUS 61
 # define KEY_MINUS 45
+# define KEY_W 25
+# define KEY_A 38
+# define KEY_S 39
+# define KEY_D 40
 # endif
 
 // Events

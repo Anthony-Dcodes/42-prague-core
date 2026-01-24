@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/16 20:59:33 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/24 20:25:18 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int close_window_esc(int keycode, void	*param)
 	return (0);
 }
 
-int	key_hook(int key_code)
+int	key_hook(int key_code, void *param)
 {
 	ft_printf("Pressed key code: %d\n", key_code);
 	return (0);
@@ -45,5 +45,20 @@ int	mouse_possition_hook(int x, int y, void *param)
 
 	vars = (t_vars *)param;
 	ft_printf("Mouse is at: (%d, %d)\n", x, y);
+	return (0);
+}
+
+int	move_circle_hook(int key_code, void *param)
+{
+	t_vars	*vars;
+	vars = (t_vars *)param;
+	if (key_code == KEY_W)
+		++vars->circle_y;
+	else if (key_code == KEY_A)
+		--vars->circle_x;
+	else if (key_code == KEY_S)
+		--vars->circle_y;
+	else if (key_code == KEY_D)
+		++vars->circle_x;
 	return (0);
 }
