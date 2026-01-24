@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/16 22:10:34 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/24 14:27:31 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,35 @@ int	render_rainbow(void *param)
 	++vars->frame;
 	if (vars->frame % 100 == 0)
 		++vars->color_shift;
+	return (0);
+}
+
+int	render_circle(void *param, int x2, int y2, double size)
+{
+	t_vars	*vars;
+	double	x1;
+	double	y1;
+	double	distance;
+
+	vars = (t_vars *)param;
+	x2 = (double)x1;
+	y2 = (double)y1;
+	x1 = 0;
+	y1 = 0;
+	while (y1 < vars->win_height)
+	{
+		x1 = 0;
+		while (x1 < vars->win_width)
+		{
+			distance = euclidian_distance(x1, x2, y1, y2);
+			if (distance <= size)
+				my_mlx_pixel_put(&vars->img, x1, y1, RED);
+			else
+				my_mlx_pixel_put(&vars->img, x1, y1, GREEN);
+			++x1;
+		}
+		++y1;
+	}
+	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/24 10:57:39 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/24 14:28:18 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	mouse_possition_hook(int x, int y, void *param);
 
 // Rendering functions
 int	render_rainbow(void *param);
+int	render_circle(void *param, int x2, int y2, double size);
 
 // Math functions
 double	euclidian_distance(double x1, double x2, double y1, double y2);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:39:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/17 13:02:03 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/24 14:32:42 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(void)
 	mlx_key_hook(vars.win, key_hook, &vars);
 	mlx_mouse_hook(vars.win, key_hook, &vars);
 	mlx_hook(vars.win, ON_MOUSEMOVE, 0, mouse_possition_hook, &vars);
-	mlx_loop_hook(vars.mlx, render_rainbow, &vars);
+	mlx_loop_hook(vars.mlx, render_circle(&vars, 500, 500, 100), &vars);
 	mlx_loop(vars.mlx);
 
 }
