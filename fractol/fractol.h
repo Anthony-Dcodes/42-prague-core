@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/25 21:06:26 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/25 21:12:49 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ double	euclidian_distance(double x1, double x2, double y1, double y2);
 double	x_coordinate_to_complex_plane(int x, float x_min, float x_max, int width);
 double	y_coordinate_to_complex_plane(int y, float y_min, float y_max, int height);
 int		fractal_equation(double x, double y, t_fractal *fract);
-void	last_z_magniture(t_fractal *fract);
+void	last_z_magnitude(t_fractal *fract);
 void	smooth_iter_count(t_fractal *fract);
 void	compute_polynomial_pallete(t_fractal *fract);
 

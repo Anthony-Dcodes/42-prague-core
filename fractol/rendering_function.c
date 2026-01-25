@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/25 21:07:26 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/25 21:14:53 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,9 @@ int	render_fractal(void *param)
 	int		n_iterations;
 	t_fractal	*fract;
 
+	fract = malloc(sizeof(t_fractal));
+	if (fract == NULL)
+		return (0);
 	vars = (t_vars *)param;
 	y1 = 0;
 	while (y1 < vars->win_height)
@@ -99,5 +102,6 @@ int	render_fractal(void *param)
 		++y1;
 	}
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
+	free(fract);
 	return (0);
 }
