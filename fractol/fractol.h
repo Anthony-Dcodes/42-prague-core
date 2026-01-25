@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/25 14:59:09 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/25 15:22:26 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "math.h"
 # include "fractal_space.h"
 
-# define MAX_FRACTAL_ITER 100
+# define MAX_FRACTAL_ITER 500
 
 // Structures
 // Represents image itself
