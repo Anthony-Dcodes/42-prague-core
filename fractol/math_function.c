@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 10:53:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/25 21:26:58 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/25 21:30:26 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void smooth_iter_count(t_fractal *fract)
 
 	iter = fract->iter;
 	last_z_magnitude = fract->last_z_magnitude;
-	fract->smooth_iter_count = iter + 1 - (log(log(abs(last_z_magnitude))) / log(2));
+	fract->smooth_iter_count = iter + 1 - (log(log(fabs(last_z_magnitude))) / log(2));
 }
 
 void	compute_polynomial_pallete(t_fractal *fract)
