@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:39:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/25 14:59:30 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/25 15:18:14 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int main(void)
 	vars.mlx = mlx_init();
 	if (vars.mlx == NULL)
 		return (1);
-	vars.win_width = 1920;
-	vars.win_height = 1080;
+	vars.win_width = 800;
+	vars.win_height = 600;
 	vars.color_shift = 0;
 	vars.frame = 0;
 	vars.circle_x = 500;
