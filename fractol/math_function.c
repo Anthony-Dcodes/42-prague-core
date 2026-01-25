@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 10:53:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/25 14:51:13 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/25 15:07:24 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ double	x_coordinate_to_complex_plane(int x, float x_min, float x_max, int width)
 {
 	double	x_complex;
 
-	x_complex = x_min * x * ((x_max - x_min) / width);
+	x_complex = x_min + x * ((x_max - x_min) / width);
 	return (x_complex);
 }
 
@@ -32,7 +32,7 @@ double	y_coordinate_to_complex_plane(int y, float y_min, float y_max, int height
 {
 	double	y_complex;
 
-	y_complex = y_max * y * ((y_max - y_min) / height);
+	y_complex = y_max - y * ((y_max - y_min) / height);
 	return (y_complex);
 }
 int	fractal_equation(double x, double y)

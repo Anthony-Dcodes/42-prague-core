@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/25 14:58:59 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/25 15:07:51 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	render_fractal(void *param)
 		while (x1 < vars->win_width)
 		{
 			x_complex = x_coordinate_to_complex_plane(x1, MANDEL_X_MIN, MANDEL_X_MAX, vars->win_width);
-			y_complex = y_coordinate_to_complex_plane(y1, MANDEL_Y_MIN, MANDEL_Y_MIN, vars->win_height);
+			y_complex = y_coordinate_to_complex_plane(y1, MANDEL_Y_MIN, MANDEL_Y_MAX, vars->win_height);
 			if (MAX_FRACTAL_ITER == fractal_equation(x_complex, y_complex))
 				my_mlx_pixel_put(&vars->img, x1, y1, RED);
 			else
