@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:39:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/24 21:41:07 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/25 14:59:30 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int main(void)
 	t_vars	vars;
 
 	vars.mlx = mlx_init();
+	if (vars.mlx == NULL)
+		return (1);
 	vars.win_width = 1920;
 	vars.win_height = 1080;
 	vars.color_shift = 0;
@@ -25,6 +27,12 @@ int main(void)
 	vars.circle_y = 500;
 	vars.circle_size = 100;
 	vars.win = mlx_new_window(vars.mlx, vars.win_width, vars.win_height, "Hellow world!");
+	if (vars.win == NULL)
+	{
+		mlx_destroy_display(vars.mlx);
+		free(vars.mlx);
+		return (1);
+	}
 	vars.img.img = mlx_new_image(vars.mlx, vars.win_width, vars.win_height);
 	vars.img.addr = mlx_get_data_addr(vars.img.img, &vars.img.bits_per_pixel, &vars.img.line_length, &vars.img.endian);
 
@@ -38,7 +46,7 @@ int main(void)
 	//mlx_mouse_hook(vars.win, key_hook, &vars);
 	//mlx_hook(vars.win, ON_MOUSEMOVE, 0, mouse_possition_hook, &vars);
 	mlx_key_hook(vars.win, move_circle_hook, &vars);
-	mlx_loop_hook(vars.mlx, render_circle, &vars);
+	mlx_loop_hook(vars.mlx, render_fractal, &vars);
 	mlx_loop(vars.mlx);
 
 }

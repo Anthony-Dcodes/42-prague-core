@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/24 20:25:36 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/25 14:59:09 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include "keys.h"
 # include "colors.h"
 # include "math.h"
+# include "fractal_space.h"
+
+# define MAX_FRACTAL_ITER 100
 
 // Structures
 // Represents image itself
@@ -65,8 +68,12 @@ int	move_circle_hook(int key_code, void *param);
 // Rendering functions
 int	render_rainbow(void *param);
 int	render_circle(void *param);
+int	render_fractal(void *param);
 
 // Math functions
 double	euclidian_distance(double x1, double x2, double y1, double y2);
+double	x_coordinate_to_complex_plane(int x, float x_min, float x_max, int width);
+double	y_coordinate_to_complex_plane(int y, float y_min, float y_max, int height);
+int		fractal_equation(double x, double y);
 
 #endif
