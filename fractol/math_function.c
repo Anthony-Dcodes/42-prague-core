@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 10:53:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 19:41:01 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:26:21 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,33 @@ int	fractal_equation(double x, double y, t_fractal *fract)
 			break;
 		++iter;
 	}
+	fract->iter = iter;
+	return (iter);
+}
+
+int	fractal_julia_set(double x, double y, t_fractal *fract, double c_real, double c_imag)
+{
+	int		iter;
+	double	a;
+	double	b;
+	double	new_a;
+	double	new_b;
+
+	iter = 0;
+	a = x;
+	b = y;
+	while (iter < MAX_FRACTAL_ITER)
+	{
+		new_a = a*a - b*b + c_real;
+		new_b = 2*a*b +c_imag;
+		a = new_a;
+		b = new_b;
+		if (a*a + b*b > 4)
+			break;
+		++iter;
+	}
+	fract->a = a;
+	fract->b = b;
 	fract->iter = iter;
 	return (iter);
 }

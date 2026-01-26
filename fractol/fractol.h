@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 19:40:05 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:26:37 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ typedef struct s_vars {
 	double	circle_x;
 	double	circle_y;
 	double	circle_size;
+	double	c_real;
+	double	c_imag;
+	char	*fract_type;
 }	t_vars;
 
 // Fractal data
@@ -79,6 +82,7 @@ int	move_circle_hook(int key_code, void *param);
 int	render_rainbow(void *param);
 int	render_circle(void *param);
 int	render_fractal(void *param);
+int	fractal_julia_set(double x, double y, t_fractal *fract, double c_real, double c_imag);
 
 // Math functions
 double	euclidian_distance(double x1, double x2, double y1, double y2);
