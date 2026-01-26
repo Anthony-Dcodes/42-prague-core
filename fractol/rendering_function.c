@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/25 21:14:53 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 19:58:35 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,6 @@ int	render_fractal(void *param)
 	int		n_iterations;
 	t_fractal	*fract;
 
-	fract = malloc(sizeof(t_fractal));
-	if (fract == NULL)
-		return (0);
 	vars = (t_vars *)param;
 	y1 = 0;
 	while (y1 < vars->win_height)
@@ -94,14 +91,13 @@ int	render_fractal(void *param)
 		{
 			x_complex = x_coordinate_to_complex_plane(x1, MANDEL_X_MIN, MANDEL_X_MAX, vars->win_width);
 			y_complex = y_coordinate_to_complex_plane(y1, MANDEL_Y_MIN, MANDEL_Y_MAX, vars->win_height);
-			n_iterations = fractal_equation(x_complex, y_complex, fract);
-			compute_polynomial_pallete(fract);
-			my_mlx_pixel_put(&vars->img, x1, y1, fract->final_color);
+			n_iterations = fractal_equation(x_complex, y_complex, &fract);
+			compute_polynomial_pallete(&fract);
+			my_mlx_pixel_put(&vars->img, x1, y1, &fract->final_color);
 			++x1;
 		}
 		++y1;
 	}
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
-	free(fract);
 	return (0);
 }

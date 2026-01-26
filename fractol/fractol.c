@@ -6,13 +6,13 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:39:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/25 15:18:14 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 19:55:49 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int main(void)
+int main(int argc, char *argv[])
 {
 	t_vars	vars;
 
