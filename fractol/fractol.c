@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:39:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 20:28:53 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:31:35 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ int main(int argc, char *argv[])
 	vars.mlx = mlx_init();
 	if (vars.mlx == NULL)
 		return (1);
+
+	int i = 0;
+	while (argv[i])
+	{
+		ft_printf(argv[i]);
+		++i;
+	}
 	if (argc == 4 && argv[1] == "j")
 	{
 		vars.c_real = ft_atoi(argv[2]);
