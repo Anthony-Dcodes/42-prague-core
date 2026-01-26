@@ -49,6 +49,7 @@ SRCS = \
 	$(LIBFT_SRC_DIR)/ft_substr.c \
 	$(LIBFT_SRC_DIR)/ft_tolower.c \
 	$(LIBFT_SRC_DIR)/ft_toupper.c \
+	$(LIBFT_SRC_DIR)/ft_atof.c \
 	$(PRINTF_SRC_DIR)/common_print.c \
 	$(PRINTF_SRC_DIR)/ft_printf.c \
 	$(PRINTF_SRC_DIR)/handle_diu_formats.c \
