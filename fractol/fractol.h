@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 23:27:53 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 23:34:33 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "math.h"
 # include "fractal_space.h"
 
-# define MAX_FRACTAL_ITER 500
+# define MAX_FRACTAL_ITER 250
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0
 
@@ -50,10 +50,10 @@ typedef struct s_vars {
 	double	c_real;
 	double	c_imag;
 	char	fract_type;
-	double	x_min;
-	double	x_max;
-	double	y_min;
-	double	y_max;
+	long double	x_min;
+	long double	x_max;
+	long double	y_min;
+	long double	y_max;
 }	t_vars;
 
 // Fractal data
@@ -100,8 +100,8 @@ int	fractal_julia_set(double x, double y, t_fractal *fract, double c_real, doubl
 
 // Math functions
 double	euclidian_distance(double x1, double x2, double y1, double y2);
-double	x_coordinate_to_complex_plane(int x, double x_min, double x_max, int width);
-double	y_coordinate_to_complex_plane(int y, double y_min, double y_max, int height);
+double	x_coordinate_to_complex_plane(int x, long double x_min, long double x_max, int width);
+double	y_coordinate_to_complex_plane(int y, long double y_min, long double y_max, int height);
 int		fractal_equation(double x, double y, t_fractal *fract);
 void	last_z_magnitude(t_fractal *fract);
 void	smooth_iter_count(t_fractal *fract);
