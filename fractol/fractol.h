@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 22:33:29 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 22:57:06 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ typedef struct s_vars {
 	double	c_real;
 	double	c_imag;
 	char	fract_type;
+	double	x_min;
+	double	x_max;
+	double	y_min;
+	double	y_max;
 }	t_vars;
 
 // Fractal data
@@ -78,7 +82,12 @@ void	close_window(t_vars *vars);
 int	close_window_red_cross(void *param);
 int close_window_esc(int keycode, void	*param);
 
-// hooks
+// Mouse hooks
+void	zoom_in(int x, int y, t_vars *vars);
+void	zoom_out(int x, int y, t_vars *vars);
+int	mouse_zoom_hook(int button, int x, int y, void *param);
+
+// Hooks
 int	key_hook(int key_code, void *vars);
 int	mouse_possition_hook(int x, int y, void *param);
 int	move_circle_hook(int key_code, void *param);
@@ -100,5 +109,8 @@ void	compute_polynomial_pallete(t_fractal *fract);
 
 // Error functions
 void	print_usage_and_exit();
+
+// Initialisation
+void	init_t_vars(t_vars *vars);
 
 #endif

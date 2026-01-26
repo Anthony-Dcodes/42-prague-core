@@ -26,7 +26,9 @@ SRCS = \
 	hooks.c \
 	rendering_function.c \
 	math_function.c \
-	error.c
+	error.c \
+	mouse_hooks.c \
+	init_structs.c
 
 OBJS = $(SRCS:.c=.o)
 

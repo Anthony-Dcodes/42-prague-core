@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:39:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 22:35:07 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 22:57:39 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,7 @@ int main(int argc, char *argv[])
 	}
 	else
 		print_usage_and_exit();
-	vars.win_width = 800;
-	vars.win_height = 600;
-	vars.color_shift = 0;
-	vars.frame = 0;
-	vars.circle_x = 500;
-	vars.circle_y = 500;
-	vars.circle_size = 100;
+	init_t_vars(&vars);
 	vars.win = mlx_new_window(vars.mlx, vars.win_width, vars.win_height, "Hellow world!");
 	if (vars.win == NULL)
 	{
@@ -59,6 +53,7 @@ int main(int argc, char *argv[])
 	//mlx_hook(vars.win, ON_MOUSEMOVE, 0, mouse_possition_hook, &vars);
 	mlx_key_hook(vars.win, close_window_esc, &vars);
 	mlx_hook(vars.win, ON_DESTROY, 0, close_window_red_cross, &vars);
+	mlx_mouse_hook(vars.win, mouse_zoom_hook, &vars);
 
 	//mlx_key_hook(vars.win, move_circle_hook, &vars);
 	mlx_loop_hook(vars.mlx, render_fractal, &vars);
