@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 22:38:47 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 22:55:57 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 23:05:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int	mouse_zoom_hook(int button, int x, int y, void *param)
 		zoom_in(x, y, vars);
 	else if (button == ON_MOUSEUP)
 		zoom_out(x, y, vars);
+	ft_printf("button press on mouse zoom hook: %d\n", button);
 	return (0);
 }
