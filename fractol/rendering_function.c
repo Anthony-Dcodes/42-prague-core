@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 20:27:06 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 21:20:28 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	render_fractal(void *param)
 		x1 = 0;
 		while (x1 < vars->win_width)
 		{
-			if (vars->fract_type == "m")
+			if (vars->fract_type == 'm')
 			{
 				x_complex = x_coordinate_to_complex_plane(x1, MANDEL_X_MIN, MANDEL_X_MAX, vars->win_width);
 				y_complex = y_coordinate_to_complex_plane(y1, MANDEL_Y_MIN, MANDEL_Y_MAX, vars->win_height);
