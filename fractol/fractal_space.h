@@ -6,12 +6,15 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:19:21 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 19:45:19 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 23:10:40 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTAL_SPACE
 # define FRACTAL_SPACE
+
+// Scaling factor of zooming
+# define SCALING_FACTOR 0.95
 
 // Mandelbrot set plane
 # define MANDEL_X_MIN -2.5

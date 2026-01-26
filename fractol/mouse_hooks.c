@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 22:38:47 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 23:05:02 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 23:17:12 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,28 @@
 
 void	zoom_in(int x, int y, t_vars *vars)
 {
-	vars->x_min *= 0.95;
-	vars->x_max *= 0.95;
-	vars->y_min *= 0.95;
-	vars->y_max *= 0.95;
+	double	cx;
+	double	cy;
+
+	cx = x_coordinate_to_complex_plane(x, vars->x_min, vars->x_max, vars->win_width);
+	cy = y_coordinate_to_complex_plane(y, vars->y_min, vars->y_max, vars->win_height);
+	vars->x_min = cx + (vars->x_min - cx) * SCALING_FACTOR;
+	vars->x_max = cx + (vars->x_max - cx) * SCALING_FACTOR;
+	vars->y_min = cy + (vars->y_min - cy) * SCALING_FACTOR;
+	vars->y_max = cy + (vars->y_max - cy) * SCALING_FACTOR;
 }
 
 void	zoom_out(int x, int y, t_vars *vars)
 {
-	vars->x_min /= 0.95;
-	vars->x_max /= 0.95;
-	vars->y_min /= 0.95;
-	vars->y_max /= 0.95;
+	double	cx;
+	double	cy;
+
+	cx = x_coordinate_to_complex_plane(x, vars->x_min, vars->x_max, vars->win_width);
+	cy = y_coordinate_to_complex_plane(y, vars->y_min, vars->y_max, vars->win_height);
+	vars->x_min = cx + (vars->x_min - cx) / SCALING_FACTOR;
+	vars->x_max = cx + (vars->x_max - cx) / SCALING_FACTOR;
+	vars->y_min = cy + (vars->y_min - cy) / SCALING_FACTOR;
+	vars->y_max = cy + (vars->y_max - cy) / SCALING_FACTOR;
 }
 
 int	mouse_zoom_hook(int button, int x, int y, void *param)
