@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:39:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 20:07:33 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:28:53 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 		vars.c_imag = ft_atoi(argv[3]);
 		vars.fract_type = "j";
 	}
-	else
+	else if (argc == 2 && argv[1] == "m")
 	{
 		vars.fract_type = "m";
 	}
