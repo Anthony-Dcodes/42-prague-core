@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:39:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 20:54:58 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 21:18:39 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@ int main(int argc, char *argv[])
 	{
 		vars.c_real = ft_atof(argv[2]);
 		vars.c_imag = ft_atof(argv[3]);
-		vars.fract_type = "j";
+		vars.fract_type = 'j';
 	}
 	else if (argc == 2 && ft_strncmp(argv[1], "m", 2) == 0)
 	{
-		vars.fract_type = "m";
+		vars.fract_type = 'm';
 	}
+	else
+		print_usage_and_exit();
 	vars.win_width = 800;
 	vars.win_height = 600;
 	vars.color_shift = 0;

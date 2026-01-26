@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 20:26:37 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 21:18:18 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include "fractal_space.h"
 
 # define MAX_FRACTAL_ITER 100
+# define EXIT_FAILURE 1
+# define EXIT_SUCCESS 0
 
 // Structures
 // Represents image itself
@@ -47,7 +49,7 @@ typedef struct s_vars {
 	double	circle_size;
 	double	c_real;
 	double	c_imag;
-	char	*fract_type;
+	char	fract_type;
 }	t_vars;
 
 // Fractal data
@@ -92,5 +94,8 @@ int		fractal_equation(double x, double y, t_fractal *fract);
 void	last_z_magnitude(t_fractal *fract);
 void	smooth_iter_count(t_fractal *fract);
 void	compute_polynomial_pallete(t_fractal *fract);
+
+// Error functions
+void	print_usage_and_exit();
 
 #endif
