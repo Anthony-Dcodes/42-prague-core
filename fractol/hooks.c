@@ -6,30 +6,33 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/24 21:50:19 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 22:31:04 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+void	close_window(t_vars *vars)
+{
+	mlx_destroy_window(vars->mlx, vars->win);
+	exit(0);
+}
+
 int	close_window_red_cross(void *param)
 {
 	t_vars	*vars;
 	vars = (t_vars *)param;
-	mlx_destroy_window(vars->mlx, vars->win);
-	exit(0);
+	close_window(vars);
 	return (0);
 }
 
 int close_window_esc(int keycode, void	*param)
 {
 	t_vars	*vars;
+
 	vars = (t_vars *)param;
 	if (keycode == KEY_ESC)
-	{
-		mlx_destroy_window(vars->mlx, vars->win);
-		exit(0);
-	}
+		close_window(vars);
 	return (0);
 }
 
