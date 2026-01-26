@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 23:10:17 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 23:23:52 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ int	fractal_julia_set(double x, double y, t_fractal *fract, double c_real, doubl
 
 // Math functions
 double	euclidian_distance(double x1, double x2, double y1, double y2);
-double	x_coordinate_to_complex_plane(int x, float x_min, float x_max, int width);
-double	y_coordinate_to_complex_plane(int y, float y_min, float y_max, int height);
+double	x_coordinate_to_complex_plane(int x, double x_min, double x_max, int width);
+double	y_coordinate_to_complex_plane(int y, double y_min, double y_max, int height);
 int		fractal_equation(double x, double y, t_fractal *fract);
 void	last_z_magnitude(t_fractal *fract);
 void	smooth_iter_count(t_fractal *fract);
