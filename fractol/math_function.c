@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 10:53:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 23:23:31 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 23:35:23 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ double	euclidian_distance(double x1, double x2, double y1, double y2)
 	return (distance);
 }
 
-double	x_coordinate_to_complex_plane(int x, double x_min, double x_max, int width)
+double	x_coordinate_to_complex_plane(int x, long double x_min, long double x_max, int width)
 {
 	double	x_complex;
 
@@ -28,7 +28,7 @@ double	x_coordinate_to_complex_plane(int x, double x_min, double x_max, int widt
 	return (x_complex);
 }
 
-double	y_coordinate_to_complex_plane(int y, double y_min, double y_max, int height)
+double	y_coordinate_to_complex_plane(int y, long double y_min, long double y_max, int height)
 {
 	double	y_complex;
 
