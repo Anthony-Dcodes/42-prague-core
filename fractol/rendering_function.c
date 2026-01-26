@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 19:58:35 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:00:41 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	render_fractal(void *param)
 	double	x_complex;
 	double	y_complex;
 	int		n_iterations;
-	t_fractal	*fract;
+	t_fractal	fract;
 
 	vars = (t_vars *)param;
 	y1 = 0;
