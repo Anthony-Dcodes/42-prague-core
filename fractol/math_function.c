@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 10:53:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 19:36:28 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/26 19:41:01 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	compute_polynomial_pallete(t_fractal *fract)
 		return;
 	}
 	t = fract->smooth_iter_count / MAX_FRACTAL_ITER;
-	r = (int)(255 * (9*(1 - t)*pow(t, 3)));
+	r = (int)(255 * (9*(1 - t)*pow(t, 2)));
 	g = (int)(255 * (15*pow(1 - t, 2)*pow(t, 2)));
 	b = (int)(255 * (8.5*pow(1 - t, 3) *t));
 	fract->final_color = create_trgb(0, r, g, b);
