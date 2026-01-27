@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rendering_function.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 23:07:14 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 20:32:50 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,8 @@ int	render_fractal(void *param)
 			}
 			else
 			{
-				x_complex = x_coordinate_to_complex_plane(x1, JULIA_X_MIN, JULIA_X_MAX, vars->win_width);
-				y_complex = y_coordinate_to_complex_plane(y1, JULIA_Y_MIN, JULIA_Y_MAX, vars->win_height);
+				x_complex = x_coordinate_to_complex_plane(x1, vars->x_min, vars->x_max, vars->win_width);
+				y_complex = y_coordinate_to_complex_plane(y1, vars->y_min, vars->y_max, vars->win_height);
 				n_iterations = fractal_julia_set(x_complex, y_complex, &fract, vars->c_real, vars->c_imag);
 				compute_polynomial_pallete(&fract);
 				my_mlx_pixel_put(&vars->img, x1, y1, fract.final_color);
