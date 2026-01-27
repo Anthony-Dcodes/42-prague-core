@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 21:56:50 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 22:19:04 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,24 @@ int	mouse_possition_hook(int x, int y, void *param)
 	return (0);
 }
 
-int	move_circle_hook(int key_code, void *param)
-{
-	t_vars	*vars;
+// int	move_circle_hook(int key_code, void *param)
+// {
+// 	t_vars	*vars;
 
-	vars = (t_vars *)param;
-	ft_printf("Key pressed: %d\n", key_code);
-	if (key_code == KEY_ESC)
-	{
-		mlx_destroy_window(vars->mlx, vars->win);
-		exit(0);
-	}
-	if (key_code == KEY_W)
-		vars->circle_y -= 10;
-	else if (key_code == KEY_A)
-		vars->circle_x -= 10;
-	else if (key_code == KEY_S)
-		vars->circle_y += 10;
-	else if (key_code == KEY_D)
-		vars->circle_x += 10;
-	return (0);
-}
+// 	vars = (t_vars *)param;
+// 	ft_printf("Key pressed: %d\n", key_code);
+// 	if (key_code == KEY_ESC)
+// 	{
+// 		mlx_destroy_window(vars->mlx, vars->win);
+// 		exit(0);
+// 	}
+// 	if (key_code == KEY_W)
+// 		vars->circle_y -= 10;
+// 	else if (key_code == KEY_A)
+// 		vars->circle_x -= 10;
+// 	else if (key_code == KEY_S)
+// 		vars->circle_y += 10;
+// 	else if (key_code == KEY_D)
+// 		vars->circle_x += 10;
+// 	return (0);
+// }

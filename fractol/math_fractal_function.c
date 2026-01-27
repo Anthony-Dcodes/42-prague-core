@@ -6,13 +6,13 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 22:00:59 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 22:05:17 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 22:33:54 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	fractal_equation(double x, double y, t_fractal *fract)
+void	fractal_mandelbrot_set(double x, double y, t_fractal *fract)
 {
 	int		iter;
 	double	a;
@@ -32,11 +32,11 @@ int	fractal_equation(double x, double y, t_fractal *fract)
 		++iter;
 	}
 	fract->iter = iter;
-	return (iter);
+	return ;
 }
 
-int	fractal_julia_set(double x, double y, t_fractal *fract,
-					double c_real, double c_imag)
+void	fractal_julia_set(double x, double y, t_fractal *fract,
+					t_vars *vars)
 {
 	int		iter;
 	double	a;
@@ -49,8 +49,8 @@ int	fractal_julia_set(double x, double y, t_fractal *fract,
 	b = y;
 	while (iter < MAX_FRACTAL_ITER)
 	{
-		new_a = a * a - b * b + c_real;
-		new_b = 2 * a * b + c_imag;
+		new_a = a * a - b * b + vars->c_real;
+		new_b = 2 * a * b + vars->c_imag;
 		a = new_a;
 		b = new_b;
 		if (a * a + b * b > 4)
@@ -60,7 +60,7 @@ int	fractal_julia_set(double x, double y, t_fractal *fract,
 	fract->a = a;
 	fract->b = b;
 	fract->iter = iter;
-	return (iter);
+	return ;
 }
 
 void	last_z_magnitude(t_fractal *fract)

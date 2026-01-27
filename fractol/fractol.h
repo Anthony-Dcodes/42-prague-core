@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 22:09:26 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 22:41:32 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ typedef struct s_vars
 	int			win_height;
 	int			color_shift;
 	int			frame;
-	double		circle_x;
-	double		circle_y;
-	double		circle_size;
+	//double		circle_x;
+	//double		circle_y;
+	//double		circle_size;
 	double		c_real;
 	double		c_imag;
 	char		fract_type;
@@ -91,14 +91,20 @@ int		mouse_zoom_hook(int button, int x, int y, void *param);
 // Hooks
 int		key_hook(int key_code, void *vars);
 int		mouse_possition_hook(int x, int y, void *param);
-int		move_circle_hook(int key_code, void *param);
+//int		move_circle_hook(int key_code, void *param);
 
 // Rendering functions
 //int		render_rainbow(void *param);
 //int		render_circle(void *param);
 int		render_fractal(void *param);
-int		fractal_julia_set(double x, double y, t_fractal *fract,
-			double c_real, double c_imag);
+void	fractal_mandelbrot_set(double x, double y, t_fractal *fract);
+void	fractal_julia_set(double x, double y, t_fractal *fract,
+			t_vars *vars);
+void	render_mandlerbrot(t_vars *vars, t_fractal *fract,
+			int x1, int y1);
+void	render_julia(t_vars *vars, t_fractal *fract,
+			int x1, int y1);
+			
 
 // Math functions
 double	euclidian_distance(double x1, double x2,

@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 22:09:31 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 22:42:06 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,9 @@
 
 int	render_fractal(void *param)
 {
-	t_vars	*vars;
-	int		x1;
-	int		y1;
-	double	x_complex;
-	double	y_complex;
-	int		n_iterations;
+	t_vars		*vars;
+	int			x1;
+	int			y1;
 	t_fractal	fract;
 
 	vars = (t_vars *)param;
@@ -90,25 +87,37 @@ int	render_fractal(void *param)
 		while (x1 < vars->win_width)
 		{
 			if (vars->fract_type == 'm')
-			{
-				x_complex = x_coordinate_to_complex_plane(x1, vars->x_min, vars->x_max, vars->win_width);
-				y_complex = y_coordinate_to_complex_plane(y1, vars->y_min, vars->y_max, vars->win_height);
-				n_iterations = fractal_equation(x_complex, y_complex, &fract);
-				compute_polynomial_pallete(&fract);
-				my_mlx_pixel_put(&vars->img, x1, y1, fract.final_color);
-			}
+				render_mandlerbrot(vars, &fract, x1, y1);
 			else
-			{
-				x_complex = x_coordinate_to_complex_plane(x1, vars->x_min, vars->x_max, vars->win_width);
-				y_complex = y_coordinate_to_complex_plane(y1, vars->y_min, vars->y_max, vars->win_height);
-				n_iterations = fractal_julia_set(x_complex, y_complex, &fract, vars->c_real, vars->c_imag);
-				compute_polynomial_pallete(&fract);
-				my_mlx_pixel_put(&vars->img, x1, y1, fract.final_color);
-			}
+				render_julia(vars, &fract, x1, y1);
 			++x1;
 		}
 		++y1;
 	}
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
 	return (0);
+}
+
+void	render_mandlerbrot(t_vars *vars, t_fractal *fract, int x1, int y1)
+{
+	double		x_complex;
+	double		y_complex;
+
+	x_complex = x_coordinate_to_complex_plane(x1, vars->x_min, vars->x_max, vars->win_width);
+	y_complex = y_coordinate_to_complex_plane(y1, vars->y_min, vars->y_max, vars->win_height);
+	fractal_mandelbrot_set(x_complex, y_complex, fract);
+	compute_polynomial_pallete(fract);
+	my_mlx_pixel_put(&vars->img, x1, y1, fract->final_color);
+}
+
+void	render_julia(t_vars *vars, t_fractal *fract, int x1, int y1)
+{
+	double		x_complex;
+	double		y_complex;
+	
+	x_complex = x_coordinate_to_complex_plane(x1, vars->x_min, vars->x_max, vars->win_width);
+	y_complex = y_coordinate_to_complex_plane(y1, vars->y_min, vars->y_max, vars->win_height);
+	fractal_julia_set(x_complex, y_complex, fract, vars);
+	compute_polynomial_pallete(fract);
+	my_mlx_pixel_put(&vars->img, x1, y1, fract->final_color);
 }
