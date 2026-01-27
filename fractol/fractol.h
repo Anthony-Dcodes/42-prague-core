@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 21:03:21 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 21:07:07 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,6 @@ void	print_usage();
 void	init_t_vars(t_vars *vars, char fractal_type);
 
 // Clean-up
-void	clean_up(t_vars *vars);
+void	clean_up(t_vars *vars, int exit_status);
 
 #endif
