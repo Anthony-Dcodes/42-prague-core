@@ -30,7 +30,8 @@ SRCS = \
 	mouse_hooks.c \
 	init_structs.c \
 	clean_up.c \
-	arg_parser.c
+	arg_parser.c \
+	math_fractal_function.c
 
 OBJS = $(SRCS:.c=.o)
 

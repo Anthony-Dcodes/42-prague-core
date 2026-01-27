@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 21:55:49 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 22:09:26 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ int		mouse_possition_hook(int x, int y, void *param);
 int		move_circle_hook(int key_code, void *param);
 
 // Rendering functions
-int		render_rainbow(void *param);
-int		render_circle(void *param);
+//int		render_rainbow(void *param);
+//int		render_circle(void *param);
 int		render_fractal(void *param);
 int		fractal_julia_set(double x, double y, t_fractal *fract,
 			double c_real, double c_imag);

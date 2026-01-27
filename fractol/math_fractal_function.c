@@ -1,0 +1,106 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   math_fractal_function.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/27 22:00:59 by advorace          #+#    #+#             */
+/*   Updated: 2026/01/27 22:05:17 by advorace         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fractol.h"
+
+int	fractal_equation(double x, double y, t_fractal *fract)
+{
+	int		iter;
+	double	a;
+	double	b;
+
+	iter = 0;
+	a = 0.0;
+	b = 0.0;
+	while (iter < MAX_FRACTAL_ITER)
+	{
+		fract->a = a * a - b * b + x;
+		fract->b = 2 * a * b + y;
+		a = fract->a;
+		b = fract->b;
+		if (a * a + b * b > 4)
+			break ;
+		++iter;
+	}
+	fract->iter = iter;
+	return (iter);
+}
+
+int	fractal_julia_set(double x, double y, t_fractal *fract,
+					double c_real, double c_imag)
+{
+	int		iter;
+	double	a;
+	double	b;
+	double	new_a;
+	double	new_b;
+
+	iter = 0;
+	a = x;
+	b = y;
+	while (iter < MAX_FRACTAL_ITER)
+	{
+		new_a = a * a - b * b + c_real;
+		new_b = 2 * a * b + c_imag;
+		a = new_a;
+		b = new_b;
+		if (a * a + b * b > 4)
+			break ;
+		++iter;
+	}
+	fract->a = a;
+	fract->b = b;
+	fract->iter = iter;
+	return (iter);
+}
+
+void	last_z_magnitude(t_fractal *fract)
+{
+	double	a;
+	double	b;
+
+	a = fract->a;
+	b = fract->b;
+	fract->last_z_magnitude = sqrt(a * a + b * b);
+}
+
+void	smooth_iter_count(t_fractal *fract)
+{
+	int		iter;
+	double	last_z_magnitude;
+
+	iter = fract->iter;
+	last_z_magnitude = fract->last_z_magnitude;
+	fract->smooth_iter_count = iter + 1
+		- (log(log(fabs(last_z_magnitude))) / log(2));
+}
+
+void	compute_polynomial_pallete(t_fractal *fract)
+{
+	double	t;
+	double	r;
+	double	g;
+	double	b;
+
+	last_z_magnitude(fract);
+	smooth_iter_count(fract);
+	if (fract->iter == MAX_FRACTAL_ITER)
+	{
+		fract->final_color = BLACK;
+		return ;
+	}
+	t = fract->smooth_iter_count / MAX_FRACTAL_ITER;
+	r = (int)(255 * (9 * (1 - t) * pow(t, 2)));
+	g = (int)(255 * (15 * pow(1 - t, 2) * pow(t, 2)));
+	b = (int)(255 * (8.5 * pow(1 - t, 3) * t));
+	fract->final_color = create_trgb(0, r, g, b);
+}
