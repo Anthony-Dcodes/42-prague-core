@@ -29,9 +29,14 @@ SRCS = \
 	error.c \
 	mouse_hooks.c \
 	init_structs.c \
-	clean_up.c
+	clean_up.c \
+	arg_parser.c
 
 OBJS = $(SRCS:.c=.o)
+
+# --- Rebuild .o if headers change ---
+%.o: %.c fractol.h colors.h fractal_space.h keys.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # --- Build rules ---
 

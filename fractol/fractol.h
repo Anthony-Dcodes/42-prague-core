@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 21:07:07 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 21:44:48 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "math.h"
 # include "fractal_space.h"
 
-# define MAX_FRACTAL_ITER 250
+# define MAX_FRACTAL_ITER 100
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0
 
@@ -114,5 +114,8 @@ void	init_t_vars(t_vars *vars, char fractal_type);
 
 // Clean-up
 void	clean_up(t_vars *vars, int exit_status);
+
+// Parsing
+void	parse_arguments(t_vars *vars, int argc, char *argv[]);
 
 #endif
