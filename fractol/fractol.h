@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 23:34:33 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 20:34:00 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,6 @@ void	compute_polynomial_pallete(t_fractal *fract);
 void	print_usage_and_exit();
 
 // Initialisation
-void	init_t_vars(t_vars *vars);
+void	init_t_vars(t_vars *vars, char fractal_type);
 
 #endif

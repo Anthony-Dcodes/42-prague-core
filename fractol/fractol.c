@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:39:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 22:57:39 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 20:34:16 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	}
 	else
 		print_usage_and_exit();
-	init_t_vars(&vars);
+	init_t_vars(&vars, vars.fract_type);
 	vars.win = mlx_new_window(vars.mlx, vars.win_width, vars.win_height, "Hellow world!");
 	if (vars.win == NULL)
 	{
