@@ -28,7 +28,8 @@ SRCS = \
 	math_function.c \
 	error.c \
 	mouse_hooks.c \
-	init_structs.c
+	init_structs.c \
+	clean_up.c
 
 OBJS = $(SRCS:.c=.o)
 

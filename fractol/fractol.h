@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 20:34:00 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 21:03:21 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	my_mlx_square_put(t_data *data, int x, int y, int color, int size);
 
 // Escape hooks
-void	close_window(t_vars *vars);
 int	close_window_red_cross(void *param);
 int close_window_esc(int keycode, void	*param);
 
@@ -108,9 +107,12 @@ void	smooth_iter_count(t_fractal *fract);
 void	compute_polynomial_pallete(t_fractal *fract);
 
 // Error functions
-void	print_usage_and_exit();
+void	print_usage();
 
 // Initialisation
 void	init_t_vars(t_vars *vars, char fractal_type);
+
+// Clean-up
+void	clean_up(t_vars *vars);
 
 #endif

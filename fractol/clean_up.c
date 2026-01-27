@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   clean_up.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/26 21:10:07 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 21:03:08 by advorace         ###   ########.fr       */
+/*   Created: 2026/01/27 20:39:07 by advorace          #+#    #+#             */
+/*   Updated: 2026/01/27 20:58:22 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	print_usage()
+void	clean_up(t_vars *vars)
 {
-	ft_putstr_fd("Error: Wrong usage!\n", 2);
-	ft_putstr_fd("Usage:\n", 2);
-	ft_putstr_fd("  ./fractol m\n", 2);
-	ft_putstr_fd("  ./fractol j <real> <imag>\n", 2);
-	ft_putstr_fd("Hint: Julia values in range [-1.5, 1.5] look best.\n", 2);
+	if (!vars)
+		exit(0);
+	if (vars->img.img)
+		mlx_destroy_image(vars->mlx, vars->img.img);
+	if (vars->win)
+		mlx_destroy_window(vars->mlx, vars->win);
+	if (vars->mlx)
+	{
+		mlx_destroy_display(vars->mlx);
+		free(vars->mlx);
+	}
+	exit(0);
 }
