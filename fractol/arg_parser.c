@@ -6,11 +6,11 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 21:38:34 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 21:44:23 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 21:47:44 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "fractol.h"
+#include "fractol.h"
 
 void	parse_arguments(t_vars *vars, int argc, char *argv[])
 {

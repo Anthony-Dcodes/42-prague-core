@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color_manipulation.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 17:07:47 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/16 17:11:01 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 21:49:32 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	get_g(int trgb)
 	return ((trgb >> 8) & 0xFF);
 }
 
-int get_b(int trgb)
+int	get_b(int trgb)
 {
 	return (trgb & 0xFF);
 }

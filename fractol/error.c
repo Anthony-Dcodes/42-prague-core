@@ -6,13 +6,13 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 21:10:07 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 21:03:08 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 21:50:11 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	print_usage()
+void	print_usage(void)
 {
 	ft_putstr_fd("Error: Wrong usage!\n", 2);
 	ft_putstr_fd("Usage:\n", 2);

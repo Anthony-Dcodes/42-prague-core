@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 21:07:58 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 21:56:50 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 int	close_window_red_cross(void *param)
 {
 	t_vars	*vars;
+
 	vars = (t_vars *)param;
 	clean_up(vars, EXIT_SUCCESS);
 	return (0);
 }
 
-int close_window_esc(int keycode, void	*param)
+int	close_window_esc(int keycode, void	*param)
 {
 	t_vars	*vars;
 
@@ -48,8 +49,8 @@ int	mouse_possition_hook(int x, int y, void *param)
 int	move_circle_hook(int key_code, void *param)
 {
 	t_vars	*vars;
-	vars = (t_vars *)param;
 
+	vars = (t_vars *)param;
 	ft_printf("Key pressed: %d\n", key_code);
 	if (key_code == KEY_ESC)
 	{

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_space.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:19:21 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/26 23:10:40 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/27 21:51:20 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTAL_SPACE
-# define FRACTAL_SPACE
+#ifndef FRACTAL_SPACE_H
+# define FRACTAL_SPACE_H
 
 // Scaling factor of zooming
 # define SCALING_FACTOR 0.95
