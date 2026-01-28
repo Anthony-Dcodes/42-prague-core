@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 22:00:59 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 22:33:54 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/28 19:24:45 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	fractal_julia_set(double x, double y, t_fractal *fract,
 	iter = 0;
 	a = x;
 	b = y;
-	while (iter < MAX_FRACTAL_ITER)
+	while (iter < vars->max_fractal_iter)
 	{
 		new_a = a * a - b * b + vars->c_real;
 		new_b = 2 * a * b + vars->c_imag;
@@ -84,23 +84,23 @@ void	smooth_iter_count(t_fractal *fract)
 		- (log(log(fabs(last_z_magnitude))) / log(2));
 }
 
-void	compute_polynomial_pallete(t_fractal *fract)
+void	compute_polynomial_pallete(t_fractal *fract, t_vars *vars)
 {
-	double	t;
-	double	r;
-	double	g;
-	double	b;
+	long double	t;
+	long double	r;
+	long double	g;
+	long double	b;
 
 	last_z_magnitude(fract);
 	smooth_iter_count(fract);
-	if (fract->iter == MAX_FRACTAL_ITER)
+	if (fract->iter == vars->max_fractal_iter)
 	{
 		fract->final_color = BLACK;
 		return ;
 	}
-	t = fract->smooth_iter_count / MAX_FRACTAL_ITER;
-	r = (int)(255 * (9 * (1 - t) * pow(t, 2)));
-	g = (int)(255 * (15 * pow(1 - t, 2) * pow(t, 2)));
-	b = (int)(255 * (8.5 * pow(1 - t, 3) * t));
+	t = fract->smooth_iter_count / vars->max_fractal_iter;
+	r = (int)(255 * (15 * (1 - t) * pow(t, 2)));
+	g = (int)(255 * (8 * pow(1 - t, 2) * pow(t, 2)));
+	b = (int)(255 * (3 * pow(1 - t, 3) * t));
 	fract->final_color = create_trgb(0, r, g, b);
 }

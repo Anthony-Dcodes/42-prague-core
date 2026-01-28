@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 22:44:55 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/28 19:04:56 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	render_mandlerbrot(t_vars *vars, t_fractal *fract, int x1, int y1)
 	y_complex = y_coordinate_to_complex_plane(y1, vars->y_min,
 			vars->y_max, vars->win_height);
 	fractal_mandelbrot_set(x_complex, y_complex, fract);
-	compute_polynomial_pallete(fract);
+	compute_polynomial_pallete(fract, vars);
 	my_mlx_pixel_put(&vars->img, x1, y1, fract->final_color);
 }
 
@@ -123,6 +123,6 @@ void	render_julia(t_vars *vars, t_fractal *fract, int x1, int y1)
 	y_complex = y_coordinate_to_complex_plane(y1, vars->y_min,
 			vars->y_max, vars->win_height);
 	fractal_julia_set(x_complex, y_complex, fract, vars);
-	compute_polynomial_pallete(fract);
+	compute_polynomial_pallete(fract, vars);
 	my_mlx_pixel_put(&vars->img, x1, y1, fract->final_color);
 }

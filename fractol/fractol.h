@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/28 18:08:04 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/28 19:03:47 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "math.h"
 # include "fractal_space.h"
 
-# define MAX_FRACTAL_ITER 100
+# define MAX_FRACTAL_ITER 200
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0
 
@@ -56,6 +56,7 @@ typedef struct s_vars
 	long double	x_max;
 	long double	y_min;
 	long double	y_max;
+	int			max_fractal_iter;
 }	t_vars;
 
 // Fractal data
@@ -114,7 +115,7 @@ double	y_coordinate_to_complex_plane(int y, long double y_min,
 int		fractal_equation(double x, double y, t_fractal *fract);
 void	last_z_magnitude(t_fractal *fract);
 void	smooth_iter_count(t_fractal *fract);
-void	compute_polynomial_pallete(t_fractal *fract);
+void	compute_polynomial_pallete(t_fractal *fract, t_vars *vars);
 
 // Error functions
 void	print_usage(void);
