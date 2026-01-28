@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 22:19:04 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/28 18:07:57 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,6 @@ int	close_window_esc(int keycode, void	*param)
 	vars = (t_vars *)param;
 	if (keycode == KEY_ESC)
 		clean_up(vars, EXIT_SUCCESS);
-	return (0);
-}
-
-int	key_hook(int key_code, void *param)
-{
-	ft_printf("Pressed key code: %d\n", key_code);
 	return (0);
 }
 

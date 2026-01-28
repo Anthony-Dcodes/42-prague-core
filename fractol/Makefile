@@ -1,7 +1,7 @@
 NAME = fractol
 
 CC = cc
-CFLAGS = -Wall -Wextra -Ilibft/includes -I$(MLX_DIR) #-Werror
+CFLAGS = -Wall -Wextra -Ilibft/includes -I$(MLX_DIR) -Werror
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a

@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 22:41:32 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/28 18:08:04 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	zoom_out(int x, int y, t_vars *vars);
 int		mouse_zoom_hook(int button, int x, int y, void *param);
 
 // Hooks
-int		key_hook(int key_code, void *vars);
 int		mouse_possition_hook(int x, int y, void *param);
 //int		move_circle_hook(int key_code, void *param);
 
@@ -104,7 +103,6 @@ void	render_mandlerbrot(t_vars *vars, t_fractal *fract,
 			int x1, int y1);
 void	render_julia(t_vars *vars, t_fractal *fract,
 			int x1, int y1);
-			
 
 // Math functions
 double	euclidian_distance(double x1, double x2,
