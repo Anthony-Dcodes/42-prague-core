@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arg_parser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 21:38:34 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 21:47:44 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 20:46:28 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ void	parse_arguments(t_vars *vars, int argc, char *argv[])
 	else if (argc == 2 && ft_strncmp(argv[1], "m", 2) == 0)
 	{
 		vars->fract_type = 'm';
+	}
+	else if (argc == 2 && ft_strncmp(argv[1], "s", 2) == 0)
+	{
+		vars->fract_type = 's';
 	}
 	else
 	{
