@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:22:53 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/29 22:30:15 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 22:33:16 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,33 +69,6 @@ static int	pixel_in_ba(t_fractal *fract, int x, int y)
 	return (cross);
 }
 
-// Return 0 if pixel outside triangle
-// Return 1 if pixel inside triangle
-int	pixel_in_sirepinski(t_vars *vars, t_fractal *fract, int x, int y)
-{
-	int	side_lenght;
-	int	height;
-
-	height = vars->win_height;
-	side_lenght = 2*height / sqrt(3);
-	fract->triangle_Ax = vars->win_width / 2 - side_lenght / 2;
-	fract->triangle_Ay = vars->win_height;
-	fract->triangle_Bx = fract->triangle_Ax + side_lenght;
-	fract->triangle_By = vars->win_height;
-	fract->triangle_Cx = vars->win_width / 2;
-	fract->triangle_Cy = 0;
-	if (pixel_in_ac(fract, x, y) < 0)
-		return (0);
-	else if (pixel_in_cb(fract, x, y) < 0)
-		return (0);
-	else if (pixel_in_ba(fract, x, y) < 0)
-		return (0);
-	if (pixel_in_smallest_sub_triangle(fract->triangle_Ax, fract->triangle_Cy,
-	x, y))
-		return (1);
-	return (0);
-}
-
 static int	pixel_in_smallest_sub_triangle(int ax, int cy, int x, int y)
 {
 	int	tmp_dx;
@@ -123,3 +96,31 @@ static int	pixel_in_smallest_sub_triangle(int ax, int cy, int x, int y)
 		return (1);
 	return (0);
 }
+
+// Return 0 if pixel outside triangle
+// Return 1 if pixel inside triangle
+int	pixel_in_sirepinski(t_vars *vars, t_fractal *fract, int x, int y)
+{
+	int	side_lenght;
+	int	height;
+
+	height = vars->win_height;
+	side_lenght = 2*height / sqrt(3);
+	fract->triangle_Ax = vars->win_width / 2 - side_lenght / 2;
+	fract->triangle_Ay = vars->win_height;
+	fract->triangle_Bx = fract->triangle_Ax + side_lenght;
+	fract->triangle_By = vars->win_height;
+	fract->triangle_Cx = vars->win_width / 2;
+	fract->triangle_Cy = 0;
+	if (pixel_in_ac(fract, x, y) < 0)
+		return (0);
+	else if (pixel_in_cb(fract, x, y) < 0)
+		return (0);
+	else if (pixel_in_ba(fract, x, y) < 0)
+		return (0);
+	if (pixel_in_smallest_sub_triangle(fract->triangle_Ax, fract->triangle_Cy,
+	x, y))
+		return (1);
+	return (0);
+}
+
