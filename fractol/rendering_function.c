@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rendering_function.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/28 19:04:56 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 20:44:37 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,10 @@ int	render_fractal(void *param)
 		{
 			if (vars->fract_type == 'm')
 				render_mandlerbrot(vars, &fract, x1, y1);
-			else
+			else if (vars->fract_type == 'j')
 				render_julia(vars, &fract, x1, y1);
+			else if (vars->fract_type == 's')
+				render_sierpinski(vars, &fract, x1, y1);
 			++x1;
 		}
 		++y1;
@@ -125,4 +127,12 @@ void	render_julia(t_vars *vars, t_fractal *fract, int x1, int y1)
 	fractal_julia_set(x_complex, y_complex, fract, vars);
 	compute_polynomial_pallete(fract, vars);
 	my_mlx_pixel_put(&vars->img, x1, y1, fract->final_color);
+}
+
+void	render_sierpinski(t_vars *vars, t_fractal *fract, int x1, int y1)
+{
+	if (pixel_in_triangle(vars, fract, x1, y1))
+		my_mlx_pixel_put(&vars->img, x1, y1, RED);
+	else
+		my_mlx_pixel_put(&vars->img, x1, y1, BLACK);
 }

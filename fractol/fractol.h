@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/29 18:53:01 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 20:44:48 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,12 @@ typedef struct s_fractal
 	double	last_z_magnitude;
 	double	smooth_iter_count;
 	int		final_color;
+	int		triangle_Ax;
+	int		triangle_Ay;
+	int		triangle_Bx;
+	int		triangle_By;
+	int		triangle_Cx;
+	int		triangle_Cy;
 }	t_fractal;
 
 // Color manipulation
@@ -128,5 +134,9 @@ void	clean_up(t_vars *vars, int exit_status);
 
 // Parsing
 void	parse_arguments(t_vars *vars, int argc, char *argv[]);
+
+// Triangle fractal functions
+int		pixel_in_triangle(t_vars *vars, t_fractal *fract, int x, int y);
+void	render_sierpinski(t_vars *vars, t_fractal *fract, int x1, int y1);
 
 #endif
