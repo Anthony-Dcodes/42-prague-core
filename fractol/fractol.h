@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/29 20:44:48 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 22:19:16 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void	clean_up(t_vars *vars, int exit_status);
 void	parse_arguments(t_vars *vars, int argc, char *argv[]);
 
 // Triangle fractal functions
-int		pixel_in_triangle(t_vars *vars, t_fractal *fract, int x, int y);
+int		pixel_in_sirepinski(t_vars *vars, t_fractal *fract, int x, int y);
 void	render_sierpinski(t_vars *vars, t_fractal *fract, int x1, int y1);
 
 #endif

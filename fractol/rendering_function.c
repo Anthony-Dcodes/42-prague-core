@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/29 20:44:37 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 22:31:38 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void	render_julia(t_vars *vars, t_fractal *fract, int x1, int y1)
 
 void	render_sierpinski(t_vars *vars, t_fractal *fract, int x1, int y1)
 {
-	if (pixel_in_triangle(vars, fract, x1, y1))
+	if (pixel_in_sirepinski(vars, fract, x1, y1))
 		my_mlx_pixel_put(&vars->img, x1, y1, RED);
 	else
 		my_mlx_pixel_put(&vars->img, x1, y1, BLACK);

@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:22:53 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/29 21:15:45 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 22:30:15 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static int	pixel_in_ba(t_fractal *fract, int x, int y)
 
 // Return 0 if pixel outside triangle
 // Return 1 if pixel inside triangle
-int	pixel_in_triangle(t_vars *vars, t_fractal *fract, int x, int y)
+int	pixel_in_sirepinski(t_vars *vars, t_fractal *fract, int x, int y)
 {
 	int	side_lenght;
 	int	height;
@@ -90,5 +90,36 @@ int	pixel_in_triangle(t_vars *vars, t_fractal *fract, int x, int y)
 		return (0);
 	else if (pixel_in_ba(fract, x, y) < 0)
 		return (0);
-	return (1);
+	if (pixel_in_smallest_sub_triangle(fract->triangle_Ax, fract->triangle_Cy,
+	x, y))
+		return (1);
+	return (0);
+}
+
+static int	pixel_in_smallest_sub_triangle(int ax, int cy, int x, int y)
+{
+	int	tmp_dx;
+	int	tmp_dy;
+	int	dx;
+	int	dy;
+	int	skip;
+
+	dx = x - ax;
+	dy = y - cy;
+	tmp_dx = dx;
+	tmp_dy = dy;
+	skip = 0;
+	while (tmp_dx > 0 || tmp_dy > 0)
+	{
+		if ((tmp_dx % 2 == 1) && (tmp_dy % 2 == 1))
+		{
+			skip = 1;
+			break;
+		}
+		tmp_dx /= 2;
+		tmp_dy /= 2;
+	}
+	if (skip == 0)
+		return (1);
+	return (0);
 }
