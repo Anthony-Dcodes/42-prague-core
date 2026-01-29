@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:22:53 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/29 20:52:06 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 20:58:54 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,12 @@ static int	pixel_in_ba(t_fractal *fract, int x, int y)
 // Return 1 if pixel inside triangle
 int	pixel_in_triangle(t_vars *vars, t_fractal *fract, int x, int y)
 {
-	fract->triangle_Ax = vars->win_width / 2 - 100;
+	fract->triangle_Ax = vars->win_width / 2 - 300;
 	fract->triangle_Ay = vars->win_height;
-	fract->triangle_Bx = vars->win_width / 2 + 100;
+	fract->triangle_Bx = vars->win_width / 2 + 300;
 	fract->triangle_By = vars->win_height;
-	fract->triangle_Cx = 0;
-	fract->triangle_Cy = vars->win_width / 2;
+	fract->triangle_Cx = vars->win_width / 2;
+	fract->triangle_Cy = 0;
 	if (pixel_in_ac(fract, x, y) < 0)
 		return (0);
 	else if (pixel_in_cb(fract, x, y) < 0)
