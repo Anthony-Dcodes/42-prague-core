@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:22:53 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/29 23:10:53 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 23:16:40 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,25 +69,21 @@ static int	pixel_in_ba(t_fractal *fract, int x, int y)
 	return (cross);
 }
 
-static int	pixel_in_smallest_sub_triangle(int Cx, int Cy, int x, int y)
+static int pixel_in_smallest_sub_triangle(int ax, int ay, int x, int y, int side_length, int tri_height)
 {
-	int	tmp_dx;
-	int	tmp_dy;
-	int	dx;
-	int	dy;
+    int dx = x - ax;
+    int dy = (ay - y) * side_length / tri_height; // scale vertical to horizontal
+    int tmp_dx = dx;
+    int tmp_dy = dy;
 
-	dx = x - Cx;
-	dy = y - Cy;
-	tmp_dx = dx;
-	tmp_dy = dy;
-	while (tmp_dx != 0 || tmp_dy != 0)
-	{
-		if ((tmp_dx % 2 == 1) && (tmp_dy % 2 == 1))
-			return (0);
-		tmp_dx /= 2;
-		tmp_dy /= 2;
-	}
-	return (1);
+    while (tmp_dx > 0 || tmp_dy > 0)
+    {
+        if ((tmp_dx % 2 == 1) && (tmp_dy % 2 == 1))
+            return 0; // skip middle triangle
+        tmp_dx /= 2;
+        tmp_dy /= 2;
+    }
+    return 1; // pixel belongs to fractal
 }
 
 // Return 0 if pixel outside triangle
@@ -111,8 +107,7 @@ int	pixel_in_sirepinski(t_vars *vars, t_fractal *fract, int x, int y)
 		return (0);
 	else if (pixel_in_ba(fract, x, y) < 0)
 		return (0);
-	if (pixel_in_smallest_sub_triangle(fract->triangle_Cx, fract->triangle_Cy,
-	x, y))
+	if (pixel_in_smallest_sub_triangle(fract->triangle_Ax, fract->triangle_Ay, x, y, side_lenght, height))
 		return (1);
 	return (0);
 }
