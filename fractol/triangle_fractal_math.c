@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:22:53 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/29 22:38:44 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 22:39:40 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ int	pixel_in_sirepinski(t_vars *vars, t_fractal *fract, int x, int y)
 		return (0);
 	else if (pixel_in_ba(fract, x, y) < 0)
 		return (0);
-	if (pixel_in_smallest_sub_triangle(fract->triangle_Cx, fract->triangle_Ay,
+	if (pixel_in_smallest_sub_triangle(fract->triangle_Cy, fract->triangle_Ax,
 	x, y))
 		return (1);
 	return (0);
