@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   triangle_fractla_math.c                            :+:      :+:    :+:   */
+/*   triangle_fractal_math.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:22:53 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/29 20:41:13 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 20:52:06 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Return 0 pixel on line ac
 // Return 1 pixel on the right ac
 // Return -1 pixel on the left ac
-int static	pixel_in_ac(t_fractal *fract, int x, int y)
+static int	pixel_in_ac(t_fractal *fract, int x, int y)
 {
 	int	ac_x;
 	int	ac_y;
@@ -34,7 +34,7 @@ int static	pixel_in_ac(t_fractal *fract, int x, int y)
 // Return 0 pixel on line cb
 // Return 1 pixel on the right cb
 // Return -1 pixel on the left cb
-int static	pixel_in_cb(t_fractal *fract, int x, int y)
+static int	pixel_in_cb(t_fractal *fract, int x, int y)
 {
 	int	cb_x;
 	int	cb_y;
@@ -53,7 +53,7 @@ int static	pixel_in_cb(t_fractal *fract, int x, int y)
 // Return 0 pixel on line ba
 // Return 1 pixel on the right ba
 // Return -1 pixel on the left ba
-int static	pixel_in_ba(t_fractal *fract, int x, int y)
+static int	pixel_in_ba(t_fractal *fract, int x, int y)
 {
 	int	ba_x;
 	int	ba_y;
