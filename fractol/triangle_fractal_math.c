@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:22:53 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/29 22:45:22 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 22:51:48 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,16 +85,11 @@ static int	pixel_in_smallest_sub_triangle(int ax, int ay, int x, int y)
 	while (tmp_dx > 0 || tmp_dy > 0)
 	{
 		if ((tmp_dx % 2 == 1) && (tmp_dy % 2 == 1))
-		{
-			skip = 1;
-			break;
-		}
+			return (0);
 		tmp_dx /= 2;
 		tmp_dy /= 2;
 	}
-	if (skip == 0)
-		return (1);
-	return (0);
+	return (1);
 }
 
 // Return 0 if pixel outside triangle
