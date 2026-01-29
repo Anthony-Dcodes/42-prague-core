@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:22:53 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/29 21:12:19 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 21:15:45 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	pixel_in_triangle(t_vars *vars, t_fractal *fract, int x, int y)
 
 	height = vars->win_height;
 	side_lenght = 2*height / sqrt(3);
-	fract->triangle_Ax = height / 2 - side_lenght / 2;
+	fract->triangle_Ax = vars->win_width / 2 - side_lenght / 2;
 	fract->triangle_Ay = vars->win_height;
 	fract->triangle_Bx = fract->triangle_Ax + side_lenght;
 	fract->triangle_By = vars->win_height;
