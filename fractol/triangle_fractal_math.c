@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:22:53 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/29 22:40:42 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 22:45:22 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int	pixel_in_ba(t_fractal *fract, int x, int y)
 	return (cross);
 }
 
-static int	pixel_in_smallest_sub_triangle(int ax, int cy, int x, int y)
+static int	pixel_in_smallest_sub_triangle(int ax, int ay, int x, int y)
 {
 	int	tmp_dx;
 	int	tmp_dy;
@@ -78,7 +78,7 @@ static int	pixel_in_smallest_sub_triangle(int ax, int cy, int x, int y)
 	int	skip;
 
 	dx = x - ax;
-	dy = y - cy;
+	dy = ay - y;
 	tmp_dx = dx;
 	tmp_dy = dy;
 	skip = 0;
@@ -118,7 +118,7 @@ int	pixel_in_sirepinski(t_vars *vars, t_fractal *fract, int x, int y)
 		return (0);
 	else if (pixel_in_ba(fract, x, y) < 0)
 		return (0);
-	if (pixel_in_smallest_sub_triangle(fract->triangle_Ax, fract->triangle_Cy,
+	if (pixel_in_smallest_sub_triangle(fract->triangle_Ax, fract->triangle_Ay,
 	x, y))
 		return (1);
 	return (0);
