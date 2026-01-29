@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/28 18:07:57 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 18:52:44 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ int	close_window_esc(int keycode, void	*param)
 	return (0);
 }
 
-int	mouse_possition_hook(int x, int y, void *param)
-{
-	t_vars	*vars;
+// int	mouse_possition_hook(int x, int y, void *param)
+// {
+// 	t_vars	*vars;
 
-	vars = (t_vars *)param;
-	ft_printf("Mouse is at: (%d, %d)\n", x, y);
-	return (0);
-}
+// 	vars = (t_vars *)param;
+// 	ft_printf("Mouse is at: (%d, %d)\n", x, y);
+// 	return (0);
+// }
 
 // int	move_circle_hook(int key_code, void *param)
 // {

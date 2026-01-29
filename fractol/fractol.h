@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/28 19:03:47 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/29 18:53:01 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	zoom_out(int x, int y, t_vars *vars);
 int		mouse_zoom_hook(int button, int x, int y, void *param);
 
 // Hooks
-int		mouse_possition_hook(int x, int y, void *param);
+//int		mouse_possition_hook(int x, int y, void *param);
 //int		move_circle_hook(int key_code, void *param);
 
 // Rendering functions
