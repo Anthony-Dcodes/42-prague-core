@@ -6,11 +6,24 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/29 18:52:44 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/30 23:06:47 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void static move_screen(t_vars *vars, int keycode)
+{
+	if (keycode == KEY_LEFT)
+		vars->x_min -= 0.05;
+	else if (keycode == KEY_UP)
+		vars->y_min -= 0.05;
+	else if (keycode == KEY_DOWN)
+		vars->y_max += 0.05;
+	else if (keycode == KEY_RIGHT)
+		vars->x_max += 0.05;
+
+}
 
 int	close_window_red_cross(void *param)
 {
@@ -28,6 +41,11 @@ int	close_window_esc(int keycode, void	*param)
 	vars = (t_vars *)param;
 	if (keycode == KEY_ESC)
 		clean_up(vars, EXIT_SUCCESS);
+	else if (keycode == KEY_LEFT ||
+			keycode == KEY_UP ||
+			keycode == KEY_DOWN ||
+			keycode == KEY_RIGHT)
+		move_screen(vars, keycode);
 	return (0);
 }
 
