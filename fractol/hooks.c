@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/30 23:40:36 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/30 23:43:57 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	move_screen(t_vars *vars, int keycode)
 {
-	int	step;
+	long double	step;
 
 	step = (fabsl(vars->x_min) + fabsl(vars->x_max)) / 20;
 	if (keycode == KEY_LEFT)
