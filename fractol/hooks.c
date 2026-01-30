@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/30 23:53:02 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/30 23:56:17 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	move_screen(t_vars *vars, int keycode)
 {
-	long double step_x;
-	long double step_y;
+	long double	step_x;
+	long double	step_y;
 
 	step_x = (vars->x_max - vars->x_min) * 0.05;
 	step_y = (vars->y_max - vars->y_min) * 0.05;
@@ -39,7 +39,6 @@ static void	move_screen(t_vars *vars, int keycode)
 		vars->y_min += step_y;
 		vars->y_max += step_y;
 	}
-
 }
 
 int	close_window_red_cross(void *param)
@@ -58,10 +57,10 @@ int	close_window_esc(int keycode, void	*param)
 	vars = (t_vars *)param;
 	if (keycode == KEY_ESC)
 		clean_up(vars, EXIT_SUCCESS);
-	else if (keycode == KEY_LEFT ||
-			keycode == KEY_UP ||
-			keycode == KEY_DOWN ||
-			keycode == KEY_RIGHT)
+	else if (keycode == KEY_LEFT
+		|| keycode == KEY_UP
+		|| keycode == KEY_DOWN
+		|| keycode == KEY_RIGHT)
 		move_screen(vars, keycode);
 	return (0);
 }
