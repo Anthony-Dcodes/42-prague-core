@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/30 23:47:00 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/30 23:53:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,30 @@
 
 static void	move_screen(t_vars *vars, int keycode)
 {
-	long double	step;
+	long double step_x;
+	long double step_y;
 
-	step = (fabsl(vars->x_min) + fabsl(vars->x_max)) / 20;
+	step_x = (vars->x_max - vars->x_min) * 0.05;
+	step_y = (vars->y_max - vars->y_min) * 0.05;
 	if (keycode == KEY_LEFT)
 	{
-		vars->x_min -= step;
-		vars->x_max -= step;
-	}
-	else if (keycode == KEY_UP)
-	{
-		vars->y_min += step;
-		vars->y_max += step;
-	}
-	else if (keycode == KEY_DOWN)
-	{
-		vars->y_max -= step;
-		vars->y_min -= step;
+		vars->x_min -= step_x;
+		vars->x_max -= step_x;
 	}
 	else if (keycode == KEY_RIGHT)
 	{
-		vars->x_max += step;
-		vars->x_min += step;
+		vars->x_min += step_x;
+		vars->x_max += step_x;
+	}
+	else if (keycode == KEY_UP)
+	{
+		vars->y_min -= step_y;
+		vars->y_max -= step_y;
+	}
+	else if (keycode == KEY_DOWN)
+	{
+		vars->y_min += step_y;
+		vars->y_max += step_y;
 	}
 
 }
