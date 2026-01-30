@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/30 23:56:17 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/30 23:58:07 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ static void	move_screen(t_vars *vars, int keycode)
 	}
 	else if (keycode == KEY_UP)
 	{
-		vars->y_min -= step_y;
-		vars->y_max -= step_y;
+		vars->y_min += step_y;
+		vars->y_max += step_y;
 	}
 	else if (keycode == KEY_DOWN)
 	{
-		vars->y_min += step_y;
-		vars->y_max += step_y;
+		vars->y_min -= step_y;
+		vars->y_max -= step_y;
 	}
 }
 
