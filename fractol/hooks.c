@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/30 23:28:56 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/30 23:37:09 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,28 @@
 
 static void	move_screen(t_vars *vars, int keycode)
 {
+	int	step;
+
+	step = (abs(vars->x_min) + abs(vars->x_max)) / 20;
 	if (keycode == KEY_LEFT)
 	{
-		vars->x_min -= vars->x_min / 20;
-		vars->x_max -= vars->x_max / 20;
+		vars->x_min -= step;
+		vars->x_max -= step;
 	}
 	else if (keycode == KEY_UP)
 	{
-		vars->y_min -= vars->y_min / 20;
-		vars->y_max -= vars->y_max / 20;
+		vars->y_min -= step;
+		vars->y_max -= step;
 	}
 	else if (keycode == KEY_DOWN)
 	{
-		vars->y_max += vars->y_max / 20;
-		vars->y_min += vars->y_min / 20;
+		vars->y_max += step;
+		vars->y_min += step;
 	}
 	else if (keycode == KEY_RIGHT)
 	{
-		vars->x_max += vars->x_max / 20;
-		vars->x_min += vars->x_min / 20;
+		vars->x_max += step;
+		vars->x_min += step;
 	}
 
 }
