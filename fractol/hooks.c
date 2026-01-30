@@ -6,13 +6,13 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/30 23:06:47 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/30 23:07:49 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void static move_screen(t_vars *vars, int keycode)
+static void	move_screen(t_vars *vars, int keycode)
 {
 	if (keycode == KEY_LEFT)
 		vars->x_min -= 0.05;
