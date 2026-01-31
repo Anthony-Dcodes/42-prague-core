@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 22:00:59 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 12:50:42 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 13:16:24 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	fractal_julia_set(double x, double y, t_fractal *fract,
 	iter = 0;
 	a = x;
 	b = y;
-	while (iter < vars->max_fractal_iter)
+	while (iter < MAX_FRACTAL_ITER)
 	{
 		new_a = a * a - b * b + vars->c_real;
 		new_b = 2 * a * b + vars->c_imag;
@@ -115,15 +115,17 @@ void	compute_polynomial_pallete(t_fractal *fract, t_vars *vars)
 	long double	r;
 	long double	g;
 	long double	b;
+	t_vars		*new;
 
+	new = (t_vars *)vars;
 	last_z_magnitude(fract);
 	smooth_iter_count(fract);
-	if (fract->iter == vars->max_fractal_iter)
+	if (fract->iter == MAX_FRACTAL_ITER)
 	{
 		fract->final_color = BLACK;
 		return ;
 	}
-	t = fract->smooth_iter_count / vars->max_fractal_iter;
+	t = fract->smooth_iter_count / MAX_FRACTAL_ITER;
 	r = (int)(255 * (15 * (1 - t) * pow(t, 2)));
 	g = (int)(255 * (8 * pow(1 - t, 2) * pow(t, 2)));
 	b = (int)(255 * (3 * pow(1 - t, 3) * t));
