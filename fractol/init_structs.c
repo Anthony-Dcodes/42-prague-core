@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 22:49:57 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 12:57:33 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 14:25:21 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	init_t_vars(t_vars *vars, char fractal_type)
 {
-	vars->win_width = 800;
-	vars->win_height = 600;
+	vars->win_width = SCREEN_WIDTH;
+	vars->win_height = SCREEN_HEIGHT;
 	vars->color_shift = 0;
 	vars->frame = 0;
 	vars->max_fractal_iter = MAX_FRACTAL_ITER;

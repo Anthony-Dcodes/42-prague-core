@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 12:56:09 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 14:43:24 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@
 # include "math.h"
 # include "fractal_space.h"
 
-# define MAX_FRACTAL_ITER 200
+# define MAX_FRACTAL_ITER 150
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0
+# define SCREEN_WIDTH 1500
+# define SCREEN_HEIGHT 1000
 
 // Structures
 // Represents image itself

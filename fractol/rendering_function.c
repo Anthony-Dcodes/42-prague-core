@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 12:55:09 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 14:12:57 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ int	render_fractal(void *param)
 
 	vars = (t_vars *)param;
 	y1 = 0;
+	vars->frame += 1;
+	ft_printf("Frame n: %d\n", vars->frame);
 	while (y1 < vars->win_height)
 	{
 		x1 = 0;

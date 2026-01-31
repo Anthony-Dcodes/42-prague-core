@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 22:00:59 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 13:16:24 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 14:37:19 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ void	compute_polynomial_pallete(t_fractal *fract, t_vars *vars)
 		return ;
 	}
 	t = fract->smooth_iter_count / MAX_FRACTAL_ITER;
+	t = fmod(t + fmod(vars->frame * 0.01, 1.0), 1.0);
 	r = (int)(255 * (15 * (1 - t) * pow(t, 2)));
 	g = (int)(255 * (8 * pow(1 - t, 2) * pow(t, 2)));
 	b = (int)(255 * (3 * pow(1 - t, 3) * t));
