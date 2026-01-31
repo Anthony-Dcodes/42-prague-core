@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pixel_manipulations.c                              :+:      :+:    :+:   */
+/*   pixel_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 18:56:28 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 15:56:50 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:06:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	apply_polynomial_palette(t_fractal *fract, t_vars *vars)
 	long double	g;
 	long double	b;
 
-	last_z_magnitude(fract);
+	compute_last_z_magnitude(fract);
 	smooth_iter_count(fract);
 	if (fract->iter == MAX_FRACTAL_ITER)
 	{

@@ -17,7 +17,7 @@ SRCS = \
 	pixel_utils.c \
 	hooks.c \
 	rendering.c \
-	math_function.c \
+	coordinate_mapping.c \
 	error.c \
 	mouse_hooks.c \
 	init_structs.c \

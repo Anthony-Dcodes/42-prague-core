@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 22:00:59 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 16:04:02 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:05:38 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	compute_julia(double x, double y, t_fractal *fract,
 	return ;
 }
 
-void	last_z_magnitude(t_fractal *fract)
+void	compute_last_z_magnitude(t_fractal *fract)
 {
 	double	a;
 	double	b;

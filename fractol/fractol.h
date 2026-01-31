@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 16:04:13 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:11:57 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ int		get_b(int trgb);
 
 // Pixel manipulations
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	put_fractal_pixel(t_vars *vars, t_fractal *fract, int x1, int y1);
+void	apply_polynomial_palette(t_fractal *fract, t_vars *vars);
 
 // Escape hooks
 int		close_window_red_cross(void *param);
@@ -95,22 +97,22 @@ int		close_window_esc(int keycode, void	*param);
 void	zoom_at_cursor(int x, int y, t_vars *vars, double zoom);
 int		mouse_zoom_hook(int button, int x, int y, void *param);
 
-// Rendering functions
+// Rendering function
 int		render_fractal(void *param);
+
+// Fractal iteration functions
 void	compute_mandelbrot(double x, double y, t_fractal *fract);
 void	compute_julia(double x, double y, t_fractal *fract,
 			t_vars *vars);
 void	compute_burningship(double x, double y, t_fractal *fract);
-void	put_fractal_pixel(t_vars *vars, t_fractal *fract, int x1, int y1);
-
-// Math functions
-double	x_coordinate_to_complex_plane(int x, long double x_min,
-			long double x_max, int width);
-double	y_coordinate_to_complex_plane(int y, long double y_min,
-			long double y_max, int height);
-void	last_z_magnitude(t_fractal *fract);
+void	compute_last_z_magnitude(t_fractal *fract);
 void	smooth_iter_count(t_fractal *fract);
-void	apply_polynomial_palette(t_fractal *fract, t_vars *vars);
+
+// Coordinate mapping
+double	map_x_to_complex_plane(int x, long double x_min,
+			long double x_max, int width);
+double	map_y_to_complex_plane(int y, long double y_min,
+			long double y_max, int height);
 
 // Error functions
 void	print_usage(void);

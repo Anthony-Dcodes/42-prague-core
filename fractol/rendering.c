@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 16:04:10 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:10:27 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	put_fractal_pixel(t_vars *vars, t_fractal *fract, int x1, int y1)
 	double		x_complex;
 	double		y_complex;
 
-	x_complex = x_coordinate_to_complex_plane(x1, vars->x_min,
+	x_complex = map_x_to_complex_plane(x1, vars->x_min,
 			vars->x_max, vars->win_width);
-	y_complex = y_coordinate_to_complex_plane(y1, vars->y_min,
+	y_complex = map_y_to_complex_plane(y1, vars->y_min,
 			vars->y_max, vars->win_height);
 	if (vars->fract_type == 'm')
 		compute_mandelbrot(x_complex, y_complex, fract);
