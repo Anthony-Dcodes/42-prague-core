@@ -20,7 +20,7 @@ SRCS = \
 	coordinate_mapping.c \
 	error.c \
 	mouse_hooks.c \
-	init_structs.c \
+	init_vars.c \
 	clean_up.c \
 	arg_parser.c \
 	fractal_iterations.c

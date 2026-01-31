@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 16:11:57 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:16:30 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ double	map_y_to_complex_plane(int y, long double y_min,
 void	print_usage(void);
 
 // Initialisation
-void	init_t_vars(t_vars *vars, char fractal_type);
+void	init_vars(t_vars *vars, char fractal_type);
 
 // Clean-up
 void	clean_up(t_vars *vars, int exit_status);

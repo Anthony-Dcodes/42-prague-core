@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:39:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 14:58:16 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:16:12 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char *argv[])
 	if (vars.mlx == NULL)
 		clean_up(&vars, EXIT_FAILURE);
 	parse_arguments(&vars, argc, argv);
-	init_t_vars(&vars, vars.fract_type);
+	init_vars(&vars, vars.fract_type);
 	vars.win = mlx_new_window(vars.mlx, vars.win_width,
 			vars.win_height, "Fractal view");
 	if (vars.win == NULL)

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_structs.c                                     :+:      :+:    :+:   */
+/*   init_vars.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 22:49:57 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 15:02:48 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:15:40 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_t_vars(t_vars *vars, char fractal_type)
+void	init_vars(t_vars *vars, char fractal_type)
 {
 	vars->win_width = SCREEN_WIDTH;
 	vars->win_height = SCREEN_HEIGHT;
