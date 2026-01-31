@@ -13,7 +13,6 @@ MLX = $(MLX_DIR)/libmlx.a
 
 SRCS = \
 	fractol.c \
-	trgb_util.c \
 	pixel_utils.c \
 	event_hooks.c \
 	rendering.c \

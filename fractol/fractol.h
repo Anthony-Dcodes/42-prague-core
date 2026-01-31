@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 16:23:06 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:26:35 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,8 @@ typedef struct s_fractal
 	int		triangle_Cy;
 }	t_fractal;
 
-// Color manipulation
-int		create_trgb(int t, int r, int g, int b);
-
 // Pixel manipulations
+int		create_trgb(int t, int r, int g, int b);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	put_fractal_pixel(t_vars *vars, t_fractal *fract, int x1, int y1);
 void	apply_polynomial_palette(t_fractal *fract, t_vars *vars);
