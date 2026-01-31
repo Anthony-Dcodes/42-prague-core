@@ -15,7 +15,7 @@ SRCS = \
 	fractol.c \
 	color_manipulation.c \
 	pixel_utils.c \
-	hooks.c \
+	event_hooks.c \
 	rendering.c \
 	coordinate_mapping.c \
 	error.c \

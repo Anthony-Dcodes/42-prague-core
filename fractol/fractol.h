@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 16:16:30 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:19:18 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ void	put_fractal_pixel(t_vars *vars, t_fractal *fract, int x1, int y1);
 void	apply_polynomial_palette(t_fractal *fract, t_vars *vars);
 
 // Escape hooks
-int		close_window_red_cross(void *param);
-int		close_window_esc(int keycode, void	*param);
+int		handle_window_close(void *param);
+int		key_press_hook(int keycode, void	*param);
 
 // Mouse hooks
 void	zoom_at_cursor(int x, int y, t_vars *vars, double zoom);

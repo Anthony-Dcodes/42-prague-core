@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.c                                            :+:      :+:    :+:   */
+/*   event_hooks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:00:05 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 14:59:47 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:19:10 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	move_screen(t_vars *vars, int keycode)
 	}
 }
 
-int	close_window_red_cross(void *param)
+int	handle_window_close(void *param)
 {
 	t_vars	*vars;
 
@@ -50,7 +50,7 @@ int	close_window_red_cross(void *param)
 	return (0);
 }
 
-int	close_window_esc(int keycode, void	*param)
+int	key_press_hook(int keycode, void	*param)
 {
 	t_vars	*vars;
 
