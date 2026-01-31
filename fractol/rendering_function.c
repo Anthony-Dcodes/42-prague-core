@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 12:41:27 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 12:55:09 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ int	render_fractal(void *param)
 				render_mandlerbrot(vars, &fract, x1, y1);
 			else if (vars->fract_type == 'j')
 				render_julia(vars, &fract, x1, y1);
+			else if (vars->fract_type == 'b')
+				render_burning_ship(vars, &fract, x1, y1);
 			++x1;
 		}
 		++y1;
@@ -123,6 +125,20 @@ void	render_julia(t_vars *vars, t_fractal *fract, int x1, int y1)
 	y_complex = y_coordinate_to_complex_plane(y1, vars->y_min,
 			vars->y_max, vars->win_height);
 	fractal_julia_set(x_complex, y_complex, fract, vars);
+	compute_polynomial_pallete(fract, vars);
+	my_mlx_pixel_put(&vars->img, x1, y1, fract->final_color);
+}
+
+void	render_burning_ship(t_vars *vars, t_fractal *fract, int x1, int y1)
+{
+	double		x_complex;
+	double		y_complex;
+
+	x_complex = x_coordinate_to_complex_plane(x1, vars->x_min,
+			vars->x_max, vars->win_width);
+	y_complex = y_coordinate_to_complex_plane(y1, vars->y_min,
+			vars->y_max, vars->win_height);
+	fractal_burning_ship(x_complex, y_complex, fract);
 	compute_polynomial_pallete(fract, vars);
 	my_mlx_pixel_put(&vars->img, x1, y1, fract->final_color);
 }

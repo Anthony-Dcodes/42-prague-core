@@ -6,11 +6,36 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 22:00:59 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/28 19:24:45 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 12:50:42 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	fractal_burning_ship(double x, double y, t_fractal *fract)
+{
+	int		iter;
+	double	a;
+	double	b;
+
+	iter = 0;
+	a = 0.0;
+	b = 0.0;
+	while (iter < MAX_FRACTAL_ITER)
+	{
+		a = fabs(a);
+		b = fabs(b);
+		fract->a = a * a - b * b + x;
+		fract->b = 2 * a * b + y;
+		a = fract->a;
+		b = fract->b;
+		if (a * a + b * b > 4)
+			break ;
+		++iter;
+	}
+	fract->iter = iter;
+	return ;
+}
 
 void	fractal_mandelbrot_set(double x, double y, t_fractal *fract)
 {

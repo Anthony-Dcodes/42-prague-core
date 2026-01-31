@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_structs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 22:49:57 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/30 23:27:29 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 12:57:33 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_t_vars(t_vars *vars, char fractal_type)
 	vars->color_shift = 0;
 	vars->frame = 0;
 	vars->max_fractal_iter = MAX_FRACTAL_ITER;
-	if (fractal_type == 'm')
+	if (fractal_type == 'm' || fractal_type == 'b')
 	{
 		vars->x_min = MANDEL_X_MIN;
 		vars->x_max = MANDEL_X_MAX;

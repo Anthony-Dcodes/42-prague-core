@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 12:35:13 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 12:56:09 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ void	render_mandlerbrot(t_vars *vars, t_fractal *fract,
 			int x1, int y1);
 void	render_julia(t_vars *vars, t_fractal *fract,
 			int x1, int y1);
+void	fractal_burning_ship(double x, double y, t_fractal *fract);
+void	render_burning_ship(t_vars *vars, t_fractal *fract, int x1, int y1);
 
 // Math functions
 double	euclidian_distance(double x1, double x2,
