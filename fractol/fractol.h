@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/30 23:27:36 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 12:35:13 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,9 +134,5 @@ void	clean_up(t_vars *vars, int exit_status);
 
 // Parsing
 void	parse_arguments(t_vars *vars, int argc, char *argv[]);
-
-// Triangle fractal functions
-int		pixel_in_sirepinski(t_vars *vars, t_fractal *fract, int x, int y);
-void	render_sierpinski(t_vars *vars, t_fractal *fract, int x1, int y1);
 
 #endif

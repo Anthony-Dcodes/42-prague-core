@@ -31,8 +31,7 @@ SRCS = \
 	init_structs.c \
 	clean_up.c \
 	arg_parser.c \
-	math_fractal_function.c \
-	triangle_fractal_math.c
+	math_fractal_function.c
 
 OBJS = $(SRCS:.c=.o)
 
