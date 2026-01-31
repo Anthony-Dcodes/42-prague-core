@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 15:44:20 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 15:56:27 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,9 @@ double	x_coordinate_to_complex_plane(int x, long double x_min,
 			long double x_max, int width);
 double	y_coordinate_to_complex_plane(int y, long double y_min,
 			long double y_max, int height);
-int		fractal_equation(double x, double y, t_fractal *fract);
 void	last_z_magnitude(t_fractal *fract);
 void	smooth_iter_count(t_fractal *fract);
-void	compute_polynomial_pallete(t_fractal *fract, t_vars *vars);
+void	apply_polynomial_palette(t_fractal *fract, t_vars *vars);
 
 // Error functions
 void	print_usage(void);

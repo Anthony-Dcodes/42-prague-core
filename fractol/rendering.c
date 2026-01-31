@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rendering_function.c                               :+:      :+:    :+:   */
+/*   rendering.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 15:43:19 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 15:56:24 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	render_fractal(void *param)
 
 	vars = (t_vars *)param;
 	y1 = 0;
-	vars->frame += 1;;
+	vars->frame += 1;
 	while (y1 < vars->win_height)
 	{
 		x1 = 0;
@@ -51,6 +51,6 @@ void	put_fractal_pixel(t_vars *vars, t_fractal *fract, int x1, int y1)
 		in_julia_set(x_complex, y_complex, fract, vars);
 	else if (vars->fract_type == 'b')
 		in_burningship_set(x_complex, y_complex, fract);
-	compute_polynomial_pallete(fract, vars);
+	apply_polynomial_palette(fract, vars);
 	my_mlx_pixel_put(&vars->img, x1, y1, fract->final_color);
 }

@@ -6,25 +6,17 @@ CFLAGS = -Wall -Wextra -Ilibft/includes -I$(MLX_DIR) -Werror
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-# --- Detect OS ---
-UNAME := $(shell uname)
-
-ifeq ($(UNAME), Darwin)
-	MLX_DIR = minilibx_opengl_20191021
-	MLX_FLAGS = -framework OpenGL -framework AppKit
-else
-	MLX_DIR = minilibx-linux
-	MLX_FLAGS = -lXext -lX11 -lm -lz
-endif
+MLX_DIR = minilibx-linux
+MLX_FLAGS = -lXext -lX11 -lm -lz
 
 MLX = $(MLX_DIR)/libmlx.a
 
 SRCS = \
 	fractol.c \
 	color_manipulation.c \
-	pixel_manipulations.c \
+	pixel_utils.c \
 	hooks.c \
-	rendering_function.c \
+	rendering.c \
 	math_function.c \
 	error.c \
 	mouse_hooks.c \
@@ -40,7 +32,6 @@ OBJS = $(SRCS:.c=.o)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # --- Build rules ---
-
 all: $(LIBFT) $(MLX) $(NAME)
 
 $(LIBFT):
