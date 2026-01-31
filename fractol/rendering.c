@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:09:48 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 16:25:52 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:40:37 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ int	render_fractal(void *param)
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
 	return (0);
 }
-

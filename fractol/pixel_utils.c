@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 18:56:28 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 16:38:11 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:41:56 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	my_mlx_pixel_put(t_image *image, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = image->addr + (y * image->line_length + x * (image->bits_per_pixel / 8));
+	dst = image->addr + (y * image->line_length + x
+			* (image->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
 
