@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_fractal_function.c                            :+:      :+:    :+:   */
+/*   fractal_iterations.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 22:00:59 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 15:53:37 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:04:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	in_burningship_set(double x, double y, t_fractal *fract)
+void	compute_burningship(double x, double y, t_fractal *fract)
 {
 	int		iter;
 	double	a;
@@ -37,7 +37,7 @@ void	in_burningship_set(double x, double y, t_fractal *fract)
 	return ;
 }
 
-void	in_mandelbrot_set(double x, double y, t_fractal *fract)
+void	compute_mandelbrot(double x, double y, t_fractal *fract)
 {
 	int		iter;
 	double	a;
@@ -60,7 +60,7 @@ void	in_mandelbrot_set(double x, double y, t_fractal *fract)
 	return ;
 }
 
-void	in_julia_set(double x, double y, t_fractal *fract,
+void	compute_julia(double x, double y, t_fractal *fract,
 					t_vars *vars)
 {
 	int		iter;

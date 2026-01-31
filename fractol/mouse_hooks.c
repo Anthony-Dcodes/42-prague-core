@@ -6,13 +6,13 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 22:38:47 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 15:11:30 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:01:19 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	zoom_at(int x, int y, t_vars *vars, double zoom)
+void	zoom_at_cursor(int x, int y, t_vars *vars, double zoom)
 {
 	double	cx;
 	double	cy;
@@ -33,8 +33,8 @@ int	mouse_zoom_hook(int button, int x, int y, void *param)
 
 	vars = (t_vars *)param;
 	if (button == ON_MOUSEDOWN)
-		zoom_at(x, y, vars, ZOOM_FACTOR);
+		zoom_at_cursor(x, y, vars, ZOOM_FACTOR);
 	else if (button == ON_MOUSEUP)
-		zoom_at(x, y, vars, 1.0 / ZOOM_FACTOR);
+		zoom_at_cursor(x, y, vars, 1.0 / ZOOM_FACTOR);
 	return (0);
 }

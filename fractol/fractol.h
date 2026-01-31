@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 15:56:27 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:04:13 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,15 @@ int		close_window_red_cross(void *param);
 int		close_window_esc(int keycode, void	*param);
 
 // Mouse hooks
-void	zoom_at(int x, int y, t_vars *vars, double zoom);
+void	zoom_at_cursor(int x, int y, t_vars *vars, double zoom);
 int		mouse_zoom_hook(int button, int x, int y, void *param);
 
 // Rendering functions
 int		render_fractal(void *param);
-void	in_mandelbrot_set(double x, double y, t_fractal *fract);
-void	in_julia_set(double x, double y, t_fractal *fract,
+void	compute_mandelbrot(double x, double y, t_fractal *fract);
+void	compute_julia(double x, double y, t_fractal *fract,
 			t_vars *vars);
-void	in_burningship_set(double x, double y, t_fractal *fract);
+void	compute_burningship(double x, double y, t_fractal *fract);
 void	put_fractal_pixel(t_vars *vars, t_fractal *fract, int x1, int y1);
 
 // Math functions

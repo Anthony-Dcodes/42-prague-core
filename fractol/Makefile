@@ -23,7 +23,7 @@ SRCS = \
 	init_structs.c \
 	clean_up.c \
 	arg_parser.c \
-	math_fractal_function.c
+	fractal_iterations.c
 
 OBJS = $(SRCS:.c=.o)
 
