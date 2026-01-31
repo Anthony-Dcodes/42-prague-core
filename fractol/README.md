@@ -19,6 +19,7 @@ Fractol is a graphical program that generates and visualizes fractals, such as t
    ```bash
    ./fractol m
    ./fractol j <real> <imag>
+   ./fractol b
    Hint: Julia values in range [-1.5, 1.5] look best.
 
 4. **Controls**
