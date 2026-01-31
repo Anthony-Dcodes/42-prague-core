@@ -18,7 +18,7 @@ SRCS = \
 	event_hooks.c \
 	rendering.c \
 	coordinate_mapping.c \
-	error.c \
+	usage.c \
 	mouse_hooks.c \
 	init_vars.c \
 	clean_up.c \
