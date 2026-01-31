@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 16:26:35 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:38:51 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,24 @@
 
 // Structures
 // Represents image itself
-typedef struct s_data
+typedef struct s_image
 {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}	t_data;
+}	t_image;
 
-// Window context
+// Window context variable
 typedef struct s_vars
 {
 	void		*mlx;
 	void		*win;
-	t_data		img;
+	t_image		img;
 	int			win_width;
 	int			win_height;
-	int			color_shift;
 	int			frame;
-	//double		circle_x;
-	//double		circle_y;
-	//double		circle_size;
 	double		c_real;
 	double		c_imag;
 	char		fract_type;
@@ -69,17 +65,11 @@ typedef struct s_fractal
 	double	last_z_magnitude;
 	double	smooth_iter_count;
 	int		final_color;
-	int		triangle_Ax;
-	int		triangle_Ay;
-	int		triangle_Bx;
-	int		triangle_By;
-	int		triangle_Cx;
-	int		triangle_Cy;
 }	t_fractal;
 
 // Pixel manipulations
 int		create_trgb(int t, int r, int g, int b);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	my_mlx_pixel_put(t_image *data, int x, int y, int color);
 void	put_fractal_pixel(t_vars *vars, t_fractal *fract, int x1, int y1);
 void	apply_polynomial_palette(t_fractal *fract, t_vars *vars);
 

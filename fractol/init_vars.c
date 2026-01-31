@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 22:49:57 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 16:15:40 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:28:28 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	init_vars(t_vars *vars, char fractal_type)
 {
 	vars->win_width = SCREEN_WIDTH;
 	vars->win_height = SCREEN_HEIGHT;
-	vars->color_shift = 0;
 	vars->frame = 0;
 	if (fractal_type == 'm' || fractal_type == 'b')
 	{

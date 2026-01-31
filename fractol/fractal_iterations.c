@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 22:00:59 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 16:05:38 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:33:35 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ void	compute_burningship(double x, double y, t_fractal *fract)
 	b = 0.0;
 	while (iter < MAX_FRACTAL_ITER)
 	{
-		a = fabs(a);
-		b = fabs(b);
 		fract->a = a * a - b * b + x;
 		fract->b = 2 * a * b + y;
-		a = fract->a;
-		b = fract->b;
+		a = fabs(fract->a);
+		b = fabs(fract->b);
 		if (a * a + b * b > 4)
 			break ;
 		++iter;
@@ -66,24 +64,20 @@ void	compute_julia(double x, double y, t_fractal *fract,
 	int		iter;
 	double	a;
 	double	b;
-	double	new_a;
-	double	new_b;
 
 	iter = 0;
 	a = x;
 	b = y;
 	while (iter < MAX_FRACTAL_ITER)
 	{
-		new_a = a * a - b * b + vars->c_real;
-		new_b = 2 * a * b + vars->c_imag;
-		a = new_a;
-		b = new_b;
+		fract->a = a * a - b * b + vars->c_real;
+		fract->b = 2 * a * b + vars->c_imag;
+		a = fract->a;
+		b = fract->b;
 		if (a * a + b * b > 4)
 			break ;
 		++iter;
 	}
-	fract->a = a;
-	fract->b = b;
 	fract->iter = iter;
 	return ;
 }
