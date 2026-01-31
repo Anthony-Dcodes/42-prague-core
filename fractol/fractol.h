@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 14:43:24 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 15:02:41 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ typedef struct s_vars
 	long double	x_max;
 	long double	y_min;
 	long double	y_max;
-	int			max_fractal_iter;
 }	t_vars;
 
 // Fractal data
