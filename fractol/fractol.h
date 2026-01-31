@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 15:02:41 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 15:11:15 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,7 @@ int		close_window_red_cross(void *param);
 int		close_window_esc(int keycode, void	*param);
 
 // Mouse hooks
-void	zoom_in(int x, int y, t_vars *vars);
-void	zoom_out(int x, int y, t_vars *vars);
+void	zoom_at(int x, int y, t_vars *vars, double zoom);
 int		mouse_zoom_hook(int button, int x, int y, void *param);
 
 // Hooks

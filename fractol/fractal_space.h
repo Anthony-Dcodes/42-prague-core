@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:19:21 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 13:23:40 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 15:07:02 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FRACTAL_SPACE_H
 
 // Scaling factor of zooming
-# define SCALING_FACTOR 0.95
+# define ZOOM_FACTOR 0.95
 
 // Mandelbrot set plane
 # define MANDEL_X_MIN -2.5
