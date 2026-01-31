@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 15:41:28 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 15:44:20 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,10 @@ int		mouse_zoom_hook(int button, int x, int y, void *param);
 
 // Rendering functions
 int		render_fractal(void *param);
-void	fractal_mandelbrot_set(double x, double y, t_fractal *fract);
-void	fractal_julia_set(double x, double y, t_fractal *fract,
+void	in_mandelbrot_set(double x, double y, t_fractal *fract);
+void	in_julia_set(double x, double y, t_fractal *fract,
 			t_vars *vars);
-void	fractal_burning_ship(double x, double y, t_fractal *fract);
+void	in_burningship_set(double x, double y, t_fractal *fract);
 void	put_fractal_pixel(t_vars *vars, t_fractal *fract, int x1, int y1);
 
 // Math functions

@@ -6,13 +6,13 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 22:00:59 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 14:37:19 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 15:44:05 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	fractal_burning_ship(double x, double y, t_fractal *fract)
+void	in_burningship_set(double x, double y, t_fractal *fract)
 {
 	int		iter;
 	double	a;
@@ -37,7 +37,7 @@ void	fractal_burning_ship(double x, double y, t_fractal *fract)
 	return ;
 }
 
-void	fractal_mandelbrot_set(double x, double y, t_fractal *fract)
+void	in_mandelbrot_set(double x, double y, t_fractal *fract)
 {
 	int		iter;
 	double	a;
@@ -60,7 +60,7 @@ void	fractal_mandelbrot_set(double x, double y, t_fractal *fract)
 	return ;
 }
 
-void	fractal_julia_set(double x, double y, t_fractal *fract,
+void	in_julia_set(double x, double y, t_fractal *fract,
 					t_vars *vars)
 {
 	int		iter;
