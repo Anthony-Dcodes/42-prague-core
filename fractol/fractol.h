@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 16:19:18 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:23:06 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,6 @@ typedef struct s_fractal
 
 // Color manipulation
 int		create_trgb(int t, int r, int g, int b);
-int		get_t(int trgb);
-int		get_r(int trgb);
-int		get_g(int trgb);
-int		get_b(int trgb);
 
 // Pixel manipulations
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
