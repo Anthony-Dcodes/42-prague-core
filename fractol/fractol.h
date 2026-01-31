@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 15:11:15 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 15:41:28 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,27 +95,15 @@ int		close_window_esc(int keycode, void	*param);
 void	zoom_at(int x, int y, t_vars *vars, double zoom);
 int		mouse_zoom_hook(int button, int x, int y, void *param);
 
-// Hooks
-//int		mouse_possition_hook(int x, int y, void *param);
-//int		move_circle_hook(int key_code, void *param);
-
 // Rendering functions
-//int		render_rainbow(void *param);
-//int		render_circle(void *param);
 int		render_fractal(void *param);
 void	fractal_mandelbrot_set(double x, double y, t_fractal *fract);
 void	fractal_julia_set(double x, double y, t_fractal *fract,
 			t_vars *vars);
-void	render_mandlerbrot(t_vars *vars, t_fractal *fract,
-			int x1, int y1);
-void	render_julia(t_vars *vars, t_fractal *fract,
-			int x1, int y1);
 void	fractal_burning_ship(double x, double y, t_fractal *fract);
-void	render_burning_ship(t_vars *vars, t_fractal *fract, int x1, int y1);
+void	put_fractal_pixel(t_vars *vars, t_fractal *fract, int x1, int y1);
 
 // Math functions
-double	euclidian_distance(double x1, double x2,
-			double y1, double y2);
 double	x_coordinate_to_complex_plane(int x, long double x_min,
 			long double x_max, int width);
 double	y_coordinate_to_complex_plane(int y, long double y_min,

@@ -6,19 +6,11 @@
 /*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 10:53:18 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/27 22:06:09 by advorace         ###   ########.fr       */
+/*   Updated: 2026/01/31 15:36:14 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-double	euclidian_distance(double x1, double x2, double y1, double y2)
-{
-	double	distance;
-
-	distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
-	return (distance);
-}
 
 double	x_coordinate_to_complex_plane(int x, long double x_min,
 		long double x_max, int width)
