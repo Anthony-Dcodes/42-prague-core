@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: advorace <advorace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/01/31 16:38:51 by advorace         ###   ########.fr       */
+/*   Updated: 2026/02/08 12:32:42 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 # include "math.h"
 # include "fractal_space.h"
 
-# define MAX_FRACTAL_ITER 150
+# define MAX_FRACTAL_ITER 100
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0
-# define SCREEN_WIDTH 1500
-# define SCREEN_HEIGHT 1000
+# define SCREEN_WIDTH 800
+# define SCREEN_HEIGHT 640
 
 // Structures
 // Represents image itself
