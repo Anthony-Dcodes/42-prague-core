@@ -6,7 +6,7 @@
 /*   By: advorace <advorace@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:37:43 by advorace          #+#    #+#             */
-/*   Updated: 2026/02/08 12:32:42 by advorace         ###   ########.fr       */
+/*   Updated: 2026/02/08 12:54:56 by advorace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define MAX_FRACTAL_ITER 100
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0
-# define SCREEN_WIDTH 800
+# define SCREEN_WIDTH 920
 # define SCREEN_HEIGHT 640
 
 // Structures
